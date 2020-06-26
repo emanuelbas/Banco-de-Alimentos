@@ -12,6 +12,9 @@
     },
     "codigoBarra": {
       "type": "string"
+    },
+    "peso": {
+      "type": "number"
     }
   },
   "validations": [],

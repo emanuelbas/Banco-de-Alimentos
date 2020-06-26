@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-stock-ventana-principal',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockVentanaPrincipalComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  	private router:Router
+  ) { }
+
+  irAAgregarDonacion(){
+  	this.router.navigateByUrl("/cargar-donacion-a-stock");
+
+  }
+  irAAgregarProducto(){
+  	this.router.navigateByUrl("/cargar-producto-a-stock");	
+  }
 
   ngOnInit() {
   }

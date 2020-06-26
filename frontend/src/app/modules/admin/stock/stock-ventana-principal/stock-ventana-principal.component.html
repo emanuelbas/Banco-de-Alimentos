@@ -1,5 +1,32 @@
 <h2>Stock</h2>
 
-<p> Una tablita </p>
+<div class="table-box">
+	<table class="table">
+		<thead class="thead-dark">
+		  <tr>
+		    <th>Producto</th>
+		    <th>Categoría</th>
+		    <th>Cantidad</th>
+		    <th>Vencimiento</th>
+		    <th>Peso por unidad</th>
+		    <th>Opciones</th>
+		  </tr>
+		</thead>
+		<tbody>
+			<tr>
+			    <td>un producto</td>
+			    <td>una categoria</td>
+			    <td>Una cantidad</td>
+			    <td>Un vencimiento</td>
+			    <td>Un paso</td>
+			    <td>Opciones</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 
-<p> Boton </p> <p> Otro boton</p>
+<div class="buttons-box ml-5">
+	<button type="button" class="btn btn-dark text-center mr-2" (click)="irAAgregarDonacion()"> Agregar productos a partir de una donación </button> 
+	<button type="button" class="btn btn-dark text-center mr-2" (click)="irAAgregarProducto()" > Agregar un producto </button>
+</div>
+<div class="espacio"></div>
