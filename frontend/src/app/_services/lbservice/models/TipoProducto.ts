@@ -7,6 +7,7 @@ declare var Object: any;
 export interface TipoProductoInterface {
   "nombre": string;
   "codigoBarra"?: string;
+  "peso"?: number;
   "id"?: any;
   "categoriaId"?: any;
   categoria?: Categoria;
@@ -15,6 +16,7 @@ export interface TipoProductoInterface {
 export class TipoProducto implements TipoProductoInterface {
   "nombre": string;
   "codigoBarra": string;
+  "peso": number;
   "id": any;
   "categoriaId": any;
   categoria: Categoria;
@@ -58,6 +60,10 @@ export class TipoProducto implements TipoProductoInterface {
         "codigoBarra": {
           name: 'codigoBarra',
           type: 'string'
+        },
+        "peso": {
+          name: 'peso',
+          type: 'number'
         },
         "id": {
           name: 'id',

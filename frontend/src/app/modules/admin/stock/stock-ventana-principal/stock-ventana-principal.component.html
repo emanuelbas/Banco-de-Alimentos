@@ -13,13 +13,22 @@
 		  </tr>
 		</thead>
 		<tbody>
-			<tr>
-			    <td>un producto</td>
-			    <td>una categoria</td>
-			    <td>Una cantidad</td>
-			    <td>Un vencimiento</td>
-			    <td>Un paso</td>
-			    <td>Opciones</td>
+			<tr *ngFor="let producto of this.productosEnStock;let i=index">
+				<td>
+					{{producto.tipoProducto.nombre}}
+				</td>
+				<td>
+					{{producto.tipoProducto.categoria.nombre}}
+				</td>
+				<td>
+					{{producto.cantidad}}
+				</td>
+				<td>
+					{{producto.vencimiento| date: 'dd/MM/yyyy'}}
+				</td>
+				<td>
+					{{producto.tipoProducto.peso}}
+				</td>
 			</tr>
 		</tbody>
 	</table>

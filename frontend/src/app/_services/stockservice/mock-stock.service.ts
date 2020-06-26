@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Producto, TipoProducto } from '../lbservice';
+import { Producto, TipoProducto, Categoria } from '../lbservice';
 import { AbstractStockService } from '../stockservice/abstract-stock.service';
 
 @Injectable({
@@ -37,6 +37,28 @@ export class MockStockService extends AbstractStockService {
 	p3.tipoProducto.nombre = 'SEVEN ULTRA RED BERRY';
 	p4.tipoProducto.nombre = 'SEVEN ULTRA RED BERRY';
 	p5.tipoProducto.nombre = 'MENTHOPLUS ZERO POMELO ROSADO';
+  
+  p1.tipoProducto.peso = 0.50;
+  p2.tipoProducto.peso = 0.350;
+  p3.tipoProducto.peso = 1;
+  p4.tipoProducto.peso = 0.50;
+  p5.tipoProducto.peso = 0.50;
+
+  let categoriaGolosinas = new Categoria;
+  categoriaGolosinas.nombre = "Golosinas";
+
+  p1.tipoProducto.categoria = categoriaGolosinas;
+  p2.tipoProducto.categoria = categoriaGolosinas;
+  p3.tipoProducto.categoria = categoriaGolosinas;
+  p4.tipoProducto.categoria = categoriaGolosinas;
+  p5.tipoProducto.categoria = categoriaGolosinas;
+
+  p1.tipoProducto.categoria.nombre = "Golosinas";
+  p2.tipoProducto.categoria.nombre = "Golosinas";
+  p3.tipoProducto.categoria.nombre = "Golosinas";
+  p4.tipoProducto.categoria.nombre = "Golosinas";
+  p5.tipoProducto.categoria.nombre = "Golosinas";
+
   p1.tipoProductoId = "5dd8caa712011b173cced718";
   p2.tipoProductoId = "5dd8caa712011b173cced719";
   p3.tipoProductoId = "5dd8caa712011b173cced71a";
