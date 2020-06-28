@@ -1,39 +1,40 @@
 <h2>Stock</h2>
 
 <div class="table-box">
-	<table class="table">
-		<thead class="thead-dark">
-		  <tr>
-		    <th>Producto</th>
-		    <th>Categoría</th>
-		    <th>Cantidad</th>
-		    <th>Vencimiento</th>
-		    <th>Peso por unidad</th>
-		    <th>Opciones</th>
-		  </tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let producto of this.productosEnStock;let i=index">
-				<td>
-					{{producto.tipoProducto.nombre}}
-				</td>
-				<td>
-					{{producto.tipoProducto.categoria.nombre}}
-				</td>
-				<td>
-					{{producto.cantidad}}
-				</td>
-				<td>
-					{{producto.vencimiento| date: 'dd/MM/yyyy'}}
-				</td>
-				<td>
-					{{producto.tipoProducto.peso}}
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<div class=" tableFixHead">
+		<table class="table">
+			<thead class="thead-dark">
+			  <tr>
+			    <th>Producto</th>
+			    <th>Categoría</th>
+			    <th>Cantidad</th>
+			    <th>Vencimiento</th>
+			    <th>Peso por unidad</th>
+			    <th>Opciones</th>
+			  </tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let producto of this.productosEnStock;let i=index">
+					<td>
+						{{producto.tipoProducto.nombre}}
+					</td>
+					<td>
+						{{producto.tipoProducto.categoria.nombre}}
+					</td>
+					<td>
+						{{producto.cantidad}}
+					</td>
+					<td>
+						{{producto.vencimiento| date: 'dd/MM/yyyy'}}
+					</td>
+					<td>
+						{{producto.tipoProducto.peso}}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
-
 <div class="buttons-box ml-5">
 	<button type="button" class="btn btn-dark text-center mr-2" (click)="irAAgregarDonacion()"> Agregar productos a partir de una donación </button> 
 	<button type="button" class="btn btn-dark text-center mr-2" (click)="irAAgregarProducto()" > Agregar un producto </button>

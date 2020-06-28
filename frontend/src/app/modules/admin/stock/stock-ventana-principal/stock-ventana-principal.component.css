@@ -1,9 +1,17 @@
 .espacio{
-	padding-bottom: 90%;
+	padding-bottom: 5%;
 }
 .buttons-box{
 
 }
 .table-box{
-	padding: 6%;
+	padding:2%;
 }
+
+.tableFixHead          { overflow-y: auto; height: 400px; }
+.tableFixHead thead th { position: sticky; top: 0; }
+
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; }
+th     { background:#eee; }
