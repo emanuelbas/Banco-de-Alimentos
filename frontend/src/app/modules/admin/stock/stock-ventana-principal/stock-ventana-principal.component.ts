@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Producto } from '../../../../_services/lbservice/models';
+import { Producto, ProductoApi } from '../../../../_services/lbservice';
 
 //Reemplazar por el servicio real
 import { MockStockService } from '../../../../_services/stockservice/mock-stock.service';
@@ -15,9 +15,10 @@ export class StockVentanaPrincipalComponent implements OnInit {
   productosEnStock : Producto[] = [];
   constructor(
   	private router:Router,
-    private stock:MockStockService
+    private productoApi:ProductoApi
   ) {
-    this.stock.getProductos().then((productos)=>{this.productosEnStock=productos; console.log(productos)});
+    this.productoApi.find({include:{tipoProducto:'categoria'}}).subscribe((productos:Producto[])=>{this.productosEnStock=productos;console.log(this.productosEnStock)});
+    //this.productoApi.find({include:"tipoProducto"}).subscribe((productos:Producto[])=>{this.productosEnStock=productos});
   }
   	//Me gustaría recuperar todas las donaciones en estado nueva
   	//(vigilar que las donaciones no cambien de estado cuando se las traslada hacia el banco)
