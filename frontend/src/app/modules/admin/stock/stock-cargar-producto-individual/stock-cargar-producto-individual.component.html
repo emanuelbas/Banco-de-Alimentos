@@ -4,40 +4,40 @@
 	<form  [formGroup]="form" >
 		<div class="form-group">
 			<label for="nombre">Nombre</label><br>
-			<input class="form-control" type="text" id="nombre" name="nombre" value="">
+			<input class="form-control" type="text" formControlName="nombre" name="nombre" value="">
 		</div>
 
 		<div class="form-group">
 			<label for="categoria">Categoría</label><br>
 			<!-- Select de categorias --->
-			<select class="form-control" name="categoria" id="categoria">
-			  <option value="lacteos_id">lacteos</option>
+			<select class="form-control" name="categoria" formControlName="categoria">
+			  <option *ngFor="let cate of this.categorias" value="{{cate.id}}">{{cate.nombre}}</option>
 			</select>
 		</div>
 
 		<div class="form-group">
 			<label for="cant">Cantidad</label><br>
 			<!-- Input int --->
-			<input class="form-control" type="number" min="0" id="cant" name="cant" value="">
+			<input class="form-control" type="number" min="0" formControlName="cant" name="cant" value="">
 		</div>
 
 		<div class="form-group">
 			<label for="vto">Vencimiento</label><br>
 			<!-- Date picker --->
-			<input class="form-control" type="date" id="vto" name="vto" value="">
+			<input class="form-control" type="date" formControlName="vto" name="vto" value="">
 		</div>
 
 		<div class="form-group">
 			<label for="peso">Peso en kilogramos</label><br>
 			<!-- Input real --->
-			<input class="form-control" type="number" step="0.001" min="0" id="peso" name="peso" value="">
+			<input class="form-control" type="number" step="0.001" min="0" formControlName="peso" name="peso" value="">
 		</div>
 
 
 		<br><br><br>
 
-		<input class="btn btn-dark" type="submit" value="Agregar">
-		<input class="btn btn-dark ml-1" type="submit" value="Agregar y salir">
+		<input class="btn btn-dark" (click)="submitProduct(false)" value="Agregar">
+		<input class="btn btn-dark ml-1" (click)="submitProduct(true)" value="Agregar y salir">
 
 	</form> 
 </div>
