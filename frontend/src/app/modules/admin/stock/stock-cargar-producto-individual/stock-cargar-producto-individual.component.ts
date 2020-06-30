@@ -35,16 +35,6 @@ export class StockCargarProductoIndividualComponent implements OnInit {
 
 		this.categoriaApi.find().subscribe((categoriaArr:Categoria[])=>{this.categorias = categoriaArr})
 
-
-      	//Estos serian los datos que quiero obtener del form
-      	//y mandar a la api
-		this.producto = new Producto;
-		this.producto.tipoProducto = new TipoProducto;
-		this.producto.cantidad;
-		this.producto.vencimiento;
-		this.producto.tipoProducto.nombre;
-		this.producto.tipoProducto.categoria;
-		this.producto.tipoProducto.peso;
 	}
 
 	submitProduct(salir){

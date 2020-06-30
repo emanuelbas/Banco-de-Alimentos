@@ -1,1 +1,121 @@
-<p>stock-cargar-productos-donacion works!</p>
+<div class="form-box container-fluid p-5 pt-1">
+	<div> 
+		<p>• Seleccione una donación para visualizar sus descripción.<br>• Agregue los productos uno por uno.<br>
+		• Al Enviar se desmantelará la donación seleccionada y los productos serán registrados en el Stock </p>
+	</div>
+
+
+	<div class="card p-3 mb-5">
+
+		<h5 class="card-title ">Donación</h5>
+		
+		<div class="card-body">
+			<label>Seleccione una</label>
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="form-group">
+						<select name="donaciones" [(ngModel)]="seleccionado" class="selectpicker form-control" >
+							<option [ngValue]="donacion" *ngFor="let donacion of this.donacionesNuevas">{{donacion.numero}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		
+			<label>Descripción</label>
+			<p> {{seleccionado.traslado.descripcion}}</p>
+		</div>
+	</div>
+
+
+	<div class="card p-3 mb-5">
+
+			<h5 class="card-title ">Nuevo producto</h5>
+
+			<div class="card-body">
+			<form  [formGroup]="form" >
+				<div class="form-group">
+					<label for="nombre">Nombre</label><br>
+					<input class="form-control" type="text" formControlName="nombre" name="nombre" value="">
+				</div>
+
+				<div class="form-group">
+					<label for="categoria">Categoría</label><br>
+					<!-- Select de categorias --->
+					<select class="form-control" name="categoria" formControlName="categoria">
+					  <option *ngFor="let cate of this.categorias" value="{{cate}}">{{cate.nombre}}</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="cant">Cantidad</label><br>
+					<!-- Input int --->
+					<input class="form-control" type="number" min="0" formControlName="cant" name="cant" value="">
+				</div>
+
+				<div class="form-group">
+					<label for="vto">Vencimiento</label><br>
+					<!-- Date picker --->
+					<input class="form-control" type="date" formControlName="vto" name="vto" value="">
+				</div>
+
+				<div class="form-group">
+					<label for="peso">Peso en kilogramos</label><br>
+					<!-- Input real --->
+					<input class="form-control" type="number" step="0.001" min="0" formControlName="peso" name="peso" value="">
+				</div>
+
+
+				<br><br><br>
+
+				<button class="btn btn-dark" (click)="submitProduct(false)">Agregar</button>
+
+			</form> 
+		</div>
+	</div>
+
+	<div class="card p-3 mb-5">
+		<h5 class="card-title ">Productos cargados</h5>
+
+		<div class="card-body">
+
+			<div class="table-box">
+				<div class=" tableFixHead">
+					<table class="table">
+						<thead class="thead-dark">
+						  <tr>
+						    <th>Producto</th>
+						    <th>Categoría</th>
+						    <th>Cantidad</th>
+						    <th>Vencimiento</th>
+						    <th>Peso por unidad</th>
+						    <th>Opciones</th>
+						  </tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let producto of this.productosPrecargados;let i=index">
+								<td>
+									{{producto.tipoProducto.nombre}}
+								</td>
+								<td>
+									{{producto.tipoProducto.categoria.nombre}}
+								</td>
+								<td>
+									{{producto.cantidad}}
+								</td>
+								<td>
+									{{producto.vencimiento| date: 'dd/MM/yyyy'}}
+								</td>
+								<td>
+									{{producto.tipoProducto.peso}}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<button class="btn btn-dark" (click)="submitAll()" >Agregar productos al stock y desarmar donación</button>
+
+		</div><
+	</div>
+</div>
