@@ -42,7 +42,7 @@
 					<label for="categoria">Categoría</label><br>
 					<!-- Select de categorias --->
 					<select class="form-control" name="categoria" formControlName="categoria">
-					  <option *ngFor="let cate of this.categorias" value="{{cate}}">{{cate.nombre}}</option>
+					  <option *ngFor="let cate of this.categorias" value="{{cate.id}}">{{cate.nombre}}</option>
 					</select>
 				</div>
 
@@ -67,7 +67,7 @@
 
 				<br><br><br>
 
-				<button class="btn btn-dark" (click)="submitProduct(false)">Agregar</button>
+				<button class="btn btn-dark" (click)="submitProduct()">Agregar</button>
 
 			</form> 
 		</div>
@@ -97,7 +97,7 @@
 									{{producto.tipoProducto.nombre}}
 								</td>
 								<td>
-									{{producto.tipoProducto.categoria.nombre}}
+									{{producto.tipoProducto.categoriaId}}
 								</td>
 								<td>
 									{{producto.cantidad}}
@@ -114,8 +114,8 @@
 				</div>
 			</div>
 
-			<button class="btn btn-dark" (click)="submitAll()" >Agregar productos al stock y desarmar donación</button>
+			<button class="btn btn-dark" (click)="submitAll(seleccionado)" >Agregar productos al stock y desarmar donación</button>
 
-		</div><
+		</div>
 	</div>
 </div>
