@@ -63,6 +63,12 @@ export class StockCargarProductoIndividualComponent implements OnInit {
 		});
 	}
 
+	get nombre(){return this.form.get('nombre');};
+	get categoria(){return this.form.get('categoria')};
+	get cant(){return this.form.get('cant')};
+	get vto(){return this.form.get('vto')};
+	get peso(){return this.form.get('peso')};
+	
 	ngOnInit() {
 	}
 

@@ -68,7 +68,14 @@ export class StockCargarProductosDonacionComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	submitAll(donacion){
+	get nombre(){return this.form.get('nombre');};
+	get categoria(){return this.form.get('categoria')};
+	get cant(){return this.form.get('cant')};
+	get vto(){return this.form.get('vto')};
+	get peso(){return this.form.get('peso')};
+	get donacion(){return this.formDonacion.get('donacion')};
+
+	submitAll(donacion:Donacion){
 
 
 		//Hago un array para registrar los tipoProducto
@@ -84,7 +91,10 @@ export class StockCargarProductosDonacionComponent implements OnInit {
 			};
 			this.productoApi.createMany(this.productosPrecargados).subscribe(()=>{
 				alert("Se crearon todos los productos y sus tipo productos");
+				donacion.estado = "desarmada";
+				this.donacionApi.patchAttributes(donacion.id,donacion).subscribe(()=>{alert("S")})
 			});
 		});
-	}
+	};
+
 }

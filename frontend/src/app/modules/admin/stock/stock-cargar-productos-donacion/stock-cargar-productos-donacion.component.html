@@ -5,6 +5,11 @@
 	</div>
 
 
+
+
+
+
+
 	<div class="card p-3 mb-5">
 
 		<h5 class="card-title ">Donación</h5>
@@ -20,60 +25,20 @@
 					</div>
 				</div>
 			</div>
+			<div *ngIf="seleccionado == null">
+				<small class="text-danger">Seleccione una donación </small>
+			</div>
 		
-			<label>Descripción</label>
-			<p> {{seleccionado.traslado.descripcion}}</p>
+			<div *ngIf="seleccionado != null">
+				<label>Descripción</label>
+				<p> {{seleccionado.traslado.descripcion}}</p>
+			</div>
 		</div>
 	</div>
 
 
-	<div class="card p-3 mb-5">
 
-			<h5 class="card-title ">Nuevo producto</h5>
-
-			<div class="card-body">
-			<form  [formGroup]="form" >
-				<div class="form-group">
-					<label for="nombre">Nombre</label><br>
-					<input class="form-control" type="text" formControlName="nombre" name="nombre" value="">
-				</div>
-
-				<div class="form-group">
-					<label for="categoria">Categoría</label><br>
-					<!-- Select de categorias --->
-					<select class="form-control" name="categoria" formControlName="categoria">
-					  <option *ngFor="let cate of this.categorias" value="{{cate.id}}">{{cate.nombre}}</option>
-					</select>
-				</div>
-
-				<div class="form-group">
-					<label for="cant">Cantidad</label><br>
-					<!-- Input int --->
-					<input class="form-control" type="number" min="0" formControlName="cant" name="cant" value="">
-				</div>
-
-				<div class="form-group">
-					<label for="vto">Vencimiento</label><br>
-					<!-- Date picker --->
-					<input class="form-control" type="date" formControlName="vto" name="vto" value="">
-				</div>
-
-				<div class="form-group">
-					<label for="peso">Peso en kilogramos</label><br>
-					<!-- Input real --->
-					<input class="form-control" type="number" step="0.001" min="0" formControlName="peso" name="peso" value="">
-				</div>
-
-
-				<br><br><br>
-
-				<button class="btn btn-dark" (click)="submitProduct()">Agregar</button>
-
-			</form> 
-		</div>
-	</div>
-
-	<div class="card p-3 mb-5">
+	<div *ngIf="seleccionado != null" class="card p-3 mb-5">
 		<h5 class="card-title ">Productos cargados</h5>
 
 		<div class="card-body">
@@ -118,4 +83,74 @@
 
 		</div>
 	</div>
+
+
+
+
+
+	<div *ngIf="seleccionado != null" class="card p-3 mb-5">
+
+			<h5 class="card-title ">Nuevo producto</h5>
+
+			<div class="card-body">
+			<form  [formGroup]="form" >
+				<div class="form-group">
+					<label for="nombre">Nombre</label><br>
+					<input class="form-control" type="text" formControlName="nombre" name="nombre" value="" id="nombre">
+					<div *ngIf="nombre.invalid && nombre.touched">
+                    	<small class="text-danger">Debe ingresar un nombre para el producto</small>
+                	</div>
+				</div>
+
+				<div class="form-group">
+					<label for="categoria">Categoría</label><br>
+					<!-- Select de categorias --->
+					<select class="form-control" name="categoria" formControlName="categoria">
+					  <option *ngFor="let cate of this.categorias" value="{{cate.id}}">{{cate.nombre}}</option>
+					</select>
+					<div *ngIf="categoria.invalid && categoria.touched">
+                    	<small class="text-danger">Debe seleccionar una categoría</small>
+                	</div>
+				</div>
+
+				<div class="form-group">
+					<label for="cant">Cantidad</label><br>
+					<!-- Input int --->
+					<input class="form-control" type="number" min="0" formControlName="cant" name="cant" value="">
+					<div *ngIf="cant.invalid && cant.touched">
+                    	<small class="text-danger">Debe ingresar la cantidad de productos
+                    </small>
+                	</div>
+				</div>
+
+				<div class="form-group">
+					<label for="vto">Vencimiento</label><br>
+					<!-- Date picker --->
+					<input class="form-control" type="date" formControlName="vto" name="vto" value="">
+					<div *ngIf="vto.invalid && vto.touched">
+                    	<small class="text-danger">Debe ingresar la fecha de vencimiento
+                    </small>
+                	</div>
+				</div>
+
+				<div class="form-group">
+					<label for="peso">Peso en kilogramos</label><br>
+					<!-- Input real --->
+					<input class="form-control" type="number" step="0.001" min="0" formControlName="peso" name="peso" value="">
+					<div *ngIf="peso.invalid && peso.touched">
+                    	<small class="text-danger">Debe ingresar el peso unitario
+                    </small>
+                	</div>
+				</div>
+
+
+				<br><br><br>
+
+				<button class="btn btn-dark" (click)="submitProduct()" [disabled]="!form.valid">Agregar</button>
+
+			</form> 
+		</div>
+	</div>
+
+
 </div>
