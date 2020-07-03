@@ -6,7 +6,7 @@ import { ProductoApi, DonacionApi, ItemApi, VolumenApi, EnvioParaBeneficiarioApi
 import {Location} from '@angular/common';
 import { BALP } from '../../../../_models/BALP';
 import { AddressConverter } from '../../../../_models/AddressConverter';
-import { MockStockService } from '../../../../_services/stockservice/mock-stock.service';
+import { LbStockService } from '../../../../_services/stockservice/lb-stock.service';
 import { DataShareService } from 'src/app/_services/data-share.service';
 
 @Component({
@@ -37,7 +37,7 @@ export class NuevoEnvioPrincipalComponent implements OnInit {
     private donacionApi:DonacionApi,
     private productoApi:ProductoApi,
     private router:Router,
-    private stock:MockStockService
+    private stock:LbStockService
     ) {	}
 
 
@@ -175,9 +175,10 @@ export class NuevoEnvioPrincipalComponent implements OnInit {
       this.envioApi.create(nuevoEnvio).subscribe((envioCreado:EnvioParaBeneficiario)=>{
         console.log("Se creo el envio");
         let idEnvio = envioCreado.id;
-        this.envioApi.createManyProductos(idEnvio,this.productosDelStock).subscribe(()=>{
-          console.log("Se crearon los productos asociados al envio");
-          this.stock.retriveProductos(this.productosDelStock);
+
+
+        this.stock.retriveProductos(this.productosDelStock).then(()=>{
+          
           nuevoTraslado.idEnvioTrasladadoAUnBeneficiario = idEnvio;
           console.log("Se vinculo el nuevo traslado con el envio creado");
           this.trasladoApi.create(nuevoTraslado).subscribe((trasladoCreado:Traslado)=>{

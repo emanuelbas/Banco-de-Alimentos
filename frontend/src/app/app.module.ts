@@ -46,6 +46,7 @@ import { DonacionesRecibidasComponent } from './modules/beneficiario/donaciones-
 import { EditarBeneficiarioComponent } from './modules/beneficiario/editar-beneficiario/editar-beneficiario.component';
 import { NuevoEnvioVolumenComponent } from './modules/admin/nuevo-envio/nuevo-envio-volumen/nuevo-envio-volumen.component';
 import { MockStockService } from './_services/stockservice/mock-stock.service';
+import { LbStockService } from './_services/stockservice/lb-stock.service';
 import { InsigniasService } from './_services/insignias.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DataApiService } from './_services/data-api.service';
@@ -109,7 +110,7 @@ import { StockCargarProductosDonacionComponent } from './modules/admin/stock/sto
     BrowserAnimationsModule
   ],
   bootstrap: [AppComponent],
-  providers: [MockStockService,InsigniasService,DataApiService]
+  providers: [MockStockService,InsigniasService,DataApiService, LbStockService]
 })
 export class AppModule { }
 

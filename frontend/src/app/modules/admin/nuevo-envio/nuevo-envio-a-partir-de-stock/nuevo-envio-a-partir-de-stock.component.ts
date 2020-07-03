@@ -17,8 +17,10 @@ export class NuevoEnvioAPartirDeStockComponent implements OnInit {
   productosEnEnvio : Producto[] = [];
 
   @Output() enviarProductos = new EventEmitter<Producto[]>();
-  constructor(private stock:MockStockService) {
-  	this.stock.getProductos().then((productos)=>{this.productosEnStock=productos; console.log(productos)});
+  constructor(private stock:MockStockService,
+              private productoApi:ProductoApi) 
+  {
+  	this.productoApi.find({include:{tipoProducto:'categoria'}}).subscribe((productos:Producto[])=>{this.productosEnStock=productos;console.log(this.productosEnStock)});
     this.form = new FormGroup({
             id: new FormControl(),
             cantidad: new FormControl()
@@ -49,6 +51,7 @@ export class NuevoEnvioAPartirDeStockComponent implements OnInit {
     this.productosEnStock[id].cantidad= this.productosEnStock[id].cantidad - cant;
     let producto = new Producto;
     producto.cantidad = cant;
+    producto.id = this.productosEnStock[id].id;
     producto.vencimiento = this.productosEnStock[id].vencimiento;
     producto.tipoProductoId = this.productosEnStock[id].tipoProductoId;
     producto.tipoProducto = this.productosEnStock[id].tipoProducto;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Producto, ProductoApi } from '../../../../_services/lbservice';
+import { DataShareService } from 'src/app/_services/data-share.service';
 
 //Reemplazar por el servicio real
 import { MockStockService } from '../../../../_services/stockservice/mock-stock.service';
@@ -14,6 +15,7 @@ export class StockVentanaPrincipalComponent implements OnInit {
 
   productosEnStock : Producto[] = [];
   constructor(
+    private data:DataShareService,
   	private router:Router,
     private productoApi:ProductoApi
   ) {
@@ -32,6 +34,7 @@ export class StockVentanaPrincipalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.data.cambiarTitulo("Stock");
   }
 
 }
