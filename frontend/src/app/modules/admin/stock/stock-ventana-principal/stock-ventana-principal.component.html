@@ -1,4 +1,39 @@
-<h2>Stock</h2>
+<div *ngIf="!(productoAEditar==undefined)" class="card p-3 mb-5">
+	<h5 class="card-title ">Editar producto</h5>
+	<div class="card-body">
+
+		<form  [formGroup]="form" >
+			<div class="form-group">
+				<label for="nombre">Nombre</label><br>
+				<input disabled class="form-control" type="text" formControlName="nombre" name="nombre" value="">
+				<div *ngIf="nombre.invalid && nombre.touched">
+	               	<small class="text-danger">Debe ingresar un nombre para el producto</small>
+	            </div>
+				
+				<div class="form-group">
+					<label for="cant">Cantidad</label><br>
+					<!-- Input int --->
+					<input class="form-control" type="number" min="0" formControlName="cant" name="cant" value="">
+					<div *ngIf="cant.invalid && cant.touched">
+		                <small class="text-danger">Debe ingresar la cantidad de productos</small>
+		            </div>
+				</div>
+				<button class="btn btn-dark" (click)="submitProduct()" [disabled]="!form.valid" >Guardar</button>
+			</div>
+
+			<div class="form-group">
+
+				
+			</div>
+
+		</form>
+
+
+
+	</div>
+</div>
+
+
 
 <div class="table-box">
 	<div class=" tableFixHead">
@@ -30,11 +65,18 @@
 					<td>
 						{{producto.tipoProducto.peso}}
 					</td>
+					<td>
+						<button type="button" aria-label="Close" class="" (click)="editarProducto(producto)">✏️</button>
+						<button type="button" aria-label="Close" class="" (click)="borrarProducto(producto.id)">🗑️</button>						
+					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 </div>
+
+
+
 <div class="buttons-box ml-5">
 	<button type="button" class="btn btn-dark text-center mr-2" (click)="irAAgregarDonacion()"> Agregar productos a partir de una donación </button> 
 	<button type="button" class="btn btn-dark text-center mr-2" (click)="irAAgregarProducto()" > Agregar un producto </button>
