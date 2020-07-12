@@ -26,6 +26,9 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 		this.router.navigate([ruta]);
 	}
 
+	cancelarTraslado(traslado){
+		alert("Todavía sin implementar");
+	}
 	ngOnInit() {
     this.data.cambiarTitulo("Traslados sin vouluntario");
 
