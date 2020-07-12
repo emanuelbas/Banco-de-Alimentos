@@ -1,35 +1,41 @@
-<div *ngIf="!(productoAEditar==undefined)" class="card p-3 mb-5">
-	<h5 class="card-title ">Editar producto</h5>
-	<div class="card-body">
+<div *ngIf="!(productoAEditar==undefined)" class="modal fade p-3 mb-5" id="modalFormEditProduct" tabindex="-1"
+	role="dialog" aria-labelledby="modalFormEditProduct" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Editar producto</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
 
-		<form  [formGroup]="form" >
-			<div class="form-group">
-				<label for="nombre">Nombre</label><br>
-				<input disabled class="form-control" type="text" formControlName="nombre" name="nombre" value="">
-				<div *ngIf="nombre.invalid && nombre.touched">
-	               	<small class="text-danger">Debe ingresar un nombre para el producto</small>
-	            </div>
-				
-				<div class="form-group">
-					<label for="cant">Cantidad</label><br>
-					<!-- Input int --->
-					<input class="form-control" type="number" min="0" formControlName="cant" name="cant" value="">
-					<div *ngIf="cant.invalid && cant.touched">
-		                <small class="text-danger">Debe ingresar la cantidad de productos</small>
-		            </div>
+			<form [formGroup]="form">
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="nombre">Nombre</label><br>
+						<input disabled class="form-control" type="text" formControlName="nombre" name="nombre" value="">
+						<div *ngIf="nombre.invalid && nombre.touched">
+							<small class="text-danger">Debe ingresar un nombre para el producto</small>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="cant">Cantidad</label><br>
+						<!-- Input int --->
+						<input class="form-control" type="number" min="0" formControlName="cant" name="cant" value="">
+						<div *ngIf="cant.invalid && cant.touched">
+							<small class="text-danger">Debe ingresar la cantidad de productos</small>
+						</div>
+					</div>
 				</div>
-				<button class="btn btn-dark" (click)="submitProduct()" [disabled]="!form.valid" >Guardar</button>
-			</div>
 
-			<div class="form-group">
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					<button class="btn btn-dark" (click)="submitProduct()" [disabled]="!form.valid">Guardar</button>
+				</div>
+			</form>
 
-				
-			</div>
-
-		</form>
-
-
-
+		</div>
 	</div>
 </div>
 
@@ -37,16 +43,16 @@
 
 <div class="table-box">
 	<div class=" tableFixHead">
-		<table class="table">
+		<table class="table text-center">
 			<thead class="thead-dark">
-			  <tr>
-			    <th>Producto</th>
-			    <th>Categoría</th>
-			    <th>Cantidad</th>
-			    <th>Vencimiento</th>
-			    <th>Peso por unidad</th>
-			    <th>Opciones</th>
-			  </tr>
+				<tr>
+					<th>Producto</th>
+					<th>Categoría</th>
+					<th>Cantidad</th>
+					<th>Vencimiento</th>
+					<th>Peso por unidad</th>
+					<th>Opciones</th>
+				</tr>
 			</thead>
 			<tbody>
 				<tr *ngFor="let producto of this.productosEnStock;let i=index">
@@ -65,9 +71,9 @@
 					<td>
 						{{producto.tipoProducto.peso}}
 					</td>
-					<td>
-						<button type="button" aria-label="Close" class="" (click)="editarProducto(producto)">✏️</button>
-						<button type="button" aria-label="Close" class="" (click)="borrarProducto(producto.id)">🗑️</button>						
+					<td class="d-flex justify-content-center">
+						<button type="button" class="btn btn-primary mx-1 p-1" data-toggle="modal" data-target="#modalFormEditProduct" (click)="editarProducto(producto)">✏️</button>
+						<button type="button" class="btn btn-primary mx-1 p-1" (click)="borrarProducto(producto.id)">🗑️</button>
 					</td>
 				</tr>
 			</tbody>
@@ -78,7 +84,10 @@
 
 
 <div class="buttons-box ml-5">
-	<button type="button" class="btn btn-dark text-center mr-2" (click)="irAAgregarDonacion()"> Agregar productos a partir de una donación </button> 
-	<button type="button" class="btn btn-dark text-center mr-2" (click)="irAAgregarProducto()" > Agregar un producto </button>
+	<button type="button" class="btn btn-dark text-center mr-2" (click)="irAAgregarDonacion()"> Agregar productos a
+		partir
+		de una donación </button>
+	<button type="button" class="btn btn-dark text-center mr-2" (click)="irAAgregarProducto()"> Agregar un producto
+	</button>
 </div>
 <div class="espacio"></div>
