@@ -18,9 +18,12 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 
 	traslados = [];
 	abortarTraslado : Traslado;
+	fechaDeHoy:Date;
 	constructor(private data:DataShareService, private requester: ApiRequestsService, private router:Router,private service: VoluntariosService,private apiBeneficiario: BeneficiarioApi,private apiEnvio:EnvioParaBeneficiarioApi ,private apiDescGeneral: DescripcionGeneralApi, private apiUbicacion:UbicacionApi, private apiDonante:DonanteApi, private apiDonacion:DonacionApi,private _location: Location, private apiTraslado: TrasladoApi) {
-		requester.getAllTrasladosSinVoluntario().then(arr => this.traslados =arr)
-	 } //Fin constructor
+		requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})
+	
+		this.fechaDeHoy = new Date()
+			 } //Fin constructor
 
 	buscarVoluntariosParaTraslado(traslado){
 		let ruta = '/buscar-voluntarios/'+traslado[6].id+'/'+encodeURIComponent(traslado[0])+'/'+encodeURIComponent(traslado[1]);

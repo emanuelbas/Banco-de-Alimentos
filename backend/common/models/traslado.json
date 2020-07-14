@@ -37,6 +37,11 @@
     },
     "peso": {
       "type":"number"
+    },
+    "fechaVencimientoInvitacion": {
+      "type": "date",
+      "default": "$now",
+      "required": true
     }
   },
   "validations": [],

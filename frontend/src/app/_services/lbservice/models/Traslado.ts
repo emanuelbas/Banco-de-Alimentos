@@ -12,6 +12,7 @@ export interface TrasladoInterface {
   "distancia"?: number;
   "descripcion"?: string;
   "peso"?: number;
+  "fechaVencimientoInvitacion": Date;
   "id"?: any;
   "voluntarioId"?: any;
   "idDonacionTrasladadaAlBanco"?: any;
@@ -29,6 +30,7 @@ export class Traslado implements TrasladoInterface {
   "distancia": number;
   "descripcion": string;
   "peso": number;
+  "fechaVencimientoInvitacion": Date;
   "id": any;
   "voluntarioId": any;
   "idDonacionTrasladadaAlBanco": any;
@@ -106,6 +108,11 @@ export class Traslado implements TrasladoInterface {
         "peso": {
           name: 'peso',
           type: 'number'
+        },
+        "fechaVencimientoInvitacion": {
+          name: 'fechaVencimientoInvitacion',
+          type: 'Date',
+          default: new Date(0)
         },
         "id": {
           name: 'id',

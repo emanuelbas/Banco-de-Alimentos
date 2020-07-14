@@ -163,15 +163,16 @@ export class ApiRequestsService {
                   let origen = donante.ubicacion.direccion;
                   let destino = balp.ubicacionBALP.direccion;
                   let idDonante = donante.id;
-                  let fecha = traslado.fechaEstimada;
+                  let fecha:Date = traslado.fechaEstimada;
                   filas.push([
                         origen,
                         destino,
                         idDonante,
-                        fecha,
+                        new Date(fecha),
                         traslado.descripcion,
                         donante,
-                        traslado
+                        traslado,
+                        new Date(traslado.fechaVencimientoInvitacion)
                       ]) //Fin push        
               }) //Fin donante
             })//Fin donacion
@@ -181,16 +182,17 @@ export class ApiRequestsService {
                   let origen = balp.ubicacionBALP.direccion;
                   let destino = envio.beneficiario.ubicacion.direccion;
                   let idBeneficiario = envio.beneficiario.id;
-                  let fecha = traslado.fechaEstimada;
+                  let fecha: Date = traslado.fechaEstimada;
                   let descripcion = traslado.descripcion;
                   filas.push([
                         origen,
                         destino,
                         idBeneficiario,
-                        fecha,
+                        new Date(fecha),
                         descripcion,
                         envio.beneficiario,
-                        traslado
+                        traslado,
+                        new Date(traslado.fechaVencimientoInvitacion)
                       ]) //Fin push
             }); //Fin envio
           } //Fin if
