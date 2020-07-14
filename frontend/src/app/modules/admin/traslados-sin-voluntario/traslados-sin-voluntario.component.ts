@@ -17,6 +17,7 @@ import { DataShareService } from 'src/app/_services/data-share.service';
 export class TrasladosSinVoluntarioComponent implements OnInit {
 
 	traslados = [];
+	abortarTraslado : Traslado;
 	constructor(private data:DataShareService, private requester: ApiRequestsService, private router:Router,private service: VoluntariosService,private apiBeneficiario: BeneficiarioApi,private apiEnvio:EnvioParaBeneficiarioApi ,private apiDescGeneral: DescripcionGeneralApi, private apiUbicacion:UbicacionApi, private apiDonante:DonanteApi, private apiDonacion:DonacionApi,private _location: Location, private apiTraslado: TrasladoApi) {
 		requester.getAllTrasladosSinVoluntario().then(arr => this.traslados =arr)
 	 } //Fin constructor
@@ -27,7 +28,10 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 	}
 
 	cancelarTraslado(traslado){
-		alert("Todavía sin implementar");
+		this.abortarTraslado = traslado;
+	}
+	onConfirmarCancelacionDeTraslado(){
+		this.apiTraslado.patchAttributes(this.abortarTraslado.id,{estado:"abortado"}).subscribe(()=>{this.router.navigateByUrl('panel-de-control');alert("Se borró el traslado")})
 	}
 	ngOnInit() {
     this.data.cambiarTitulo("Traslados sin vouluntario");
