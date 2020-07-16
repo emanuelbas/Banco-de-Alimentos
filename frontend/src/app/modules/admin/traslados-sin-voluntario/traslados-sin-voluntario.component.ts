@@ -31,7 +31,8 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 	}
 
 	cancelarTraslado(traslado){
-		this.abortarTraslado = traslado;
+		//this.abortarTraslado = traslado;
+		console.log(this.traslados[6])
 	}
 	onConfirmarCancelacionDeTraslado(){
 		this.apiTraslado.patchAttributes(this.abortarTraslado.id,{estado:"abortado"}).subscribe(()=>{this.router.navigateByUrl('panel-de-control');alert("Se borró el traslado")})

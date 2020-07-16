@@ -43,7 +43,7 @@
                         </tr>
                     </thead>
                     <tbody *ngFor="let traslado of traslados| paginate: { itemsPerPage: 10, currentPage: p }" class="text-center">
-                        <tr [style.background]="(traslado[7] > this.fechaDeHoy)? '#ffcbc9':'#cfffcf'"  class="bg-notificar">
+                        <tr [style.background]="(traslado[7].getTime() > this.fechaDeHoy)? '#cfffcf':'#ffcbc9'"  class="bg-notificar">
                             <td title="{{traslado[4]}}"><p class="text">{{traslado[4]}}</p></td>
                             <td>{{traslado[0]}}</td>
                             <td>{{traslado[1]}}</td>

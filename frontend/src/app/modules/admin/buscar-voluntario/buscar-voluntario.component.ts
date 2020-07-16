@@ -29,6 +29,8 @@ export class BuscarVoluntarioComponent implements OnInit {
 	volumenTotal:number;
   url:string;
   voluntarios : Voluntario[] = [];
+  traslado:Traslado;
+  fechaDeHoy = Date.now()
   
 
   constructor(private data:DataShareService, public dataApi:DataApiService, private http:HttpService,private _location:Location, private apiVehiculo:VehiculoApi,private apiVoluntario:VoluntarioApi,private apiTraslado:TrasladoApi, private route:ActivatedRoute,private service:VoluntariosService, private router: Router) {
@@ -38,6 +40,7 @@ export class BuscarVoluntarioComponent implements OnInit {
   	this.dirDestino = route.snapshot.paramMap.get("destino");
     this.url = environment.frontendUrl+'/asignar-traslado/'+this.idTraslado;
     this.dataApi.getTrasladoPorId(this.idTraslado).subscribe((traslado:Traslado)=>{
+      this.traslado = traslado
       this.volumenTotal = traslado.volumenTotal;
       this.distancia = Math.round(traslado.distancia);
       this.dataApi.getVoluntariosQueRecorrenUnaDistancia(this.distancia).subscribe((voluntarios:Voluntario[])=>{
@@ -59,19 +62,19 @@ export class BuscarVoluntarioComponent implements OnInit {
     }) //find traslado
   } //constructor
 
-  enviarEmailA(casilla){
-    this.sendTo(casilla);
+  enviarEmailA(casilla,tiempoNotificacion){
+    this.sendTo(casilla,tiempoNotificacion);
   }
 
-  enviarEmails(){
-    this.sendTo(this.voluntarios.map(voluntario => voluntario.email).join(', '));
+  enviarEmails(tiempoNotificacion){
+    this.sendTo(this.voluntarios.map(voluntario => voluntario.email).join(', '),tiempoNotificacion);
   }
 
   ngOnInit() {
     this.data.cambiarTitulo("Buscar voluntario para traslado");
   }
 
-  sendTo(casilla){
+  sendTo(casilla,duracionDeNotificacion){
       let user = {
       name: 'Voluntario',
       email: casilla,
@@ -81,7 +84,11 @@ export class BuscarVoluntarioComponent implements OnInit {
     this.http.sendEmail(environment.backendUrl+"/sendmail",user ).subscribe(
       data => {
         let res:any = data; 
-        alert('Se envio un email a '+casilla+' con la siguiente URL: '+this.url)
+        alert('Se envio un email a '+casilla+' con la siguiente URL: '+this.url);
+        let fechaVtoNotificacion = new Date();
+        fechaVtoNotificacion.setTime(this.fechaDeHoy+(duracionDeNotificacion*60*60*1000))
+        this.traslado.fechaVencimientoInvitacion = fechaVtoNotificacion;
+        this.apiTraslado.updateAttributes(this.traslado.id,this.traslado).subscribe(()=>{console.log(this.traslado.fechaVencimientoInvitacion)})
       },
       err => {
         console.log(err);
