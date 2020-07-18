@@ -9,15 +9,27 @@
                 value= "{{this.traslado.fechaEstimada | date: 'dd/MM/yyyy  -  hh:mm'}} hs." readonly>
             </div>
             <div class="form-group">
-                <label for="labeldireccion">Origen</label>
+                <label for="labeldireccion">📍 Desde</label>
                 <input formControlName="origen" type="text" class="form-control" id="origen"
                 value= "{{this.origen}}" readonly>
             </div>
             <div class="form-group">
-                <label for="labelEmail">Destino</label>
+                <label for="labelEmail">📍 Hasta</label>
                 <input formControlName="destino" type="text" class="form-control" id="destino"
                 value= "{{this.destino}}" readonly>
             </div>
+
+
+            <label for="labelpuntaje">Descripción</label>
+            <div class="card mb-3" style="width: 18rem;">
+              <div class="card-body">
+                <p class="card-text">{{this.traslado.descripcion}}</p>
+                <p class="card-text">Peso total: {{this.traslado.peso}}kg</p>
+                <p class="card-text">Volumen total: {{this.traslado.volumenTotal}}m<sup>3</sup></p>
+              </div>
+            </div>
+
+
             <div class="form-group">
                 <label for="labelpuntaje">Puntaje del traslado</label>
                 <input formControlName="puntaje" type="text" class="form-control" id="puntaje"
