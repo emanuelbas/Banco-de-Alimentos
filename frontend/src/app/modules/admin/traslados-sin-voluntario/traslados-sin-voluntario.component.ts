@@ -7,6 +7,7 @@ import { Route } from '@angular/compiler/src/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiRequestsService } from 'src/app/_services/api-requests.service';
 import { DataShareService } from 'src/app/_services/data-share.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -18,11 +19,17 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 
 	traslados = [];
 	abortarTraslado : Traslado;
+	trasladoAEditar : Traslado;
 	fechaDeHoy:Date;
+	form:FormGroup;
 	constructor(private data:DataShareService, private requester: ApiRequestsService, private router:Router,private service: VoluntariosService,private apiBeneficiario: BeneficiarioApi,private apiEnvio:EnvioParaBeneficiarioApi ,private apiDescGeneral: DescripcionGeneralApi, private apiUbicacion:UbicacionApi, private apiDonante:DonanteApi, private apiDonacion:DonacionApi,private _location: Location, private apiTraslado: TrasladoApi) {
 		requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})
 	
 		this.fechaDeHoy = new Date()
+
+		    this.form = new FormGroup({
+				descripcion: new FormControl('', []),
+        	});
 			 } //Fin constructor
 
 	buscarVoluntariosParaTraslado(traslado){
@@ -31,11 +38,19 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 	}
 
 	cancelarTraslado(traslado){
-		//this.abortarTraslado = traslado;
-		console.log(this.traslados[6])
+		this.abortarTraslado = traslado;
+	}
+	editarTraslado(traslado){
+
+		this.trasladoAEditar = traslado[6];
+		this.form.setValue({descripcion: this.trasladoAEditar.descripcion});
 	}
 	onConfirmarCancelacionDeTraslado(){
-		this.apiTraslado.patchAttributes(this.abortarTraslado.id,{estado:"abortado"}).subscribe(()=>{this.router.navigateByUrl('panel-de-control');alert("Se borró el traslado")})
+		this.apiTraslado.patchAttributes(this.abortarTraslado.id,{estado:"abortado"}).subscribe(()=>{requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})})
+	}
+	onGuardarCambiosTraslado(){
+		this.trasladoAEditar.descripcion = this.form.get("descripcion").value;
+		this.apiTraslado.patchAttributes(this.trasladoAEditar.id,{descripcion:this.trasladoAEditar.descripcion}).subscribe(()=>{this.requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})})
 	}
 	ngOnInit() {
     this.data.cambiarTitulo("Traslados sin vouluntario");

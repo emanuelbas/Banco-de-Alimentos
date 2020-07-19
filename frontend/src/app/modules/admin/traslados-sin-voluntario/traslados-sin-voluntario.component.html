@@ -14,12 +14,32 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                     <button class="btn btn-danger" data-dismiss="modal" (click)="onConfirmarCancelacionDeTraslado()">Si, Cancelar el traslado</button>
                 </div>
-
-
         </div>
     </div>
 </div>
 
+<div *ngIf="!(trasladoAEditar==undefined)" class="modal fade p-3 mb-5" id="modalEditarTraslado" tabindex="-1"
+    role="dialog" aria-labelledby="modalEditarTraslado" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar la descripción del traslado</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <form [formGroup]="form">
+                <textarea class="form-control" formControlName="descripcion">this.trasladoAEditar.descripcion</textarea>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-danger" data-dismiss="modal" (click)="onGuardarCambiosTraslado()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -50,6 +70,7 @@
                             <td>{{traslado[3] | date: 'dd/MM/yyyy hh:mm'}}</td>
                             <td>
                             	<button (click)="this.buscarVoluntariosParaTraslado(traslado);" class="" title="Buscar voluntarios" >🔍</button>
+                                <button  data-toggle="modal" data-target="#modalEditarTraslado" (click)="this.editarTraslado(traslado);" class="" title="Editar descripción" >✏️</button>
                                 <button data-toggle="modal" data-target="#modalCancelarTraslado"  (click)="this.cancelarTraslado(traslado[6]);" class="" title="Cancelar traslado" >❌</button>
                             </td>
                         </tr>                  
