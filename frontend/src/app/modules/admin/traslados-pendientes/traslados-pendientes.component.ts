@@ -20,7 +20,9 @@ export class TrasladosPendientesComponent implements OnInit {
   filas : FilaTrasladoPendiente[] = [];
   dirBALP : Ubicacion = (new BALP).ubicacionBALP;
   filasOriginal;
-  constructor(private route: ActivatedRoute, private router:Router,private voluntarioApi: VoluntarioApi,private apiBeneficiario: BeneficiarioApi,private apiEnvio:EnvioParaBeneficiarioApi ,private apiDescGeneral: DescripcionGeneralApi, private apiUbicacion:UbicacionApi, private apiDonante:DonanteApi, private apiDonacion:DonacionApi,private _location: Location, private apiTraslado: TrasladoApi) { 
+  public p:any;
+
+  constructor(private route: ActivatedRoute, public router:Router,private voluntarioApi: VoluntarioApi,private apiBeneficiario: BeneficiarioApi,private apiEnvio:EnvioParaBeneficiarioApi ,private apiDescGeneral: DescripcionGeneralApi, private apiUbicacion:UbicacionApi, private apiDonante:DonanteApi, private apiDonacion:DonacionApi,public _location: Location, private apiTraslado: TrasladoApi) { 
 
 
     this.form = new FormGroup ({

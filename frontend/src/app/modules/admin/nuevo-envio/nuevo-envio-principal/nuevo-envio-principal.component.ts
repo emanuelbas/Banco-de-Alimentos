@@ -36,7 +36,7 @@ export class NuevoEnvioPrincipalComponent implements OnInit {
     private trasladoApi:TrasladoApi,
     private donacionApi:DonacionApi,
     private productoApi:ProductoApi,
-    private router:Router,
+    public router:Router,
     private stock:LbStockService
     ) {	}
 

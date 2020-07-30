@@ -17,6 +17,7 @@ export class StockCargarProductosDonacionComponent implements OnInit {
 	fechaActual = new Date();
 	producto: Producto;
 	categorias: Categoria[];
+	public seleccionado:any;
 
 	//Donaciones que no esten desarmadas ni enviadas en una donacion
 	donacionesNuevas : Donacion[];

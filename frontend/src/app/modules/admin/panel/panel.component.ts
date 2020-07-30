@@ -22,7 +22,7 @@ export class PanelComponent implements OnInit {
 	 faCubes=faCubes
 	 faKey=faKey;
 
-	constructor(private data:DataShareService, private router:Router) { }
+	constructor(private data:DataShareService, public router:Router) { }
 
 	ngOnInit() {
 		this.data.cambiarTitulo("Panel de control");

@@ -13,12 +13,14 @@ import { DataShareService } from 'src/app/_services/data-share.service';
 export class DonacionesRecibidasComponent implements OnInit {
 
 	filas=[];
+	public p:any;
+
 	constructor(private data:DataShareService, 
 				private trasladoApi:TrasladoApi,
 				private beneficiarioApi:BeneficiarioApi,
 				private envioApi:EnvioParaBeneficiarioApi,
 				private voluntarioApi:VoluntarioApi,
-				private _location: Location, private route: ActivatedRoute, private router: Router
+				public _location: Location, private route: ActivatedRoute, public router: Router
 				) 
 	{ 
 		//Recuperar todos los envios beneficiario logueado

@@ -25,7 +25,7 @@ export class EditarVoluntarioComponent implements OnInit {
   form: FormGroup;
   addressConverter: AddressConverter;
 
-  constructor(private data:DataShareService, private _location:Location, private apiVoluntario: VoluntarioApi, private apiVehiculo: VehiculoApi, private apiVolumen: VolumenApi, private router: Router) {
+  constructor(private data:DataShareService, public _location:Location, private apiVoluntario: VoluntarioApi, private apiVehiculo: VehiculoApi, private apiVolumen: VolumenApi, private router: Router) {
 
     this.form = new FormGroup({
       // atributos del voluntario

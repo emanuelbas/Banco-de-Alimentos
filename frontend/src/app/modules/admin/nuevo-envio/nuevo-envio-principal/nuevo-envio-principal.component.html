@@ -7,7 +7,7 @@
 	  <mat-tab label="A partir de donación..">
 	    <app-nuevo-envio-seleccionar-donacion (enviarIdDonacion)="onEnviarIdDonacion($event)"></app-nuevo-envio-seleccionar-donacion>
 	  </mat-tab>
-	  <mat-tab (click)="setTipo('a partir de stock')" label="A partir de stock..">
+	  <mat-tab label="A partir de stock..">
 	    <app-nuevo-envio-a-partir-de-stock (enviarProductos)="onEnviarProductosDelStock($event)"></app-nuevo-envio-a-partir-de-stock>
 	  </mat-tab>
 	</mat-tab-group>

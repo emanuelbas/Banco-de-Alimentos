@@ -16,8 +16,9 @@ export class MisDonacionesComponent implements OnInit {
 	donaciones=[];
 	datosDeDonaciones=[];
 	loggedDonante : Donante;
+	public p:any;
 
-	constructor(private data:DataShareService, private requester:ApiRequestsService,private _location: Location,apiDonante:DonanteApi,private route: ActivatedRoute, private router: Router) {
+	constructor(private data:DataShareService, private requester:ApiRequestsService,private _location: Location,apiDonante:DonanteApi,public route: ActivatedRoute, public router: Router) {
 		this.loggedDonante = apiDonante.getCachedCurrent();
 		requester.getAllDonacionesOf(this.loggedDonante.id).then(ans => this.datosDeDonaciones = ans);
 	}

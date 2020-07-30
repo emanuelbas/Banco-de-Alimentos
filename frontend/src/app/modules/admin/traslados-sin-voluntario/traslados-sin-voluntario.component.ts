@@ -22,7 +22,9 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 	trasladoAEditar : Traslado;
 	fechaDeHoy:Date;
 	form:FormGroup;
-	constructor(private data:DataShareService, private requester: ApiRequestsService, private router:Router,private service: VoluntariosService,private apiBeneficiario: BeneficiarioApi,private apiEnvio:EnvioParaBeneficiarioApi ,private apiDescGeneral: DescripcionGeneralApi, private apiUbicacion:UbicacionApi, private apiDonante:DonanteApi, private apiDonacion:DonacionApi,private _location: Location, private apiTraslado: TrasladoApi) {
+	public p:any;
+
+	constructor(private data:DataShareService, private requester: ApiRequestsService, private router:Router,private service: VoluntariosService,private apiBeneficiario: BeneficiarioApi,private apiEnvio:EnvioParaBeneficiarioApi ,private apiDescGeneral: DescripcionGeneralApi, private apiUbicacion:UbicacionApi, private apiDonante:DonanteApi, private apiDonacion:DonacionApi,public _location: Location, private apiTraslado: TrasladoApi) {
 		requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})
 	
 		this.fechaDeHoy = new Date()

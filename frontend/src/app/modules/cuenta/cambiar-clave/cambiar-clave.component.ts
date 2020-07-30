@@ -8,10 +8,14 @@ import { DataShareService } from 'src/app/_services/data-share.service';
 })
 export class CambiarClaveComponent implements OnInit {
 
+	public newItemForm:any;
   constructor(private data:DataShareService) { }
 
   ngOnInit() {
     this.data.cambiarTitulo("Cambiar clave");
+  }
+  public onSubmit(){
+  	alert("not implemented");
   }
 
 }

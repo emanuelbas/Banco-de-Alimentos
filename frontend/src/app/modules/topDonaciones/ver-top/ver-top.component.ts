@@ -14,7 +14,7 @@ export class VerTopComponent implements OnInit {
 	voluntarios = [];
 	donantes = [];
   constructor(private data:DataShareService,
-          private _location:Location,
+          public _location:Location,
           private requester:ApiRequestsService) 
   { 
     requester.get10HighScoredDonantes().then(donantes => this.donantes = donantes);

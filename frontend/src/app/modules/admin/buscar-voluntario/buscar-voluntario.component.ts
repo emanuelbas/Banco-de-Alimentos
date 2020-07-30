@@ -31,9 +31,11 @@ export class BuscarVoluntarioComponent implements OnInit {
   voluntarios : Voluntario[] = [];
   traslado:Traslado;
   fechaDeHoy = Date.now()
+  public tiempoDeNotificacion: number;
+  public p:any;
   
 
-  constructor(private data:DataShareService, public dataApi:DataApiService, private http:HttpService,private _location:Location, private apiVehiculo:VehiculoApi,private apiVoluntario:VoluntarioApi,private apiTraslado:TrasladoApi, private route:ActivatedRoute,private service:VoluntariosService, private router: Router) {
+  constructor(private data:DataShareService, public dataApi:DataApiService, private http:HttpService,public _location:Location, private apiVehiculo:VehiculoApi,private apiVoluntario:VoluntarioApi,private apiTraslado:TrasladoApi, private route:ActivatedRoute,private service:VoluntariosService, private router: Router) {
     //buscar-voluntarios/:idTraslado/:origen/:destino
   	this.idTraslado = route.snapshot.paramMap.get("idTraslado");
   	this.dirOrigen = route.snapshot.paramMap.get("origen");
