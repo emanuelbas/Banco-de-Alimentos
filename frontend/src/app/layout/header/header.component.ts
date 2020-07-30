@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   titulo = "";
   userLogged;
   tipoDeUsuario;
-  constructor(public data:DataShareService, private userApi:UserApi, private router:Router, private beneficiarioApi:BeneficiarioApi) { 
+  constructor(public data:DataShareService, public userApi:UserApi, public router:Router, public beneficiarioApi:BeneficiarioApi) { 
     this.userLogged = userApi.getCachedCurrent();
     if (this.userLogged) {
       this.tipoDeUsuario = this.userLogged.tipoDeUsuario;

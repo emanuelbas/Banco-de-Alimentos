@@ -46,7 +46,7 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 		this.form.setValue({descripcion: this.trasladoAEditar.descripcion});
 	}
 	onConfirmarCancelacionDeTraslado(){
-		this.apiTraslado.patchAttributes(this.abortarTraslado.id,{estado:"abortado"}).subscribe(()=>{requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})})
+		this.apiTraslado.patchAttributes(this.abortarTraslado.id,{estado:"abortado"}).subscribe(()=>{this.requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})})
 	}
 	onGuardarCambiosTraslado(){
 		this.trasladoAEditar.descripcion = this.form.get("descripcion").value;

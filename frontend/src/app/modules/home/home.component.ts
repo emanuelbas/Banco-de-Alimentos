@@ -13,7 +13,7 @@ import { DataShareService } from 'src/app/_services/data-share.service';
 export class HomeComponent implements OnInit {
 
 userLogged;
-  constructor(private data:DataShareService, private api:UserApi,private router:Router) {
+  constructor(private data:DataShareService, public api:UserApi,public router:Router) {
   		this.userLogged = api.isAuthenticated();
    }
 
