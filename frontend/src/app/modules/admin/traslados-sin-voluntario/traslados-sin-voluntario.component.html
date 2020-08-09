@@ -58,7 +58,7 @@
                             <th scope="col">Descripción</th>
                             <th scope="col">Origen</th>
                             <th scope="col">Destino</th>
-                            <th scope="col">Fecha estimada</th>
+                            <th scope="col">Fecha de vencimiento</th>
                             <th scope="col">Opciones</th>
                         </tr>
                     </thead>
@@ -67,7 +67,7 @@
                             <td title="{{traslado[4]}}"><p class="text">{{traslado[4]}}</p></td>
                             <td>{{traslado[0]}}</td>
                             <td>{{traslado[1]}}</td>
-                            <td>{{traslado[3] | date: 'dd/MM/yyyy hh:mm'}}</td>
+                            <td>{{traslado[6].fechaVencimientoProductos | date: 'dd/MM/yyyy hh:mm'}}</td>
                             <td>
                             	<button (click)="this.buscarVoluntariosParaTraslado(traslado);" class="" title="Buscar voluntarios" >🔍</button>
                                 <button  data-toggle="modal" data-target="#modalEditarTraslado" (click)="this.editarTraslado(traslado);" class="" title="Editar descripción" >✏️</button>

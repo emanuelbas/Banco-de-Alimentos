@@ -20,7 +20,7 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
   constructor(private router:Router,private trasladoApi:TrasladoApi,private donanteApi: DonanteApi, private donacionApi:DonacionApi, private descApi:DescripcionGeneralApi) {
     
   	 this.formGeneral = new FormGroup({
-        fechaRetiro: new FormControl('', [Validators.required]),
+        fechaVto: new FormControl('', [Validators.required]),
         alto: new FormControl('', [Validators.required]),
         ancho: new FormControl('', [Validators.required]),
         largo: new FormControl('', [Validators.required]),
@@ -45,7 +45,7 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
 
   }
 
-  get fechaRetiro() { return this.formGeneral.get('fechaRetiro'); }
+  get fechaVto() { return this.formGeneral.get('fechaVto'); }
   get alto() { return this.formGeneral.get('alto'); }
   get ancho() { return this.formGeneral.get('ancho'); }
   get largo() { return this.formGeneral.get('largo'); }
@@ -57,7 +57,8 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
   onSubmit(){
     if (this.formGeneral.valid) {
       let texto = this.formGeneral.get("texto").value;
-      let fecha = this.formGeneral.get("fechaRetiro").value;
+      let fechaRetiro = this.formGeneral.get("fechaVto").value;
+      let fechaVto = this.formGeneral.get("fechaVto").value;
       let alto = this.formGeneral.get("alto").value;
       let ancho = this.formGeneral.get("ancho").value;
       let largo = this.formGeneral.get("largo").value;
@@ -76,7 +77,6 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
       this.donacionApi.count().subscribe((numero)=>{
           donacion.numero = numero.count;
           this.donacionApi.create(donacion).subscribe((donacionCreada:Donacion)=>{
-            traslado.fechaEstimada= fecha;
             traslado.idDonacionTrasladadaAlBanco = donacionCreada.id;
             traslado.tipo = 'donacion';
             traslado.volumenTotal = alto * ancho * largo;
@@ -84,6 +84,9 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
             traslado.puntaje = this.distancia * peso;
             traslado.distancia = this.distancia;
             traslado.peso= peso;
+            traslado.fechaVencimientoProductos = fechaVto;
+            traslado.fechaEstimada= fechaVto; //Hay que borrarla en algun momento
+            
             this.trasladoApi.create(traslado).subscribe(()=>{
               
               //De legado
