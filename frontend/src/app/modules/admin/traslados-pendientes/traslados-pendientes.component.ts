@@ -3,7 +3,8 @@ import { Beneficiario, EnvioParaBeneficiario, Donacion, Donante, DescripcionGene
 import { BeneficiarioApi, EnvioParaBeneficiarioApi ,DonacionApi, DonanteApi, DescripcionGeneralApi, TrasladoApi, VoluntarioApi, UbicacionApi, DescripcionDetalladaApi } from '../../../_services/lbservice/services'
 import {Location} from '@angular/common';
 import { BALP } from '../../../_models/BALP';
-import { FilaTrasladoPendiente } from './FilaTrasladoPendiente'
+import { FilaTrasladoPendiente } from './FilaTrasladoPendiente';
+import { DataShareService } from 'src/app/_services/data-share.service';
 import { VoluntariosService } from 'src/app/_services/voluntarios.service';
 import { Route } from '@angular/compiler/src/core';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -20,7 +21,7 @@ export class TrasladosPendientesComponent implements OnInit {
   filas : FilaTrasladoPendiente[] = [];
   dirBALP : Ubicacion = (new BALP).ubicacionBALP;
   filasOriginal;
-  constructor(private route: ActivatedRoute, private router:Router,private voluntarioApi: VoluntarioApi,private apiBeneficiario: BeneficiarioApi,private apiEnvio:EnvioParaBeneficiarioApi ,private apiDescGeneral: DescripcionGeneralApi, private apiUbicacion:UbicacionApi, private apiDonante:DonanteApi, private apiDonacion:DonacionApi,private _location: Location, private apiTraslado: TrasladoApi) { 
+  constructor(private data:DataShareService,private route: ActivatedRoute, private router:Router,private voluntarioApi: VoluntarioApi,private apiBeneficiario: BeneficiarioApi,private apiEnvio:EnvioParaBeneficiarioApi ,private apiDescGeneral: DescripcionGeneralApi, private apiUbicacion:UbicacionApi, private apiDonante:DonanteApi, private apiDonacion:DonacionApi,private _location: Location, private apiTraslado: TrasladoApi) { 
 
 
     this.form = new FormGroup ({
@@ -105,6 +106,7 @@ export class TrasladosPendientesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.data.cambiarTitulo("Envios Pendientes de traslado");
   }
 
 }
