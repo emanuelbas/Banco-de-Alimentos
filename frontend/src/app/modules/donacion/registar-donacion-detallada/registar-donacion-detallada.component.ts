@@ -37,6 +37,7 @@ export class RegistarDonacionDetalladaComponent implements OnInit {
   //fecha estimada = fecha de retiro del form
   traslado: Traslado;
 
+  public p: any;
   idDonante;
   distancia;
   balp = new BALP;

@@ -13,6 +13,11 @@
       "type": "date",
       "required": true
     },
+    "fechaVencimientoProductos": {
+      "type": "date",
+      "default": "December 17, 2003 03:24:00",
+      "required": true
+    },
     "fechaFin": {
       "type": "date"
     },

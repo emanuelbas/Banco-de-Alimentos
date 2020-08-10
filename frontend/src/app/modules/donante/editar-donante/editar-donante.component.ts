@@ -23,7 +23,7 @@ export class EditarDonanteComponent implements OnInit {
   donante;
   ubicacion;
 
-  constructor(private data:DataShareService, private _location:Location, private apiUbicacion: UbicacionApi, private apiDonante: DonanteApi, apiVehiculo: VehiculoApi, apiVolumen: VolumenApi, private router: Router) { 
+  constructor(private data:DataShareService, public _location:Location, private apiUbicacion: UbicacionApi, private apiDonante: DonanteApi, apiVehiculo: VehiculoApi, apiVolumen: VolumenApi, private router: Router) { 
 
     this.form = new FormGroup({   
       cuil: new FormControl('', [Validators.required]),

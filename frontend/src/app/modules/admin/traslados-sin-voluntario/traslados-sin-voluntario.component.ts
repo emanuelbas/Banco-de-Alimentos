@@ -22,8 +22,14 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 	trasladoAEditar : Traslado;
 	fechaDeHoy:Date;
 	form:FormGroup;
-	constructor(private data:DataShareService, private requester: ApiRequestsService, private router:Router,private service: VoluntariosService,private apiBeneficiario: BeneficiarioApi,private apiEnvio:EnvioParaBeneficiarioApi ,private apiDescGeneral: DescripcionGeneralApi, private apiUbicacion:UbicacionApi, private apiDonante:DonanteApi, private apiDonacion:DonacionApi,private _location: Location, private apiTraslado: TrasladoApi) {
-		requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})
+	public p:any;
+
+	constructor(private data:DataShareService, private requester: ApiRequestsService, private router:Router,private service: VoluntariosService,private apiBeneficiario: BeneficiarioApi,private apiEnvio:EnvioParaBeneficiarioApi ,private apiDescGeneral: DescripcionGeneralApi, private apiUbicacion:UbicacionApi, private apiDonante:DonanteApi, private apiDonacion:DonacionApi,public _location: Location, private apiTraslado: TrasladoApi) {
+		requester.getAllTrasladosSinVoluntario().then(arr => {
+			//ordenar arreglo
+			arr.sort((b,a)=>{return b[6].fechaVencimientoProductos - a[6].fechaVencimientoProductos});
+			this.traslados =arr;
+		})
 	
 		this.fechaDeHoy = new Date()
 
@@ -46,7 +52,7 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 		this.form.setValue({descripcion: this.trasladoAEditar.descripcion});
 	}
 	onConfirmarCancelacionDeTraslado(){
-		this.apiTraslado.patchAttributes(this.abortarTraslado.id,{estado:"abortado"}).subscribe(()=>{requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})})
+		this.apiTraslado.patchAttributes(this.abortarTraslado.id,{estado:"abortado"}).subscribe(()=>{this.requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})})
 	}
 	onGuardarCambiosTraslado(){
 		this.trasladoAEditar.descripcion = this.form.get("descripcion").value;

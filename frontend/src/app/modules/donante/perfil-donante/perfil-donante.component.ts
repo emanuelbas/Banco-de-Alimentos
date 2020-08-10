@@ -27,6 +27,7 @@ export class PerfilDonanteComponent implements OnInit {
   	faEgg=faEgg;
   	faDonate=faDonate;
   	faStar=faStar;
+    public p:any;
 
   	//Artributos que quiero mostrar
     iconos = [];

@@ -25,7 +25,7 @@ export class EditarBeneficiarioComponent implements OnInit {
 	convertidorDeDirecciones: AddressConverter;
 	ubicacion: Ubicacion;
 
-	constructor(private data:DataShareService, private ubicacionApi: UbicacionApi, private beneficiarioApi: BeneficiarioApi, private route: ActivatedRoute, private router: Router) {
+	constructor(private data:DataShareService, private ubicacionApi: UbicacionApi, private beneficiarioApi: BeneficiarioApi, private route: ActivatedRoute, public router: Router) {
 		this.beneficiario = beneficiarioApi.getCachedCurrent();
 		this.beneficiarioApi.getUbicacion(this.beneficiario.id, true).subscribe((ubicacion: Ubicacion) => {
 			this.ubicacion = ubicacion;

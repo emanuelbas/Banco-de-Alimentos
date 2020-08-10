@@ -22,7 +22,7 @@ export class PerfilBeneficiarioComponent implements OnInit {
 	address: string = 'Cargando..';
 	cantAtendidos: number;
 	email: string;
-	constructor(private data:DataShareService, private ubiApi: UbicacionApi, private beneficiarioApi: BeneficiarioApi, private route: ActivatedRoute, private router: Router) {
+	constructor(private data:DataShareService, private ubiApi: UbicacionApi, private beneficiarioApi: BeneficiarioApi, private route: ActivatedRoute, public router: Router) {
 
 		this.loggedBeneficiario = beneficiarioApi.getCachedCurrent();
 		this.beneficiarioApi.getUbicacion(this.loggedBeneficiario.id, true).subscribe((ubicacion: Ubicacion) => {

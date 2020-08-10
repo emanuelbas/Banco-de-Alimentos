@@ -4,6 +4,7 @@ declare var Object: any;
 export interface TrasladoInterface {
   "fechaAsignacion"?: Date;
   "fechaEstimada": Date;
+  "fechaVencimientoProductos": Date;
   "fechaFin"?: Date;
   "estado"?: string;
   "tipo"?: string;
@@ -22,6 +23,7 @@ export interface TrasladoInterface {
 export class Traslado implements TrasladoInterface {
   "fechaAsignacion": Date;
   "fechaEstimada": Date;
+  "fechaVencimientoProductos": Date;
   "fechaFin": Date;
   "estado": string;
   "tipo": string;
@@ -76,6 +78,11 @@ export class Traslado implements TrasladoInterface {
           name: 'fechaEstimada',
           type: 'Date'
         },
+        "fechaVencimientoProductos": {
+          name: 'fechaVencimientoProductos',
+          type: 'Date',
+          default: new Date('December 17, 2003 03:24:00')
+        },
         "fechaFin": {
           name: 'fechaFin',
           type: 'Date'
@@ -112,7 +119,7 @@ export class Traslado implements TrasladoInterface {
         "fechaVencimientoInvitacion": {
           name: 'fechaVencimientoInvitacion',
           type: 'Date',
-          default: new Date(0)
+          default: new Date('December 17, 2003 03:24:00')
         },
         "id": {
           name: 'id',
