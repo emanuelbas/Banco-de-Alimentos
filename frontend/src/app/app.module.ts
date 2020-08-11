@@ -54,6 +54,7 @@ import { StockVentanaPrincipalComponent } from './modules/admin/stock/stock-vent
 import { StockCargarProductoIndividualComponent } from './modules/admin/stock/stock-cargar-producto-individual/stock-cargar-producto-individual.component';
 import { StockCargarProductosDonacionComponent } from './modules/admin/stock/stock-cargar-productos-donacion/stock-cargar-productos-donacion.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -107,7 +108,8 @@ import { StockCargarProductosDonacionComponent } from './modules/admin/stock/sto
     ReactiveFormsModule,
     SDKBrowserModule.forRoot(),
     MatTabsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent],
   providers: [MockStockService,InsigniasService,DataApiService, LbStockService]
