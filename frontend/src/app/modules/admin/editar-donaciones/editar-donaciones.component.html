@@ -1,0 +1,95 @@
+<div class="card border-secondary mb-4 container mt-5" id="contenedor">
+    <div class="alert alert-dismissible alert-dark mt-3"> Editar donación</div>
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()" [formGroup]="formGeneral" class="container">
+            <div class="form-group">
+                <label for="labelNombre">Donante</label>
+                <input formControlName="fechaVto" type="text" class="form-control" id="inputFechaRetiro" value="Arcor" readonly>
+            </div>
+            <h5>Volumen de alimentos</h5>
+            <div class="form-row mt-4">
+                <div class="col mb-3">
+                    <label for="form-group">Alto</label>
+                    <div class="input-group ">
+                        <input formControlName="alto" type="text" class="form-control " id="inputAlto" placeholder="65">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend2">mts</span>
+                        </div>
+                    </div>
+                    <div *ngIf="alto.invalid && alto.touched">
+                        <small class="text-danger">Debe ingresar un alto</small>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <label for="form-group">Ancho</label>
+                    <div class="input-group">
+                        <input formControlName="ancho" type="text" class="form-control " id="inputAncho" placeholder="124">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend2">mts</span>
+                        </div>
+                    </div>
+                    <div *ngIf="ancho.invalid && ancho.touched">
+                        <small class="text-danger">Debe ingresar un ancho</small>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <label for="form-group">Largo</label>
+                    <div class="input-group ">
+                        <input formControlName="largo" type="text" class="form-control " id="inputLargo" placeholder="32">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend2">mts</span>
+                        </div>
+                    </div>
+                    <div *ngIf="largo.invalid && largo.touched">
+                        <small class="text-danger">Debe ingresar un largo</small>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <label for="form-group">Peso</label>
+                    <div class="input-group ">
+                        <input formControlName="peso" type="text" class="form-control " id="inputPeso" placeholder="10">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend2">kg</span>
+                        </div>
+                    </div>
+                    <div *ngIf="peso.invalid && peso.touched">
+                        <small class="text-danger">Debe ingresar un peso</small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="labelObservaciones">Caracteristicas generales de la donación</label>
+                <textarea formControlName="texto" class="form-control" id="inputObservaciones" rows="3"></textarea>
+                <div *ngIf="texto.invalid && texto.touched">
+                    <small class="text-danger">Debe ingresar una característica general</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="labelNombre">Fecha vencimiento del primer producto:</label>
+                <input formControlName="fechaVto" type="date" class="form-control" id="inputFechaRetiro" min="{{this.fechaActual | date: 'yyyy-MM-dd'}}">
+                <div *ngIf="alto.invalid && alto.touched">
+                    <small class="text-danger">Debe ingresar una fecha</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="labelNombre">Archivo:</label>
+                <input formControlName="archivo" type="file" class="form-control" id="archivo" >
+                <label for="labelNombre" class="font-italic">*De manera opcional, puede subir un archivo que contenga el listado de los alimentos que se incluyen en la donación.</label>
+            </div>
+            <div class="form-group">
+                <label for="labelNombre">Donacion enviada por el propio donante:</label>
+                <span class="ml-2">
+                    <input type="checkbox" clas="ml-4" id="enviaDonante" name="enviaDonante">
+                </span>
+               
+                <br>
+                <label for="labelNombre" class="font-italic">Si tilda esta opción significa que, el mismo donante, acercará por sus propios medios la donación al Banco Alimentario.</label>
+            </div>
+            <div class="form-group text-center mt-5">
+                <button class="btn btn-dark" type="submit" change="seleccionarArchivo($event)">Guardar</button>
+                <a routerLink="/home" class="ml-2 btn btn-dark">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+

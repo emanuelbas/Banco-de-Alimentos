@@ -53,7 +53,8 @@ import { DataApiService } from './_services/data-api.service';
 import { StockVentanaPrincipalComponent } from './modules/admin/stock/stock-ventana-principal/stock-ventana-principal.component';
 import { StockCargarProductoIndividualComponent } from './modules/admin/stock/stock-cargar-producto-individual/stock-cargar-producto-individual.component';
 import { StockCargarProductosDonacionComponent } from './modules/admin/stock/stock-cargar-productos-donacion/stock-cargar-productos-donacion.component';
-
+import { BuscarDonacionesComponent } from './modules/admin/buscar-donaciones/buscar-donaciones.component';
+import { EditarDonacionesComponent } from './modules/admin/editar-donaciones/editar-donaciones.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,9 @@ import { StockCargarProductosDonacionComponent } from './modules/admin/stock/sto
     NuevoEnvioVolumenComponent,
     StockVentanaPrincipalComponent,
     StockCargarProductoIndividualComponent,
-    StockCargarProductosDonacionComponent
+    StockCargarProductosDonacionComponent,
+    BuscarDonacionesComponent,
+    EditarDonacionesComponent
   ],
   imports: [
     FontAwesomeModule,
