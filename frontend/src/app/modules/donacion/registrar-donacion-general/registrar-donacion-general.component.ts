@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TrasladoApi, DonanteApi, DonacionApi, DescripcionGeneralApi} from '../../../_services/lbservice/services';
 import { Donante, Donacion, DescripcionGeneral, Traslado } from '../../../_services/lbservice/models';  
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, CheckboxRequiredValidator } from '@angular/forms';
 import { BALP } from '../../../_models/BALP';
 import { AddressConverter } from '../../../_models/AddressConverter'
 import { Validators } from '@angular/forms';
@@ -71,9 +71,21 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
       let idDonante = this.donanteApi.getCachedCurrent().id;
 
       donacion.idDonante = idDonante;
-      donacion.estado = 'nueva';
+    //  donacion.estado = 'nueva';
       donacion.tipoDescripcion = 'general';
-
+      // Se consulta si la donación es llevada por propio donante o si queda sin asignar
+      var element = <HTMLInputElement> document.getElementById("enviaDonante");
+      var isChecked = element.checked;
+      if (isChecked) {
+            //alert("se selecciono chequed");
+            //traslado.estado = 'Donación transportada por el donante';
+            donacion.estado = 'Donación transportada por el propio donante';
+            console.log(donacion.estado);
+      } else {
+            // alert("no se selecciono checked");
+            donacion.estado = 'Sin asignar';
+            console.log(donacion.estado);
+       }
       this.donacionApi.count().subscribe((numero)=>{
           donacion.numero = numero.count;
           this.donacionApi.create(donacion).subscribe((donacionCreada:Donacion)=>{
@@ -86,7 +98,10 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
             traslado.peso= peso;
             traslado.fechaVencimientoProductos = fechaVto;
             traslado.fechaEstimada= fechaVto; //Hay que borrarla en algun momento
-            
+
+
+
+
             this.trasladoApi.create(traslado).subscribe(()=>{
               
               //De legado

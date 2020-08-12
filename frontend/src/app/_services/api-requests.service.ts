@@ -55,7 +55,8 @@ export class ApiRequestsService {
                     donacion.id,
                     donacion.numero,
                     donacion.descripcionGeneral.descripcion,
-                    'Sin asignar',
+                    donacion.estado,
+                    //'Sin asignar',
                     donacion.traslado.fechaEstimada
                   ];
                   datosDeDonaciones.push(tupla);
@@ -79,7 +80,8 @@ export class ApiRequestsService {
                     donacion.id,
                     donacion.numero,
                     donacion.descripcionDetallada.descripcion,
-                    'Sin asignar',
+                    donacion.estado,
+                    //'Sin asignar',
                     donacion.traslado.fechaEstimada
                   ];
                   datosDeDonaciones.push(tupla);

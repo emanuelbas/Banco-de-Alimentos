@@ -73,6 +73,15 @@
                 <input formControlName="archivo" type="file" class="form-control" id="archivo" >
                 <label for="labelNombre" class="font-italic">*De manera opcional, puede subir un archivo que contenga el listado de los alimentos que se incluyen en la donación.</label>
             </div>
+            <div class="form-group">
+                <label for="labelNombre">Envío la donación por mis propios medios:</label>
+                <span class="ml-2">
+                    <input type="checkbox" clas="ml-4" id="enviaDonante" name="enviaDonante">
+                </span>
+               
+                <br>
+                <label for="labelNombre" class="font-italic">Si tilda esta opción significa que, como donante, acercaré por mi cuenta la donación al Banco Alimentario.</label>
+            </div>
             <div class="form-group text-center mt-5">
                 <button class="btn btn-dark" type="submit" change="seleccionarArchivo($event)">Guardar</button>
                 <a routerLink="/home" class="ml-2 btn btn-dark">Cancelar</a>
