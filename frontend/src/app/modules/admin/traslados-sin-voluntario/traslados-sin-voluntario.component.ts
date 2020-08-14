@@ -29,6 +29,7 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 			//ordenar arreglo
 			arr.sort((b,a)=>{return b[6].fechaVencimientoProductos - a[6].fechaVencimientoProductos});
 			this.traslados =arr;
+			console.log(this.traslados);
 		})
 	
 		this.fechaDeHoy = new Date()
@@ -50,6 +51,10 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 
 		this.trasladoAEditar = traslado[6];
 		this.form.setValue({descripcion: this.trasladoAEditar.descripcion});
+		this.form.setValue({peso: this.trasladoAEditar.peso});
+		this.form.setValue({volumenTotal: this.trasladoAEditar.volumenTotal});
+		this.form.setValue({peso: this.trasladoAEditar.fechaVencimientoProductos}); 
+
 	}
 	onConfirmarCancelacionDeTraslado(){
 		this.apiTraslado.patchAttributes(this.abortarTraslado.id,{estado:"abortado"}).subscribe(()=>{this.requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})})

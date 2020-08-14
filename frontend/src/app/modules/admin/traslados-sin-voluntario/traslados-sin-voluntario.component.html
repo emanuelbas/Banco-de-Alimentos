@@ -23,14 +23,21 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Editar la descripción del traslado</h5>
+                <h5 class="modal-title">Editar la información del traslado</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
             <form [formGroup]="form">
-                <textarea class="form-control" formControlName="descripcion">this.trasladoAEditar.descripcion</textarea>
+                <label class="" for="">Descripción</label>
+                <input type="text" class="form-control" formControlName="descripcion" value="{{this.trasladoAEditar.descripcion}}">
+                <label class="mt-1" for="">Peso</label>
+                <input type="text" class="form-control" formControlName="peso" value="{{this.trasladoAEditar.peso}}">
+                <label class="mt-1" for="">Volumen total</label>
+                <input type="text" class="form-control" formControlName="volumenTotal" value="{{this.trasladoAEditar.volumenTotal}}">
+                <label class="mt-1" for="">Fecha de vencimiento del primer producto</label>
+                <input type="date" class="form-control" formControlName="peso" value="{{this.trasladoAEditar.fechaVencimientoProductos | date: 'yyyy-MM-dd'}}">      
             </form>
             </div>
             <div class="modal-footer">
@@ -58,15 +65,17 @@
                             <th scope="col">Descripción</th>
                             <th scope="col">Origen</th>
                             <th scope="col">Destino</th>
+                            <th scope="col">Peso</th>
                             <th scope="col">Fecha de vencimiento</th>
                             <th scope="col">Opciones</th>
                         </tr>
                     </thead>
                     <tbody *ngFor="let traslado of traslados| paginate: { itemsPerPage: 10, currentPage: p }" class="text-center">
                         <tr [style.background]="(traslado[7].getTime() > this.fechaDeHoy)? '#cfffcf':'#ffcbc9'"  class="bg-notificar">
-                            <td title="{{traslado[4]}}"><p class="text">{{traslado[4]}}</p></td>
+                            <td>{{traslado[4]}}</td>
                             <td>{{traslado[0]}}</td>
                             <td>{{traslado[1]}}</td>
+                            <td>{{traslado[6].peso}}</td>
                             <td>{{traslado[6].fechaVencimientoProductos | date: 'dd/MM/yyyy hh:mm'}}</td>
                             <td>
                             	<button (click)="this.buscarVoluntariosParaTraslado(traslado);" class="" title="Buscar voluntarios" >🔍</button>
