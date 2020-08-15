@@ -69,7 +69,7 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 			this.trasladoAEditar.peso = this.form.get("peso").value;
 			this.trasladoAEditar.descripcion = this.form.get("descripcion").value
 			this.trasladoAEditar.volumenTotal = this.form.get("volumenTotal").value
-			this.trasladoAEditar.fechaVencimientoProductos = this.form.get("fechaVencimientoProductos").value;
+			this.trasladoAEditar.fechaVencimientoProductos = this.form.get("fechaVencimientoProductos").value
 		
 			this.apiTraslado.patchAttributes(this.trasladoAEditar.id,{
 				descripcion:this.trasladoAEditar.descripcion,peso:this.trasladoAEditar.peso,fechaVencimientoProductos:this.trasladoAEditar.fechaVencimientoProductos,volumenTotal:this.trasladoAEditar.volumenTotal}).subscribe(()=>{this.requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})})
