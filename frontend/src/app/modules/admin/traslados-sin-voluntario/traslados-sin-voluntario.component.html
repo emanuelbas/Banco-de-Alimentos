@@ -93,7 +93,7 @@
                             <td>{{traslado[6].fechaVencimientoProductos | date: 'dd/MM/yyyy hh:mm'}}</td>
                             <td>
                             	<button (click)="this.buscarVoluntariosParaTraslado(traslado);" class="" title="Buscar voluntarios" >🔍</button>
-                                <button  data-toggle="modal" data-target="#modalEditarTraslado" (click)="this.editarTraslado(traslado);" class="" title="Editar descripción" >✏️</button>
+                                <button  data-toggle="modal" data-target="#modalEditarTraslado" (click)="this.editarTraslado(traslado[6]);" class="" title="Editar descripción" >✏️</button>
                                 <button data-toggle="modal" data-target="#modalCancelarTraslado"  (click)="this.cancelarTraslado(traslado[6]);" class="" title="Cancelar traslado" >❌</button>
                             </td>
                         </tr>                  

@@ -52,11 +52,11 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 	}
 	editarTraslado(traslado){
 
-		this.trasladoAEditar = traslado[6];
-		this.form.setValue({descripcion: this.trasladoAEditar.descripcion});
-		this.form.setValue({peso: this.trasladoAEditar.peso});
-		this.form.setValue({volumenTotal: this.trasladoAEditar.volumenTotal});
-		this.form.setValue({fechaVencimientoProductos: this.trasladoAEditar.fechaVencimientoProductos}); 
+		this.trasladoAEditar = traslado;
+		this.form.setValue({descripcion: traslado.descripcion});
+		this.form.setValue({peso: traslado.peso});
+		this.form.setValue({volumenTotal: traslado.volumenTotal});
+		this.form.setValue({fechaVencimientoProductos: traslado.fechaVencimientoProductos}); 
 		
 	}
 	onConfirmarCancelacionDeTraslado(){
@@ -67,10 +67,9 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 	
 			
 			this.trasladoAEditar.peso = this.form.get("peso").value;
-			this.trasladoAEditar.descripcion = this.form.get("descripcion").value
-			this.trasladoAEditar.volumenTotal = this.form.get("volumenTotal").value
-			this.trasladoAEditar.fechaVencimientoProductos = this.form.get("fechaVencimientoProductos").value
-		
+			this.trasladoAEditar.descripcion = this.form.get("descripcion").value;
+			this.trasladoAEditar.volumenTotal = this.form.get("volumenTotal").value;
+			this.trasladoAEditar.fechaVencimientoProductos = new Date(this.form.get("fechaVencimientoProductos").value+'T00:00:00');
 			this.apiTraslado.patchAttributes(this.trasladoAEditar.id,{
 				descripcion:this.trasladoAEditar.descripcion,peso:this.trasladoAEditar.peso,fechaVencimientoProductos:this.trasladoAEditar.fechaVencimientoProductos,volumenTotal:this.trasladoAEditar.volumenTotal}).subscribe(()=>{this.requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})})
 				
