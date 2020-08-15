@@ -32,12 +32,24 @@
             <form [formGroup]="form">
                 <label class="" for="">Descripción</label>
                 <input type="text" class="form-control" formControlName="descripcion" value="{{this.trasladoAEditar.descripcion}}">
+                <div *ngIf="descripcion.invalid && descripcion.touched">
+                    <small class="text-danger">Debe ingresar una descripción</small>
+                </div>
                 <label class="mt-1" for="">Peso</label>
                 <input type="text" class="form-control" formControlName="peso" value="{{this.trasladoAEditar.peso}}">
+                <div *ngIf="peso.invalid && peso.touched">
+                    <small class="text-danger">Debe ingresar un peso</small>
+                </div>
                 <label class="mt-1" for="">Volumen total</label>
                 <input type="text" class="form-control" formControlName="volumenTotal" value="{{this.trasladoAEditar.volumenTotal}}">
+                <div *ngIf="volumenTotal.invalid && volumenTotal.touched">
+                    <small class="text-danger">Debe ingresar un volumen total</small>
+                </div>
                 <label class="mt-1" for="">Fecha de vencimiento del primer producto</label>
-                <input type="date" class="form-control" formControlName="peso" value="{{this.trasladoAEditar.fechaVencimientoProductos | date: 'yyyy-MM-dd'}}">      
+                <input type="date" class="form-control" formControlName="fechaVencimientoProductos" value="{{this.trasladoAEditar.fechaVencimientoProductos | date: 'yyyy-MM-dd'}}">   
+                <div *ngIf="fechaVencimientoProductos.invalid && fechaVencimientoProductos.touched">
+                    <small class="text-danger">Debe ingresar una fecha de vencimiento</small>
+                </div>
             </form>
             </div>
             <div class="modal-footer">
@@ -66,6 +78,7 @@
                             <th scope="col">Origen</th>
                             <th scope="col">Destino</th>
                             <th scope="col">Peso</th>
+                            <th scope="col">Volumen</th>
                             <th scope="col">Fecha de vencimiento</th>
                             <th scope="col">Opciones</th>
                         </tr>
@@ -76,6 +89,7 @@
                             <td>{{traslado[0]}}</td>
                             <td>{{traslado[1]}}</td>
                             <td>{{traslado[6].peso}}</td>
+                            <td>{{traslado[6].volumenTotal}}</td>
                             <td>{{traslado[6].fechaVencimientoProductos | date: 'dd/MM/yyyy hh:mm'}}</td>
                             <td>
                             	<button (click)="this.buscarVoluntariosParaTraslado(traslado);" class="" title="Buscar voluntarios" >🔍</button>

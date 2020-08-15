@@ -2,14 +2,19 @@
 <div class="container" style="padding-bottom: 20%" >
   <div class="row text-center">
     <div class="col pb-2">
+       
     	<div (click)="router.navigate(['/traslados-pendientes']);" class=" container p-3 border rounded-lg bg-dark" title="Ver los traslados pendientes de entrega" style="cursor: pointer;">
-                <span class='inline ' >
+            <div class="text-white mb-2">+ Ver traslados pendientes de entrega</div>  
+            <span class='inline mt-3' >
                     <fa-icon  class="" [icon]=faShippingFast size="8x" [fixedWidth]="true" [styles]="{'color': '#f94116'}"></fa-icon>
                 </span>
+                
         </div>
+        
     </div>
     <div (click)="router.navigate(['/registrar-envio']);" class="col pb-2" title="Crear un nuevo envio para beneficiario" style="cursor: pointer;">
     	<div class="container p-3 border rounded-lg bg-dark">
+            <div class="text-white mb-2">+ Crear envio para beneficiario</div>  
                 <span class='inline' >
                     <fa-icon  class="" [icon]=faDolly size="8x" [fixedWidth]="true" [styles]="{'color': '#f94116'}"></fa-icon>
                 </span>
@@ -17,6 +22,7 @@
     </div>
     <div (click)="router.navigate(['/traslados-sin-voluntario']);" class="col pb-2" title="Ver traslados sin voluntario asignado" style="cursor: pointer;">
     	<div class="container p-3 border rounded-lg bg-dark">
+            <div class="text-white mb-2">+ Ver traslados sin voluntario asignado</div>  
                 <span class='inline '>
                     <fa-icon  class="" [icon]=faUserClock size="8x" [fixedWidth]="true" [styles]="{'color': '#f94116'}"></fa-icon>
                 </span>
@@ -25,6 +31,7 @@
     <div class="w-100"></div>
     <div (click)="router.navigate(['/ver-stock']);" class="col"  title="Ver stock" style="cursor: pointer;"  >
     	<div class="container p-3 border rounded-lg bg-dark">
+            <div class="text-white mb-2">+ Ver stock</div>  
                 <span class='inline' >
                     <fa-icon  class="" [icon]=faCubes size="8x" [fixedWidth]="true" [styles]="{'color': '#f94116'}"></fa-icon>
                 </span>
@@ -32,6 +39,7 @@
     </div>
     <div (click)="router.navigate(['/RUTA']);" class="col"  title="Opciones de seguridad">
     	<div class="container p-3 border rounded-lg bg-dark">
+            <div class="text-white mb-2">+ Opciones de seguridad</div>  
                 <span class='inline ' >
                     <fa-icon  class="" [icon]=faKey size="8x" [fixedWidth]="true" [styles]="{'color': '#f94116'}"></fa-icon>
                 </span>

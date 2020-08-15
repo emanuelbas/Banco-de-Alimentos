@@ -35,9 +35,12 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 		this.fechaDeHoy = new Date()
 
 		    this.form = new FormGroup({
-				descripcion: new FormControl('', []),
+				descripcion: new FormControl('', [Validators.required]),
+				peso: new FormControl('', [Validators.required]),
+				volumenTotal: new FormControl('', [Validators.required]),
+				fechaVencimientoProductos: new FormControl('', [Validators.required]),
         	});
-			 } //Fin constructor
+	 } //Fin constructor
 
 	buscarVoluntariosParaTraslado(traslado){
 		let ruta = '/buscar-voluntarios/'+traslado[6].id+'/'+encodeURIComponent(traslado[0])+'/'+encodeURIComponent(traslado[1]);
@@ -53,16 +56,45 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 		this.form.setValue({descripcion: this.trasladoAEditar.descripcion});
 		this.form.setValue({peso: this.trasladoAEditar.peso});
 		this.form.setValue({volumenTotal: this.trasladoAEditar.volumenTotal});
-		this.form.setValue({peso: this.trasladoAEditar.fechaVencimientoProductos}); 
-
+		this.form.setValue({fechaVencimientoProductos: this.trasladoAEditar.fechaVencimientoProductos}); 
+		
 	}
 	onConfirmarCancelacionDeTraslado(){
 		this.apiTraslado.patchAttributes(this.abortarTraslado.id,{estado:"abortado"}).subscribe(()=>{this.requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})})
 	}
+
 	onGuardarCambiosTraslado(){
-		this.trasladoAEditar.descripcion = this.form.get("descripcion").value;
-		this.apiTraslado.patchAttributes(this.trasladoAEditar.id,{descripcion:this.trasladoAEditar.descripcion}).subscribe(()=>{this.requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})})
+	
+			
+			this.trasladoAEditar.peso = this.form.get("peso").value;
+			this.trasladoAEditar.descripcion = this.form.get("descripcion").value
+			this.trasladoAEditar.volumenTotal = this.form.get("volumenTotal").value
+			this.trasladoAEditar.fechaVencimientoProductos = this.form.get("fechaVencimientoProductos").value;
+		
+			this.apiTraslado.patchAttributes(this.trasladoAEditar.id,{
+				descripcion:this.trasladoAEditar.descripcion,peso:this.trasladoAEditar.peso,fechaVencimientoProductos:this.trasladoAEditar.fechaVencimientoProductos,volumenTotal:this.trasladoAEditar.volumenTotal}).subscribe(()=>{this.requester.getAllTrasladosSinVoluntario().then(arr => {this.traslados =arr;console.log(arr)})})
+				
+
+	
 	}
+
+	get peso() {
+		return this.form.get('peso')
+	}
+
+	get descripcion() {
+		return this.form.get('descripcion')
+	}
+
+	get volumenTotal() {
+		return this.form.get('volumenTotal')
+	}
+
+	get fechaVencimientoProductos() {
+		return this.form.get('fechaVencimientoProductos')
+	}
+
+
 	ngOnInit() {
     this.data.cambiarTitulo("Traslados sin vouluntario");
 
