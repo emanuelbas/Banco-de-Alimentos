@@ -26,10 +26,7 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 
 	constructor(private data:DataShareService, private requester: ApiRequestsService, private router:Router,private service: VoluntariosService,private apiBeneficiario: BeneficiarioApi,private apiEnvio:EnvioParaBeneficiarioApi ,private apiDescGeneral: DescripcionGeneralApi, private apiUbicacion:UbicacionApi, private apiDonante:DonanteApi, private apiDonacion:DonacionApi,public _location: Location, private apiTraslado: TrasladoApi) {
 		requester.getAllTrasladosSinVoluntario().then(arr => {
-			//ordenar arreglo
-			arr.sort((b,a)=>{return b[6].fechaVencimientoProductos - a[6].fechaVencimientoProductos});
-			this.traslados =arr;
-			console.log(this.traslados);
+			this.traslados =arr;	
 		})
 	
 		this.fechaDeHoy = new Date()
