@@ -57,7 +57,8 @@ export class ApiRequestsService {
                   donacion.descripcionGeneral.descripcion,
                   donacion.estado,
                   //'Sin asignar',
-                  donacion.traslado.fechaEstimada
+                  donacion.traslado.fechaEstimada,
+                  donacion.traslado
                 ];
                 datosDeDonaciones.push(tupla);
               } else {
@@ -67,7 +68,8 @@ export class ApiRequestsService {
                     donacion.numero,
                     donacion.descripcionGeneral.descripcion,
                     voluntario.nombre + ' ' + voluntario.apellido,
-                    donacion.traslado.fechaEstimada
+                    donacion.traslado.fechaEstimada,
+                    donacion.traslado
                   ];
                   datosDeDonaciones.push(tupla);
                 }) //voluntario
@@ -82,7 +84,8 @@ export class ApiRequestsService {
                     donacion.descripcionDetallada.descripcion,
                     donacion.estado,
                     //'Sin asignar',
-                    donacion.traslado.fechaEstimada
+                    donacion.traslado.fechaEstimada,
+                    donacion.traslado
                   ];
                   datosDeDonaciones.push(tupla);
                 } else {
@@ -92,7 +95,8 @@ export class ApiRequestsService {
                       donacion.numero,
                       donacion.descripcionDetallada.descripcion,
                       voluntario.nombre + ' ' + voluntario.apellido,
-                      donacion.traslado.fechaEstimada
+                      donacion.traslado.fechaEstimada,
+                      donacion.traslado
                     ];
                     datosDeDonaciones.push(tupla);
                   }) //voluntario
