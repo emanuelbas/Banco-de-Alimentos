@@ -12,6 +12,7 @@
                             <th scope="col">Descripción</th>
                             <th scope="col">Asignado a (Voluntario)</th>
                             <th scope="col">Fecha de traslado</th>
+                            <th scope="col">Opciones</th>
                         </tr>
                     </thead>
                     <tbody *ngFor="let donacion of datosDeDonaciones| paginate: { itemsPerPage: 10, currentPage: p }" class="text-center">
@@ -20,6 +21,9 @@
                             <td>{{donacion[2]}}</td>
                             <td>{{donacion[3]}}</td>
                             <td>{{donacion[4] | date: 'dd/MM/yyyy hh:mm' }}</td>
+                            <td>
+                                <button *ngIf="donacion[3]=='nueva'" (click)="this.cancelarDonacion(donacion);" title="Cancelar donacion" >❌</button>
+                            </td>
                         </tr>                  
                     </tbody>
                 </table>

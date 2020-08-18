@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Donacion, Donante, DescripcionGeneral, Traslado, Voluntario } from '../../../_services/lbservice/models'
-import { DonacionApi, DonanteApi } from '../../../_services/lbservice/services'
+import { DonacionApi, DonanteApi, TrasladoApi } from '../../../_services/lbservice/services'
 import {Location} from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiRequestsService} from '../../../_services/api-requests.service';
@@ -18,13 +18,18 @@ export class MisDonacionesComponent implements OnInit {
 	loggedDonante : Donante;
 	public p:any;
 
-	constructor(private data:DataShareService, private requester:ApiRequestsService,private _location: Location,apiDonante:DonanteApi,public route: ActivatedRoute, public router: Router) {
+	constructor(public apiDonacion: DonacionApi,public apiTraslado: TrasladoApi, private data:DataShareService, private requester:ApiRequestsService,private _location: Location,apiDonante:DonanteApi,public route: ActivatedRoute, public router: Router) {
 		this.loggedDonante = apiDonante.getCachedCurrent();
 		requester.getAllDonacionesOf(this.loggedDonante.id).then(ans => this.datosDeDonaciones = ans);
 	}
 
 	ngOnInit() {
 		this.data.cambiarTitulo("Mis donaciones");
+	}
+
+	cancelarDonacion(donacion){
+		this.apiTraslado.patchAttributes(donacion[5].id,{estado:"abortado"}).subscribe(()=>{this.requester.getAllDonacionesOf(this.loggedDonante.id).then(ans => this.datosDeDonaciones = ans);})
+		this.apiDonacion.patchAttributes(donacion[0],{estado:"abortado"}).subscribe(()=>{this.requester.getAllDonacionesOf(this.loggedDonante.id).then(ans => this.datosDeDonaciones = ans);})
 	}
 
 }
