@@ -8,7 +8,7 @@
                 <table class="table table-hover table-bordered table-center">
                     <thead>
                         <tr class="text-center">
-                            <th scope="col">id</th>
+                    <!--  <th scope="col">id</th> -->
                             <th scope="col">Descripción</th>
                             <th scope="col">Asignado a (Voluntario)</th>
                             <th scope="col">Fecha de traslado</th>
@@ -17,7 +17,7 @@
                     </thead>
                     <tbody *ngFor="let donacion of datosDeDonaciones| paginate: { itemsPerPage: 10, currentPage: p }" class="text-center">
                         <tr>
-                            <td>{{donacion[1]}}</td>
+                       <!-- <td>{{donacion[1]}}</td> -->
                             <td>{{donacion[2]}}</td>
                             <td>{{donacion[3]}}</td>
                             <td>{{donacion[4] | date: 'dd/MM/yyyy hh:mm' }}</td>
@@ -29,8 +29,9 @@
                 </table>
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
             <div class="form-group text-center mt-5">
-                <button class="btn btn-orange mr-4" (click)="this.router.navigate(['/home']);">Salir</button>              
+                <button class="btn btn-orange mr-4" (click)="this.router.navigate(['/home']);">Volver</button>              
             </div>
         </div>
     </div>
 </div>
+
