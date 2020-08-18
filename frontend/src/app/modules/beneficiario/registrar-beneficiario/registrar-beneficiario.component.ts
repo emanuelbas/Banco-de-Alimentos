@@ -90,7 +90,7 @@ export class RegistrarBeneficiarioComponent implements OnInit {
 
 
 	ngOnInit() {
-    this.data.cambiarTitulo("");
+    this.data.cambiarTitulo("Registro del beneficiario");
 		document.getElementById('navbar').classList.add('beneficiario-color');		
 	}
 

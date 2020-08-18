@@ -45,7 +45,7 @@ const routes: Routes = [
 	{path:'mis-donaciones',component:MisDonacionesComponent, canActivate:[DonanteGuard]},
 	{path:'registrar-donacion-detallada',component:RegistarDonacionDetalladaComponent, canActivate:[DonanteGuard]},
 	{path:'registrar-donacion-general',component:RegistrarDonacionGeneralComponent, canActivate:[DonanteGuard]},
-	{path:'registrar-beneficiario',component:RegistrarBeneficiarioComponent},
+	{path:'registrar-beneficiario',component:RegistrarBeneficiarioComponent, canActivate:[AdminGuard]},
 	{path:'registrar-voluntario',component:RegistrarVoluntarioComponent},
 	{path:'login',component:LoginComponent},
 	{path:'perfil-voluntario',component:PerfilVoluntarioComponent, canActivate:[VoluntarioGuard]},
