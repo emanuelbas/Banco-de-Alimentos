@@ -73,13 +73,12 @@
 		</div>
 	
 	
-		<div class="form-group text-center">
-			<a routerLink="/home" class="btn mr-2" style="background-color: #f94116; color:white">Cancelar</a>
-			<button [disabled]="!registrarBeneficiario.valid" class="btn btn-primary ml-2" type="submit">Guardar</button>
+		<div class="card-header text-center p-3 mt-4 mb-4">		
+			<button [disabled]="!registrarBeneficiario.valid" class="btn btn-orange ml-2" type="submit">Guardar</button>
 			<!-- <div *ngIf="!registrarBeneficiario.valid">
 						<small class="text-danger">Aun no se puede registrar el beneficiario, hay campos invalidos, o requeridos sin completar</small>
 					</div> -->
-	
+			<a routerLink="/panel-de-control" class="ml-2 btn btn-orange">Volver</a>
 		</div>
 	</section>
 </form>

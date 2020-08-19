@@ -51,9 +51,10 @@
 
 
 		<br><br><br>
-
-		<button class="btn btn-dark" (click)="submitProduct(false)" [disabled]="!form.valid" >Agregar</button>
-		<button class="btn btn-dark ml-1" (click)="submitProduct(true)" [disabled]="!form.valid">Agregar y salir</button>
-
+	<section class="card-header text-center p-3 mt-4 mb-4">	
+		<button class="btn btn-orange" (click)="submitProduct(false)" [disabled]="!form.valid" >Agregar</button>
+		<button class="btn btn-orange ml-2" (click)="submitProduct(true)" [disabled]="!form.valid">Agregar y salir</button>		
+		<a routerLink="/ver-stock" class="ml-2 btn btn-orange">Volver</a>
+	</section>
 	</form> 
 </div>

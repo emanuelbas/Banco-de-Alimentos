@@ -79,7 +79,7 @@
 				</div>
 			</div>
 
-			<button class="btn btn-dark" (click)="submitAll(seleccionado)" >Agregar productos al stock y desarmar donación</button>
+			<button class="btn btn-orange" (click)="submitAll(seleccionado)" >Agregar productos al stock y desarmar donación</button>
 
 		</div>
 	</div>
@@ -146,8 +146,11 @@
 
 				<br><br><br>
 
-				<button class="btn btn-dark" (click)="submitProduct()" [disabled]="!form.valid">Agregar</button>
-
+				
+				<section class="card-header text-center p-3 mt-4 mb-4">
+					<button class="btn btn-orange" (click)="submitProduct()" [disabled]="!form.valid">Agregar</button>
+					<a type="button" class="btn btn-orange text-center ml-2" routerLink='/panel-de-control'>Volver</a>
+				</section>	
 			</form> 
 		</div>
 	</div>
