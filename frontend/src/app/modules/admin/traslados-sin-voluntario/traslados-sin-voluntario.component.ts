@@ -92,7 +92,7 @@ export class TrasladosSinVoluntarioComponent implements OnInit {
 
 
 	ngOnInit() {
-    this.data.cambiarTitulo("Traslados sin vouluntario");
+    this.data.cambiarTitulo("Traslados sin voluntario");
 
 	}
 

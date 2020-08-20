@@ -36,6 +36,10 @@ export class RegistrarBeneficiarioComponent implements OnInit {
 
 	}
 
+	ngOnInit() {
+    this.data.cambiarTitulo("Registro del beneficiario");
+	}
+
 	onSubmit() {
 		if (this.registrarBeneficiario.valid) {
 			this.nuevoBeneficiario = new Beneficiario();
@@ -88,10 +92,5 @@ export class RegistrarBeneficiarioComponent implements OnInit {
 		return this.registrarBeneficiario.get('passwordConfirm')
 	}			
 
-
-	ngOnInit() {
-    this.data.cambiarTitulo("Registro del beneficiario");
-		document.getElementById('navbar').classList.add('beneficiario-color');		
-	}
 
 }
