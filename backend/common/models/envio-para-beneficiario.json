@@ -9,8 +9,8 @@
   "properties": {
     "tipo": {
       "type": "string",
-      "default": "a partir de stock",
-      "required": true
+      "required": true,
+      "default": "a partir de stock"
     }
   },
   "validations": [],
