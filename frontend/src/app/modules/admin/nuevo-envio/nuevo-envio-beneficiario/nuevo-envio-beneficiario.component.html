@@ -1,0 +1,104 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="formEnvio" class="container w-75">
+	<section>
+		<nav>
+			<div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+				<h4 class="font-josefine">
+					<a class="nav-link pointer active" id="navEnviarDonacion"
+						onclick="toggleClasses(enviarDonacion,enviarStock,['show','active']); toggleClasses(navEnviarDonacion,navEnviarStock,['active'])">
+						A partir de una donación..
+					</a>
+				</h4>
+				<h4 class="font-josefine">
+					<a class="nav-link pointer" id="navEnviarStock"
+						onclick="toggleClasses(enviarStock,enviarDonacion,['show','active']); toggleClasses(navEnviarStock,navEnviarDonacion,['active'])">
+						A partir de stock..
+					</a>
+				</h4>
+			</div>
+		</nav>
+
+		<div class="overflow-auto w-75 mx-auto tab-content border rounded" id="nav-tabContent"
+			style='height: 250px'>
+			<div class="tab-pane fade show active" id="enviarDonacion" role="tabpanel">
+				<app-nuevo-envio-seleccionar-donacion (enviarIdDonacion)="onEnviarIdDonacion($event)">
+				</app-nuevo-envio-seleccionar-donacion>
+			</div>
+			<div class="tab-pane fade" id="enviarStock" role="tabpanel">
+				<app-nuevo-envio-a-partir-de-stock (enviarProductos)="onEnviarProductosDelStock($event)">
+				</app-nuevo-envio-a-partir-de-stock>
+			</div>
+		</div>
+
+
+	</section>
+
+	<div class="mt-4 d-flex align-items-center justify-content-around">
+			<div>
+				<label class="mr-2 font-weight-bold h5">Seleccione el beneficiario:</label>
+				<mat-form-field appearance="fill" id="select" class="selectpicker">
+					<mat-label>Beneficiarios</mat-label>
+					<mat-select [(value)]="beneficiarioSeleccionado">
+						<mat-option *ngFor="let unBeneficiario of beneficiarios" [value]="unBeneficiario.id" (click)="seleccionarBeneficiario(unBeneficiario.id) ">
+							{{unBeneficiario.username}}</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div>
+				<mat-checkbox class="ml-2 font-weight-bold h5" labelPosition="before" color="primary" formControlName="checkRetiraBeneficiario" id="retiraBeneficiario">¿El beneficiario retira la donación?</mat-checkbox>
+			</div>
+	</div>
+
+	<mat-divider></mat-divider>
+
+	<div class="d-flex align-items-center justify-content-center mt-4">
+		<label class="mr-2 font-weight-bold h5" for="descripcionGeneral">Descripción general del envio:</label>
+		<textarea class="form-control w-50 mb-2" id="descripcionGeneral" formControlName="descripcion" rows="2"></textarea>
+	</div>
+	<mat-divider></mat-divider>
+
+	<div class="d-flex align-items-center justify-content-center mt-4">
+		<label class="mr-2 font-weight-bold h5" for="descripcionGeneral">Fecha del 1<sup>er</sup> vencimiento</label>
+		<mat-form-field appearance="fill">
+			<mat-label>Selecciona una fecha</mat-label>
+			<input matInput [matDatepicker]="picker1" formControlName="fechaVencimiento" [min]="minDate">
+			<mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+			<mat-datepicker #picker1></mat-datepicker>
+		</mat-form-field>
+	</div>
+	<mat-divider></mat-divider>
+
+	<div class="mt-5">
+		<p class="font-weight-bold h4 text-center">Dimensiones y peso del envio:</p>
+		<table class="table mb-2">
+			<thead class="thead-dark">
+				<tr>
+					<th>Alto</th>
+					<th>Ancho</th>
+					<th>Largo</th>
+					<th>Peso</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<input formControlName="alto" type="text" class="form-control" id="inputAlto" placeholder="Metros de alto">
+					</td>
+					<td>
+						<input formControlName="ancho" type="text" class="form-control " id="inputAncho" placeholder="Metros de ancho">
+					</td>
+					<td>
+						<input formControlName="largo" type="text" class="form-control " id="inputLargo" placeholder="Metros de largo">
+					</td>
+					<td>
+						<input formControlName="peso" type="text" class="form-control " id="inputPeso" placeholder="Peso aprox. en kg">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="text-center my-4">
+		<button class="btn btn-dark mr-2" type="submit">Enviar</button>
+		<button class="btn btn-dark " (click)="this.router.navigate(['/panel-de-control']);">Cancelar</button>
+	</div>
+</form>

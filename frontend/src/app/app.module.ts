@@ -32,7 +32,6 @@ import { NuevoTrasladoComponent } from './modules/admin/nuevo-traslado/nuevo-tra
 import { SolicitudesTrasladoComponent } from './modules/voluntario/solicitudes-traslado/solicitudes-traslado.component';
 import { ConfirmarTrasladoRealizadoComponent } from './modules/beneficiario/confirmar-traslado-realizado/confirmar-traslado-realizado.component';
 import { AsignarTrasladoComponent } from './modules/voluntario/asignar-traslado/asignar-traslado.component';
-import { MatTabsModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NuevoEnvioPrincipalComponent } from './modules/admin/nuevo-envio/nuevo-envio-principal/nuevo-envio-principal.component';
 import { NuevoEnvioSeleccionarDonanteComponent } from './modules/admin/nuevo-envio/nuevo-envio-seleccionar-donante/nuevo-envio-seleccionar-donante.component';
@@ -55,6 +54,20 @@ import { StockCargarProductoIndividualComponent } from './modules/admin/stock/st
 import { StockCargarProductosDonacionComponent } from './modules/admin/stock/stock-cargar-productos-donacion/stock-cargar-productos-donacion.component';
 import { BuscarDonacionesComponent } from './modules/admin/buscar-donaciones/buscar-donaciones.component';
 import { EditarDonacionesComponent } from './modules/admin/editar-donaciones/editar-donaciones.component';
+import { NuevoEnvioBeneficiarioComponent } from './modules/admin/nuevo-envio/nuevo-envio-beneficiario/nuevo-envio-beneficiario.component';
+// Material Design
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material';
+
+
 
 @NgModule({
   declarations: [
@@ -99,7 +112,8 @@ import { EditarDonacionesComponent } from './modules/admin/editar-donaciones/edi
     StockCargarProductoIndividualComponent,
     StockCargarProductosDonacionComponent,
     BuscarDonacionesComponent,
-    EditarDonacionesComponent
+    EditarDonacionesComponent,
+    NuevoEnvioBeneficiarioComponent
   ],
   imports: [
     FontAwesomeModule,
@@ -112,10 +126,19 @@ import { EditarDonacionesComponent } from './modules/admin/editar-donaciones/edi
     SDKBrowserModule.forRoot(),
     MatTabsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatDividerModule,
+    MatDialogModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule
   ],
   bootstrap: [AppComponent],
-  providers: [MockStockService,InsigniasService,DataApiService, LbStockService]
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'es-AR'},MockStockService, InsigniasService, DataApiService, LbStockService]
 })
 export class AppModule { }
 
