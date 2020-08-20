@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Voluntario, VoluntarioApi, TrasladoApi, Traslado, Beneficiario, BeneficiarioApi, EnvioParaBeneficiarioApi, EnvioParaBeneficiario } from '../../../_services/lbservice/';
-import { Route } from '@angular/compiler/src/core';
+import { Voluntario, VoluntarioApi, TrasladoApi, BeneficiarioApi, EnvioParaBeneficiarioApi, EnvioParaBeneficiario } from '../../../_services/lbservice/';
 import { Router, ActivatedRoute } from '@angular/router';
 import {Location} from '@angular/common';
 import { DataShareService } from 'src/app/_services/data-share.service';
