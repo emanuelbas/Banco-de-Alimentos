@@ -40,9 +40,10 @@
 </div>
 
 
-
+<div class="container card border-secondary">
 <div class="table-box">
-	<div class=" tableFixHead">
+	<!-- <div class=" tableFixHead"> -->
+	<div class=""> 
 		<table class="table text-center">
 			<thead class="thead-dark">
 				<tr>
@@ -78,14 +79,17 @@
 				</tr>
 			</tbody>
 		</table>
+		<div class="card-header text-center p-3 mt-4 mb-4">
+			<button type="button" class="btn btn-orange text-center mr-2" (click)="irAAgregarDonacion()"> Agregar productos a partir de una donación </button>
+			<button type="button" class="btn btn-orange text-center mr-2" (click)="irAAgregarProducto()"> Agregar un producto</button>
+			<a routerLink="/panel-de-control" class="ml-2 btn btn-orange">Volver</a>
+		</div>
 	</div>
+
 </div>
 
 
 
-<div class="card-header text-center p-3 mt-4 mb-4">
-	<button type="button" class="btn btn-orange text-center mr-2" (click)="irAAgregarDonacion()"> Agregar productos a partir de una donación </button>
-	<button type="button" class="btn btn-orange text-center mr-2" (click)="irAAgregarProducto()"> Agregar un producto</button>
-	<a routerLink="/panel-de-control" class="ml-2 btn btn-orange">Volver</a>
+
 </div>
 <div class="espacio"></div>
