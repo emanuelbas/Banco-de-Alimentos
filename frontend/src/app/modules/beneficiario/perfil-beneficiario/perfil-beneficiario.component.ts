@@ -4,12 +4,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { BeneficiarioApi, UbicacionApi } from '../../../_services/lbservice/services';
 import { DataShareService } from 'src/app/_services/data-share.service';
 
-
-//Revisar si se usa
-import { FormGroup, FormControl } from '@angular/forms';
-import { Route } from '@angular/compiler/src/core';
-import { LoopBackConfig, BaseLoopBackApi } from '../../../_services/lbservice';
-
 @Component({
 	selector: 'app-perfil-beneficiario',
 	templateUrl: './perfil-beneficiario.component.html',

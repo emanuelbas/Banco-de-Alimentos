@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
-import { Donante, Voluntario } from '../../../_services/lbservice';
 import { ApiRequestsService} from '../../../_services/api-requests.service';
 import { DataShareService } from 'src/app/_services/data-share.service';
 

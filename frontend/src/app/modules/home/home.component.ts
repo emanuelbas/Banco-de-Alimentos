@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../../app.component'
 import { Router } from '@angular/router';
 import { UserApi } from '../../_services/lbservice';
 import { DataShareService } from 'src/app/_services/data-share.service';

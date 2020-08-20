@@ -4,7 +4,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Validators } from '@angular/forms';
 import { Donacion, DonacionApi, Producto, ProductoApi, TipoProducto, TipoProductoApi, Categoria, CategoriaApi } from '../../../../_services/lbservice';
 
-
 @Component({
   selector: 'app-stock-cargar-productos-donacion',
   templateUrl: './stock-cargar-productos-donacion.component.html',

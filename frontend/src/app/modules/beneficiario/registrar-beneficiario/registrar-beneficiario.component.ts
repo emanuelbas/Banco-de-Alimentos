@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-//Voy a usar el model que traje desde LB, tal vez haya que hacer una clase nueva en Angular
 import { Beneficiario, Ubicacion } from '../../../_services/lbservice/models';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
 import { BeneficiarioApi, UbicacionApi } from '../../../_services/lbservice/services';
 import { AddressConverter } from '../../../_models/AddressConverter';
-import { LoopBackConfig, BaseLoopBackApi } from '../../../_services/lbservice';
-import { Route } from '@angular/compiler/src/core';
 import { DataShareService } from 'src/app/_services/data-share.service';
 
 @Component({

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTabsModule} from '@angular/material/tabs';
 import { DataShareService } from 'src/app/_services/data-share.service';
 
 @Component({

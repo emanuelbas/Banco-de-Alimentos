@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Beneficiario, EnvioParaBeneficiario, Donacion, Donante, DescripcionGeneral, Traslado, Voluntario, Ubicacion, DescripcionDetallada } from '../../../_services/lbservice/models'
-import { BeneficiarioApi, EnvioParaBeneficiarioApi ,DonacionApi, DonanteApi, DescripcionGeneralApi, TrasladoApi, VoluntarioApi, UbicacionApi, DescripcionDetalladaApi } from '../../../_services/lbservice/services'
+import { Donacion, Donante, Traslado, Voluntario, Ubicacion } from '../../../_services/lbservice/models'
+import { BeneficiarioApi, EnvioParaBeneficiarioApi ,DonacionApi, DonanteApi, DescripcionGeneralApi, TrasladoApi, VoluntarioApi, UbicacionApi } from '../../../_services/lbservice/services'
 import {Location} from '@angular/common';
 import { BALP } from '../../../_models/BALP';
 import { FilaTrasladoPendiente } from '../../admin/traslados-pendientes/FilaTrasladoPendiente'
-import { VoluntariosService } from 'src/app/_services/voluntarios.service';
-import { Route } from '@angular/compiler/src/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { InsigniasService } from 'src/app/_services/insignias.service';

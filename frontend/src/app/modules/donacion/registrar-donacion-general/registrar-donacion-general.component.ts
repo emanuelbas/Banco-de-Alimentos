@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TrasladoApi, DonanteApi, DonacionApi, DescripcionGeneralApi} from '../../../_services/lbservice/services';
 import { Donante, Donacion, DescripcionGeneral, Traslado } from '../../../_services/lbservice/models';  
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl, CheckboxRequiredValidator } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 import { BALP } from '../../../_models/BALP';
 import { AddressConverter } from '../../../_models/AddressConverter'
 import { Validators } from '@angular/forms';
