@@ -1,13 +1,7 @@
 <div class="card border-secondary mb-4 container mt-5" id="contenedor">
   
 
-  <form [formGroup]="form">
-    <div>
-      <input formControlName="nombre" type="search" id="buscarVoluntario" name="buscarVoluntario" placeholder="Filtrar por voluntario">
-        <button (click)="filtrar()">Filtrar</button>
-        <button (click)="verTodos()">Ver todos</button>
-    </div>
-  </form>
+  
 
 
 
@@ -16,7 +10,24 @@
       <section class="alert alert-dismissible alert-dark mt-3">
                     Traslados que tienen un voluntario asignado pero aún no fueron trasladados
       </section>
-      <table class="table table-hover table-bordered table-center">
+        <div class="container">
+          <form [formGroup]="form">
+            <div class="row">
+                  <div class="col">
+                      <input formControlName="nombre" class="form-control" type="search" id="buscarVoluntario" name="buscarVoluntario" placeholder="Filtrar por voluntario">
+                   </div>
+                   <div class=" col-md-auto">
+                      <button class="btn btn-orange" (click)="filtrar()">Filtrar</button>
+                   </div>
+                   <div class="col-md-auto ">
+                      <button class="btn btn-orange" (click)="verTodos()">Ver todos</button>
+                   </div>
+              </div>
+            </form>
+          </div>
+    
+    
+      <table class="table table-hover table-bordered table-center mt-4">
         <thead>
           <tr>
             <th class="text-center">Descripción</th>
@@ -39,9 +50,11 @@
         </tbody>        
       </table>
       <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
-      <div class="form-group text-center mt-5">
-        <button class="btn btn-dark" (click)='this._location.back()'>Volver</button>               
-      </div>
+      <section class="card-header text-center p-3 mt-4 mb-4">
+        <div class="">
+          <button class="btn btn-orange" (click)='this._location.back()'>Volver</button>               
+        </div>
+      </section>
     </div>
   </div>
 </div>

@@ -81,5 +81,8 @@
       }
     }
   },
-  "defaultProject": "todolist"
+  "defaultProject": "todolist",
+  "cli": {
+    "analytics": false
+  }
 }

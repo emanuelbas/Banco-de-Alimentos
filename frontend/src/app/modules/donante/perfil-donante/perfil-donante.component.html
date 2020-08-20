@@ -1,6 +1,7 @@
+<div class="card border-secondary mb-4 container mt-5 " id="contenedor">
 <i class="fas fa-candy-cane"></i>
 <div class="container mt-3 mb-3">   <!-- Datos --> 
-    <div class="row">
+    <div class="row container">
         <div class="col-md-6">
             <h1 class="">{{this.donante.username}}</h1>
             <br>
@@ -30,11 +31,11 @@
         </div>
     </div>
     <div class="row">
-        <div>
+        <div class="container">
             <section class="alert bg-dark mt-5">
                 Personas de contacto
             </section>
-            <table class="table table-hover table-bordered table-center">
+            <table class="table table-hover table-bordered table-center container">
                 <thead>
                     <tr class="text-center">
                         <th scope="col">Nombre</th>
@@ -55,10 +56,18 @@
                     </tr>
                     </tbody>
                 </table>
-        </div>
+        </div>   
 </div>
-</div>
+    <section class="card-header text-center p-3 mt-4 mb-4">
+        <a routerLink="/home" class="ml-2 btn btn-orange">Volver</a>      
+    </section>	
 
+
+    <div class="form-group text-center mt-3">    
+     
+    </div>
+</div>
+</div>
 
 
 
