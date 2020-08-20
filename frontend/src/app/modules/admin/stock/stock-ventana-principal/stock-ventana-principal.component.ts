@@ -15,6 +15,7 @@ export class StockVentanaPrincipalComponent implements OnInit {
 
   productosEnStock : Producto[] = [];
   productoAEditar:Producto;
+  productoAEliminar:Number;
   form: FormGroup;
   constructor(
     private data:DataShareService,
@@ -42,11 +43,16 @@ export class StockVentanaPrincipalComponent implements OnInit {
   	this.router.navigateByUrl("/cargar-producto-a-stock");	
   }
 
-  borrarProducto(id){
-    this.productoApi.deleteById(id).subscribe(()=>{
-      this.productosEnStock = this.productosEnStock.filter((prod)=>{return prod.id != id});
+  borrarProducto(){
+    this.productoApi.deleteById(this.productoAEliminar).subscribe(()=>{
+      this.productosEnStock = this.productosEnStock.filter((prod)=>{return prod.id != this.productoAEliminar});
     });
   }
+
+confirmBorrarProducto(id){
+  this.productoAEliminar = id;
+}
+
   editarProducto(producto:Producto){
     this.productoAEditar = producto;
     this.form.setValue({nombre:this.productoAEditar.tipoProducto.nombre,categoria:"categoria",cant:this.productoAEditar.cantidad,vto:new Date,peso:0});
