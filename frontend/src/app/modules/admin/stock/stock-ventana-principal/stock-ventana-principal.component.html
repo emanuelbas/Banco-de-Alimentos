@@ -1,4 +1,4 @@
-<div *ngIf="!(productoAEditar==undefined)" class="modal fade p-3 mb-5" id="modalFormEditProduct" tabindex="-1"
+<section *ngIf="!(productoAEditar==undefined)" class="modal fade p-3 mb-5" id="modalFormEditProduct" tabindex="-1"
 	role="dialog" aria-labelledby="modalFormEditProduct" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -13,7 +13,7 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="nombre">Nombre</label><br>
-						<input disabled class="form-control" type="text" formControlName="nombre" name="nombre" value="">
+						<input class="form-control" type="text" formControlName="nombre" name="nombre" value="">
 						<div *ngIf="nombre.invalid && nombre.touched">
 							<small class="text-danger">Debe ingresar un nombre para el producto</small>
 						</div>
@@ -31,13 +31,40 @@
 
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-					<button class="btn btn-dark" data-dismiss="modal" (click)="submitProduct()" [disabled]="!form.valid">Guardar</button>
+					<button class="btn btn-dark" data-dismiss="modal" (click)="submitProduct()"
+						[disabled]="!form.valid">Guardar</button>
 				</div>
 			</form>
 
+
+
 		</div>
 	</div>
-</div>
+</section>
+
+<section class="modal fade p-3 mb-5" id="modalDeleteProduct" tabindex="-1" role="dialog"
+	aria-labelledby="modalDeleteProduct" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Eliminar producto</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+
+			<div class="modal-body">
+				<p>¿Esta seguro de que quiere borrar este producto?</p>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+				<button class="btn btn-dark" data-dismiss="modal" (click)="borrarProducto()">Aceptar</button>
+			</div>
+
+		</div>
+	</div>
+</section>
 
 
 <div class="container card border-secondary">
@@ -73,8 +100,9 @@
 						{{producto.tipoProducto.peso}}
 					</td>
 					<td class="d-flex justify-content-center">
-						<button type="button" class="btn btn-primary mx-1 p-1" data-toggle="modal" data-target="#modalFormEditProduct" (click)="editarProducto(producto)">✏️</button>
-						<button type="button" class="btn btn-primary mx-1 p-1" (click)="borrarProducto(producto.id)">🗑️</button>
+						<button type="button" class="btn btn-primary mx-1 p-1" data-toggle="modal"
+							data-target="#modalFormEditProduct" (click)="editarProducto(producto)">✏️</button>
+						<button type="button" class="btn btn-primary mx-1 p-1" data-toggle="modal" data-target="#modalDeleteProduct" (click)="confirmBorrarProducto(producto.id)">🗑️</button>
 					</td>
 				</tr>
 			</tbody>

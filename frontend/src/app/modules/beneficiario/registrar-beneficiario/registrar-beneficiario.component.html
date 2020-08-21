@@ -1,11 +1,11 @@
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Trochut&display=swap" rel="stylesheet">
 <!-- <h2 class="text-center mb-2 text-uppercase" style="font-family: 'Josefin Sans', sans-serif;">Registro del beneficiario</h2> -->
 <div class="container card border-secondary mb-4">
-<form class="" (ngSubmit)="onSubmit()" [formGroup]="registrarBeneficiario">
-	<section class="alert alert-dismissible alert-dark mt-3">
+<form class="ml-3 mr-3" (ngSubmit)="onSubmit()" [formGroup]="registrarBeneficiario">
+	<section class="alert alert-dismissible alert-dark mt-4 ml-3 mr-3">
 		Datos del beneficiario
 	</section>
-	<section class="p-4">
+	<section class="pl-4 pt-4 mr-4">
 		<div class="form-group">
 			<label for="nombreOrganizacion" id="labelNombreOrganizacion">Nombre de organización:</label>
 			<input required formControlName="nombreOrganizacion" type="text" class="form-control"

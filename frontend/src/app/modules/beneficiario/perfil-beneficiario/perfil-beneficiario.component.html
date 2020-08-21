@@ -1,8 +1,8 @@
 <div class="card border-secondary mb-4 container" id="contenedor">
-	<div class="alert alert-dismissible alert-dark mt-4">Datos del beneficiario</div>
-	<div class="card-body">
+	<div class="alert alert-dismissible alert-dark mt-3 ml-4 mr-4">Datos del beneficiario</div>
+	<div class="card-body ml-3 mr-3">
 		<div class="form-group">
-			<label for="labelDireccion">CUIL</label>
+			<label for="labelDireccion">Nombre de la organización</label>
 			<input type="text" class="form-control" value="{{username}}" readonly>
 		</div>
 
@@ -12,7 +12,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="labelDireccion">Email</label>
+			<label for="labelDireccion">Cantidad de personas atendidas</label>
 			<input type="text" class="form-control" value="{{cantAtendidos}}" readonly>
 
 		</div>
@@ -24,11 +24,8 @@
 		</div>
 
 		<div class="card-header text-center p-3 mt-4 mb-4">
-			<a (click)="this.router.navigate(['/editar-beneficiario']);" class="btn btn-orange ml-4 pointer">Modificar beneficiario</a>
-			<a routerLink="/home" class="ml-2 btn btn-orange">Volver</a>
+			<a (click)="this.router.navigate(['/editar-beneficiario']);" class="btn btn-orange ml-4 pointer">Editar mi perfil</a>
+			<a routerLink="/home" class="ml-2  mr-4 btn btn-orange">Volver</a>
 		</div>
-
-
-
 	</div>
 </div>

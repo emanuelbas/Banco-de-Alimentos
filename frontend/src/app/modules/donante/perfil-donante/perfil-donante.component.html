@@ -1,79 +1,73 @@
 <div class="card border-secondary mb-4 container mt-5 " id="contenedor">
-<i class="fas fa-candy-cane"></i>
-<div class="container mt-3 mb-3">   <!-- Datos --> 
-    <div class="row container">
-        <div class="col-md-6">
-            <h1 class="">{{this.donante.username}}</h1>
-            <br>
-            <p>
-                <strong>CUIL:</strong> {{this.donante.cuil}}
-            </p>
-            <p>
-                <strong>Dirección: </strong> {{this.direccion}}
-            </p>
-            <p>
-                <strong>Cantidad donada: </strong>{{this.donante.totalDonado}}Kg
-            </p>
-            <p>
-                <strong>Cantidad donada este mes: </strong>{{this.donante.totalDonadoEsteMes}}kg
-            </p>
-        </div>
-        <div class="text-center col-md-4 mt-3">
-                    <fa-icon [icon]="faStar" size="6x" [fixedWidth]="true" [styles]="{'color': '#dbab09'}"></fa-icon>
-                    <div title="Puntuación" style='position: relative; top:-50px;color:white;'>
-                        <h2><strong> {{this.donante.puntuacion}} </strong></h2>
+    <i class="fas fa-candy-cane"></i>
+    <div class="container mt-3 mb-3">
+        <!-- Datos -->
+        <div class="row container">
+            <div class="col-md-6 container">
+                <h1 class="">{{this.donante.username}}</h1>
+                <br>
+                <p>
+                    <strong>CUIL:</strong> {{this.donante.cuil}}
+                </p>
+                <p>
+                    <strong>Dirección: </strong> {{this.direccion}}
+                </p>
+                <p>
+                    <strong>Cantidad donada: </strong>{{this.donante.totalDonado}}Kg
+                </p>
+                <p>
+                    <strong>Cantidad donada este mes: </strong>{{this.donante.totalDonadoEsteMes}}kg
+                </p>
+            </div>
+            <div class="text-center col-md-4 mt-3">
+                <fa-icon [icon]="faStar" size="6x" [fixedWidth]="true" [styles]="{'color': '#dbab09'}"></fa-icon>
+                <div title="Puntuación" style='position: relative; top:-50px;color:white;'>
+                    <h2><strong> {{this.donante.puntuacion}} </strong></h2>
                 </div>
-            <div class="container">
-                <span class='inline p-1' *ngFor="let badge of badges" title="Insignia de {{badge[0]}}">
-                    <fa-icon  class="inline" [icon]=badge[1] size="4x" [fixedWidth]="true" [styles]="{'color': '#f94116'}"></fa-icon>
-                </span>
+                <div class="container">
+                    <span class='inline p-1' *ngFor="let badge of badges" title="Insignia de {{badge[0]}}">
+                        <fa-icon class="inline" [icon]=badge[1] size="4x" [fixedWidth]="true"
+                            [styles]="{'color': '#f94116'}"></fa-icon>
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="container">
-            <section class="alert bg-dark mt-5">
-                Personas de contacto
-            </section>
-            <table class="table table-hover table-bordered table-center container">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellido</th>
-                        <th scope="col">DNI</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Celular</th>
-                      
-                    </tr>
-                </thead>
-                <tbody  *ngFor="let persona of personas| paginate: { itemsPerPage: 3, currentPage: p }" class="text-center">
-                    <tr>
-                        <td>{{persona.nombre}}</td>
-                        <td>{{persona.apellido}}</td>
-                        <td>{{persona.dni}}</td>
-                        <td>{{persona.email}}</td>
-                        <td>{{persona.telefono}}</td>
-                    </tr>
+        <div class="row">
+            <div class="container mr-5 ml-5">
+                <section class="alert bg-dark mt-5">
+                    Personas de contacto
+                </section>
+                <table class="table table-hover table-bordered table-center">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">DNI</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Celular</th>
+
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let persona of personas| paginate: { itemsPerPage: 3, currentPage: p }"
+                        class="text-center">
+                        <tr>
+                            <td>{{persona.nombre}}</td>
+                            <td>{{persona.apellido}}</td>
+                            <td>{{persona.dni}}</td>
+                            <td>{{persona.email}}</td>
+                            <td>{{persona.telefono}}</td>
+                        </tr>
                     </tbody>
                 </table>
-        </div>   
-</div>
-    <section class="card-header text-center p-3 mt-4 mb-4">
-        <a routerLink="/home" class="ml-2 btn btn-orange">Volver</a>      
-    </section>	
+            </div>
+        </div>
+        <section class="card-header text-center p-3 mt-4 mb-4">
+            <a routerLink="/home" class="ml-2 btn btn-orange">Volver</a>
+        </section>
 
 
-    <div class="form-group text-center mt-3">    
-     
+        <div class="form-group text-center mt-3">
+
+        </div>
     </div>
 </div>
-</div>
-
-
-
-
-
-
-
-
-

@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Route } from '@angular/compiler/src/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { User, Beneficiario, Donante, Voluntario } from '../../_services/lbservice/models';  
 import { UserApi, BeneficiarioApi, DonanteApi, VoluntarioApi } from '../../_services/lbservice/services';
 import { AccessToken }  from '../../_services/lbservice/models'; 
-import { LoopBackConfig, BaseLoopBackApi } from '../../_services/lbservice';
 import { Validators } from '@angular/forms';
 import { HttpService } from '../../_services/http.service';
 import { DataShareService } from 'src/app/_services/data-share.service';

@@ -1,6 +1,6 @@
 <div class="card border-secondary mb-4 container mt-5" id="contenedor">
-    <div class="alert alert-dismissible alert-dark mt-3"> Descripción general </div>
-    <div class="card-body">
+    <div class="alert alert-dismissible alert-dark mt-4 ml-4 mr-3 "> Descripción general </div>
+    <div class="card-body ml-3 mr-4">
         <form (ngSubmit)="onSubmit()" [formGroup]="formGeneral" class="container">
 
             <h5>Volumen de alimentos</h5>
@@ -76,9 +76,8 @@
             <div class="form-group">
                 <label for="labelNombre">Envío la donación por mis propios medios:</label>
                 <span class="ml-2">
-                    <input type="checkbox" clas="ml-4" id="enviaDonante" name="enviaDonante">
-                </span>
-               
+                    <input type="checkbox" id="enviaDonante" name="enviaDonante">
+                </span>               
                 <br>
                 <label for="labelNombre" class="font-italic">Si tilda esta opción significa que, como donante, acercaré por mi cuenta la donación al Banco Alimentario.</label>
             </div>

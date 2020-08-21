@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Beneficiario, EnvioParaBeneficiario, Donacion, Donante, DescripcionGeneral, Traslado, Voluntario, Ubicacion, DescripcionDetallada } from '../../../_services/lbservice/models'
-import { BeneficiarioApi, EnvioParaBeneficiarioApi ,DonacionApi, DonanteApi, DescripcionGeneralApi, TrasladoApi, VoluntarioApi, UbicacionApi, DescripcionDetalladaApi } from '../../../_services/lbservice/services'
+import { Traslado } from '../../../_services/lbservice/models'
+import { BeneficiarioApi, EnvioParaBeneficiarioApi ,DonacionApi, DonanteApi, DescripcionGeneralApi, TrasladoApi, UbicacionApi } from '../../../_services/lbservice/services'
 import {Location} from '@angular/common';
 import { VoluntariosService } from 'src/app/_services/voluntarios.service';
-import { Route } from '@angular/compiler/src/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { ApiRequestsService } from 'src/app/_services/api-requests.service';
 import { DataShareService } from 'src/app/_services/data-share.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Beneficiario, Ubicacion } from '../../../_services/lbservice/models';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BeneficiarioApi, UbicacionApi } from '../../../_services/lbservice/services';
-import { FormGroup, FormControl, NgForm, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AddressConverter } from '../../../_models/AddressConverter';
 import { DataShareService } from 'src/app/_services/data-share.service';
 

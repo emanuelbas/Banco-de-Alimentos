@@ -15,8 +15,8 @@
     },
     "fechaVencimientoProductos": {
       "type": "date",
-      "default": "December 17, 2003 03:24:00",
-      "required": true
+      "required": true,
+      "default": "December 17, 2003 03:24:00"
     },
     "fechaFin": {
       "type": "date"
@@ -26,27 +26,27 @@
       "default": "pendiente de retiro"
     },
     "tipo": {
-      "type":"string"
+      "type": "string"
     },
     "volumenTotal": {
-      "type":"number"
+      "type": "number"
     },
     "puntaje": {
-      "type":"number"
+      "type": "number"
     },
     "distancia": {
-      "type":"number"
+      "type": "number"
     },
     "descripcion": {
-      "type":"string"
+      "type": "string"
     },
     "peso": {
-      "type":"number"
+      "type": "number"
     },
     "fechaVencimientoInvitacion": {
       "type": "date",
-      "default": "December 17, 2003 03:24:00",
-      "required": true
+      "required": true,
+      "default": "December 17, 2003 03:24:00"
     }
   },
   "validations": [],

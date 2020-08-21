@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LoopBackConfig, BaseLoopBackApi } from '../../../_services/lbservice';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { Route } from '@angular/compiler/src/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Voluntario, Vehiculo, Volumen, Ubicacion } from '../../../_services/lbservice/models';
 import { VoluntarioApi, VehiculoApi, VolumenApi, UbicacionApi } from '../../../_services/lbservice/services';
-import { GeoPoint } from '../../../_models/GeoPoint';
 import { AddressConverter } from '../../../_models/AddressConverter';
 import { DataShareService } from 'src/app/_services/data-share.service';
 

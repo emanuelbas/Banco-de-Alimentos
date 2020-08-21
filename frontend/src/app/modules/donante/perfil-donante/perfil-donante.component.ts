@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Injectable } from '@angular/core';
-import { Route } from '@angular/compiler/src/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faStar, faCandyCane, faGift, faEgg, faGifts , faHandsHelping, faDonate } from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faFacebook,faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { UbicacionApi, DonanteApi, PersonaDeContactoApi, InsigniaApi, TipoInsigniaApi } from '../../../_services/lbservice/services';
-import { Ubicacion, Donante, PersonaDeContacto, Insignia, TipoInsignia } from '../../../_services/lbservice/models';  
+import { UbicacionApi, DonanteApi, PersonaDeContactoApi, InsigniaApi } from '../../../_services/lbservice/services';
+import { Donante, TipoInsignia } from '../../../_services/lbservice/models';  
 import { InsigniasService } from '../../../_services/insignias.service';
 import { DataShareService } from 'src/app/_services/data-share.service';
 

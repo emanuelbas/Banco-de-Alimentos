@@ -1,54 +1,36 @@
-	<!-- <h1 class="text-center">Mis Datos</h1> -->
-	<h1 class="text-center mb-2">
-		BENEFICIARIO
-	</h1>
-	<form (ngSubmit)="onSubmit()" #beneficiarioForm="ngForm" [formGroup]="formBeneficiario" class="container w-50 pt-3 mb-5 border-custom ">
-
-		<div class="form-group row">
-			<label for="username" class="col-sm-3 col-form-label">
-				<h5>Nombre de la Organización:</h5>
-			</label>
-			<div class="col-sm-7">
-				<input class="form-control" [(ngModel)]="beneficiario.username" formControlName="username"  value="{{beneficiario.username}}" type="text"
-					name="username" />
+<div class="card border-secondary mb-4 container" id="contenedor">
+	<div class="alert alert-dismissible alert-dark mt-4 ml-4 mr-4">Datos del beneficiario</div>
+	<form (ngSubmit)="onSubmit()" #beneficiarioForm="ngForm" [formGroup]="formBeneficiario" class="">
+		<div class="card-body ml-3 mr-3">
+			<div class="form-group">
+				<label for="">Nombre de la organización</label>
+				<input class="form-control" [(ngModel)]="beneficiario.username" formControlName="username"
+					value="{{beneficiario.username}}" type="text" name="username" />
 				<div *ngIf="username.invalid && username.touched">
 					<small class="text-danger">El nombre de la organización es obligatorio</small>
 				</div>
 			</div>
-		</div>
-
-		<div class="form-group row">
-			<label for="address" class="col-sm-2 col-form-label">
-				<h5>Dirección:</h5>
-			</label>
-			<div class="col-sm-10">
-				<input class="form-control" [(ngModel)]="direccion" formControlName="direccion" value="{{direccion}}" type="text" name="direccion" />
+			<div class="form-group">
+				<label for="">Dirección</label>
+				<input class="form-control" [(ngModel)]="direccion" formControlName="direccion" value="{{direccion}}"
+					type="text" name="direccion" />
 				<div *ngIf="direccionForm.invalid && direccionForm.touched ">
 					<small class="text-danger">El campo dirección es obligatorio</small>
 				</div>
 			</div>
-		</div>
-
-		<div class="form-group row">
-			<label for="cantAtendidos" class="col-sm-4 col-form-label">
-				<h5>Cantidad de personas atendidas:</h5>
-			</label>
-			<div class="col-sm-3">
-				<input class="form-control float-left text-center" formControlName="cantidadAtendidos"
-				[(ngModel)]="beneficiario.cantidadAtendidos" value="{{beneficiario.cantidadAtendidos}}" type="text" name="cantidadAtendidos" />
+			<div class="form-group">
+				<label for="">Cantidad de personas atendidas</label>
+				<input class="form-control float-left " formControlName="cantidadAtendidos"
+					[(ngModel)]="beneficiario.cantidadAtendidos" value="{{beneficiario.cantidadAtendidos}}" type="text"
+					name="cantidadAtendidos" />
 				<div *ngIf="cantidadAtendidos.invalid && cantidadAtendidos.touched">
 					<small class="text-danger">Ingrese la cantidad de personas que atiende</small>
 				</div>
 			</div>
-		</div>
-
-
-		<div class="form-group row">
-			<label for="email" class="col-sm-2 col-form-label">
-				<h5>Email:</h5>
-			</label>
-			<div class="col-sm-10">
-				<input class="form-control" [(ngModel)]="beneficiario.email" formControlName="email" value="{{beneficiario.email}}" type="email" name="email" />
+			<div class="form-group">
+				<label for="" class="mt-3">Email</label>
+				<input class="form-control" [(ngModel)]="beneficiario.email" formControlName="email"
+					value="{{beneficiario.email}}" type="email" name="email" />
 				<div *ngIf="emailIsInvalid">
 					<small class="text-danger">El correo ingresado no es válildo</small>
 				</div>
@@ -56,13 +38,15 @@
 					<small class="text-danger">El campo correo es obligatorio</small>
 				</div>
 			</div>
+			<div class="card-header text-center p-3 mt-4 mb-4">
+				<button
+					[attr.title]="!formBeneficiario.valid ? 'No es posible realizar la modificación. Necesita completar los campos inválidos' : '' "
+					[disabled]="!formBeneficiario.valid" class="btn btn-orange" type="submit">Modificar datos
+				</button>
+				<button class="btn btn-orange ml-2 mr-4" (click)="this.router.navigate(['/home']);">Volver</button>
+				
+			</div>
 		</div>
-
-		<div class="form-group text-center d-flex justify-content-center">
-			<button class="btn btn-orange mr-4" (click)="this.router.navigate(['/home']);">Volver</button>
-			<button [attr.title]="!formBeneficiario.valid ? 'No es posible realizar la modificación. Necesita completar los campos inválidos' : '' " [disabled]="!formBeneficiario.valid"
-				class="btn btn-primary ml-4" type="submit">Modificar datos</button>
-		</div>
-
 
 	</form>
+</div>

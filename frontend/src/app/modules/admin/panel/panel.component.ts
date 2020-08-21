@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Injectable } from '@angular/core';
-import { Route } from '@angular/compiler/src/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faShippingFast, faDolly, faUserClock, faCubes, faKey, faPizzaSlice } from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faFacebook,faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { DataShareService } from 'src/app/_services/data-share.service';
-
-
 
 @Component({
   selector: 'app-panel',

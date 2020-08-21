@@ -9,13 +9,13 @@
   "properties": {
     "fechaRegistro": {
       "type": "date",
-      "default": "$now",
-      "required": true
+      "required": true,
+      "default": "$now"
     },
     "numero": {
       "type": "number",
-      "unique": true,
-      "required": true
+      "required": true,
+      "unique": true
     },
     "estado": {
       "type": "string",
@@ -27,26 +27,31 @@
   },
   "validations": [],
   "relations": {
-   "descripcionDetallada": {
-     "type": "hasOne",
-     "model": "DescripcionDetallada",
-     "foreignKey": "idDonacion"
-   },
-   "volumen": {
-     "type": "hasOne",
-     "model": "Volumen",
-     "foreignKey": "idDonacion"
-   },
-   "descripcionGeneral": {
-     "type": "hasOne",
-     "model": "DescripcionGeneral",
-     "foreignKey": "idDonacion"
-   },
-   "traslado": {
-     "type": "hasOne",
-     "model": "Traslado",
-     "foreignKey": "idDonacionTrasladadaAlBanco"
-   }
+    "descripcionDetallada": {
+      "type": "hasOne",
+      "model": "DescripcionDetallada",
+      "foreignKey": "idDonacion"
+    },
+    "volumen": {
+      "type": "hasOne",
+      "model": "Volumen",
+      "foreignKey": "idDonacion"
+    },
+    "descripcionGeneral": {
+      "type": "hasOne",
+      "model": "DescripcionGeneral",
+      "foreignKey": "idDonacion"
+    },
+    "traslado": {
+      "type": "hasOne",
+      "model": "Traslado",
+      "foreignKey": "idDonacionTrasladadaAlBanco"
+    },
+    "donante": {
+      "type": "belongsTo",
+      "model": "Donante",
+      "foreignKey": "idDonante"
+    }
   },
   "acls": [
     {

@@ -2,6 +2,7 @@
 import {
   Volumen,
   Traslado,
+  Donante,
   DescripcionGeneral,
   DescripcionDetallada
 } from '../index';
@@ -17,6 +18,7 @@ export interface DonacionInterface {
   "idEnvio"?: any;
   volumen?: Volumen;
   traslado?: Traslado;
+  donante?: Donante;
   descripcionGeneral?: DescripcionGeneral;
   descripcionDetallada?: DescripcionDetallada;
 }
@@ -31,6 +33,7 @@ export class Donacion implements DonacionInterface {
   "idEnvio": any;
   volumen: Volumen;
   traslado: Traslado;
+  donante: Donante;
   descripcionGeneral: DescripcionGeneral;
   descripcionDetallada: DescripcionDetallada;
   constructor(data?: DonacionInterface) {
@@ -112,6 +115,14 @@ export class Donacion implements DonacionInterface {
           relationType: 'hasOne',
                   keyFrom: 'id',
           keyTo: 'idDonacionTrasladadaAlBanco'
+        },
+        donante: {
+          name: 'donante',
+          type: 'Donante',
+          model: 'Donante',
+          relationType: 'belongsTo',
+                  keyFrom: 'idDonante',
+          keyTo: 'id'
         },
         descripcionGeneral: {
           name: 'descripcionGeneral',

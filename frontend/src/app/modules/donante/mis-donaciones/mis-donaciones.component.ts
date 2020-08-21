@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Donacion, Donante, DescripcionGeneral, Traslado, Voluntario } from '../../../_services/lbservice/models'
+import { Donante } from '../../../_services/lbservice/models'
 import { DonacionApi, DonanteApi, TrasladoApi } from '../../../_services/lbservice/services'
 import {Location} from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';

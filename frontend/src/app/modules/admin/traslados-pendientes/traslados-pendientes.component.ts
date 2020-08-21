@@ -5,8 +5,6 @@ import {Location} from '@angular/common';
 import { BALP } from '../../../_models/BALP';
 import { FilaTrasladoPendiente } from './FilaTrasladoPendiente';
 import { DataShareService } from 'src/app/_services/data-share.service';
-import { VoluntariosService } from 'src/app/_services/voluntarios.service';
-import { Route } from '@angular/compiler/src/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 
