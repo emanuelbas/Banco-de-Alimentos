@@ -14,18 +14,18 @@
     "@mean-expert/loopback-sdk-builder": "^2.3.1",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
-    "helmet": "^3.21.2",
-    "loopback": "^3.26.0",
+    "helmet": "^3.23.3",
+    "loopback": "^3.27.0",
     "loopback-boot": "^3.3.1",
-    "loopback-component-explorer": "^6.2.0",
-    "loopback-connector-mongodb": "^5.2.0",
+    "loopback-component-explorer": "^6.5.1",
+    "loopback-connector-mongodb": "^5.3.0",
     "loopback-fixtures": "0.0.14",
-    "nodemailer": "^6.4.2",
+    "nodemailer": "^6.4.11",
     "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^3.4.0"
+    "strong-error-handler": "^3.5.0"
   },
   "devDependencies": {
-    "eslint": "^6.6.0",
+    "eslint": "^6.8.0",
     "eslint-config-loopback": "^13.1.0"
   },
   "repository": {
