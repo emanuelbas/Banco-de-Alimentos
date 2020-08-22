@@ -3,19 +3,19 @@ services:
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile-dev
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     container_name: backend
     volumes:
-       - ./backend:/usr/src/app/frontend
+       - ./backend:/usr/src/app/backend
        - /usr/src/app/backend/node_modules
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile-dev
+      dockerfile: Dockerfile
     ports:
-      - "4200:4200"
+      - "8080:8080"
     container_name: frontend
     volumes:
        - ./frontend:/usr/src/app/frontend

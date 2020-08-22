@@ -52,8 +52,6 @@ import { DataApiService } from './_services/data-api.service';
 import { StockVentanaPrincipalComponent } from './modules/admin/stock/stock-ventana-principal/stock-ventana-principal.component';
 import { StockCargarProductoIndividualComponent } from './modules/admin/stock/stock-cargar-producto-individual/stock-cargar-producto-individual.component';
 import { StockCargarProductosDonacionComponent } from './modules/admin/stock/stock-cargar-productos-donacion/stock-cargar-productos-donacion.component';
-import { BuscarDonacionesComponent } from './modules/admin/buscar-donaciones/buscar-donaciones.component';
-import { EditarDonacionesComponent } from './modules/admin/editar-donaciones/editar-donaciones.component';
 import { NuevoEnvioBeneficiarioComponent } from './modules/admin/nuevo-envio/nuevo-envio-beneficiario/nuevo-envio-beneficiario.component';
 // Material Design
 import { MatTabsModule } from '@angular/material/tabs';
@@ -111,8 +109,6 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     StockVentanaPrincipalComponent,
     StockCargarProductoIndividualComponent,
     StockCargarProductosDonacionComponent,
-    BuscarDonacionesComponent,
-    EditarDonacionesComponent,
     NuevoEnvioBeneficiarioComponent
   ],
   imports: [
