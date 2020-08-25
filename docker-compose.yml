@@ -20,3 +20,15 @@ services:
     volumes:
        - ./frontend:/usr/src/app/frontend
        - /usr/src/app/frontend/node_modules
+
+#Cambiar credenciales del backend para usar la BD del container
+#Hay un readme en /backend/server
+  dockerDB:
+    image: mongo
+    container_name: dockerDB
+    ports:
+     - "27017:27017"
+    volumes:
+     - ./data:/data/db
+volumes:
+  mongodata:
