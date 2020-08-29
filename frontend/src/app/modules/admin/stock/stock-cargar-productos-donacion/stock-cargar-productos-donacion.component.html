@@ -40,53 +40,6 @@
 
 
 
-	<div *ngIf="seleccionado != null" class="card p-3 mb-5">
-		<h5 class="card-title ">Productos cargados</h5>
-
-		<div class="card-body">
-
-			<div class="table-box">
-				<div class=" tableFixHead">
-					<table class="table">
-						<thead class="thead-dark">
-						  <tr>
-						    <th>Producto</th>
-						    <th>Categoría</th>
-						    <th>Cantidad</th>
-						    <th>Vencimiento</th>
-						    <th>Peso por unidad</th>
-						    <th>Opciones</th>
-						  </tr>
-						</thead>
-						<tbody>
-							<tr *ngFor="let producto of this.productosPrecargados;let i=index">
-								<td>
-									{{producto.tipoProducto.nombre}}
-								</td>
-								<td>
-									{{producto.tipoProducto.categoriaId}}
-								</td>
-								<td>
-									{{producto.cantidad}}
-								</td>
-								<td>
-									{{producto.vencimiento| date: 'dd/MM/yyyy'}}
-								</td>
-								<td>
-									{{producto.tipoProducto.peso}}
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-
-			<button class="btn btn-orange" (click)="submitAll(seleccionado)" >Agregar productos al stock y desarmar donación</button>
-
-		</div>
-	</div>
-
-
 
 
 
@@ -152,6 +105,62 @@
 			</form> 
 		</div>
 	</div>
+
+
+
+
+
+
+
+
+	<div *ngIf="seleccionado != null" class="card p-3 mb-5">
+		<h5 class="card-title ">Productos cargados</h5>
+
+		<div class="card-body">
+
+			<div class="table-box">
+				<div class=" tableFixHead">
+					<table class="table">
+						<thead class="thead-dark">
+						  <tr>
+						    <th>Producto</th>
+						    <th>Categoría</th>
+						    <th>Cantidad</th>
+						    <th>Vencimiento</th>
+						    <th>Peso por unidad</th>
+						    <th>Opciones</th>
+						  </tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let producto of this.productosPrecargados;let i=index">
+								<td>
+									{{producto.tipoProducto.nombre}}
+								</td>
+								<td>
+									{{this.getNombreDeCategoria(producto.tipoProducto.categoriaId)}} 
+								</td>
+								<td>
+									{{producto.cantidad}}
+								</td>
+								<td>
+									{{producto.vencimiento| date: 'dd/MM/yyyy'}}
+								</td>
+								<td>
+									{{producto.tipoProducto.peso}}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<button class="btn btn-orange" (click)="submitAll(seleccionado)" >Agregar productos al stock y desarmar donación</button>
+
+		</div>
+	</div>
+
+
+
 
 
 </div>

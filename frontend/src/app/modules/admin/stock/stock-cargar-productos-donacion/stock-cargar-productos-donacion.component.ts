@@ -57,7 +57,6 @@ export class StockCargarProductosDonacionComponent implements OnInit {
 		this.producto.tipoProducto.nombre = this.form.get("nombre").value;
 		this.producto.tipoProducto.peso = this.form.get("peso").value;
 		this.producto.tipoProducto.categoriaId = this.form.get("categoria").value;
-		alert(this.producto.tipoProducto.categoriaId);
 		this.producto.cantidad = this.form.get("cant").value;
 		this.producto.vencimiento = this.form.get("vto").value;
 
@@ -77,7 +76,6 @@ export class StockCargarProductosDonacionComponent implements OnInit {
 
 	submitAll(donacion:Donacion){
 
-
 		//Hago un array para registrar los tipoProducto
 		let tipoProductos:TipoProducto[] = []; 
 		for (let i=0; i< this.productosPrecargados.length;i++){
@@ -92,9 +90,13 @@ export class StockCargarProductosDonacionComponent implements OnInit {
 			this.productoApi.createMany(this.productosPrecargados).subscribe(()=>{
 				alert("Se crearon todos los productos y sus tipo productos");
 				donacion.estado = "desarmada";
-				this.donacionApi.patchAttributes(donacion.id,donacion).subscribe(()=>{alert("S")})
+				this.donacionApi.patchAttributes(donacion.id,donacion).subscribe(()=>{alert("Se agregaron los productos y se borró la donacón");this.router.navigateByUrl('ver-stock')})
 			});
 		});
 	};
+
+	getNombreDeCategoria(unId){
+		return this.categorias.find(categoria=>categoria.id==unId).nombre;
+	}
 
 }

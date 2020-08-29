@@ -51,7 +51,7 @@ export class RegistrarBeneficiarioComponent implements OnInit {
 				ubicacion.direccion =  this.registrarBeneficiario.get("direccion").value;
 				ubicacion.puntoGeografico = this.convertidorDeDirecciones.coordinateForAddress(ubicacion.direccion);
 				this.ubicacionApi.create(ubicacion).subscribe(()=>{
-				 	this.router.navigateByUrl("/login");
+				 	this.router.navigateByUrl("/panel-de-control");
 				 	alert('Se registró exitosamente');
 				}) //ubicacion	
 			})//beneficiario
