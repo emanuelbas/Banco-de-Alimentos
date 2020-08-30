@@ -64,7 +64,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material';
-
+import { AngularFileUploaderModule } from "angular-file-uploader";
 
 
 @NgModule({
@@ -131,7 +131,8 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule
+    MatDialogModule,
+    AngularFileUploaderModule
   ],
   bootstrap: [AppComponent],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'es-AR'},MockStockService, InsigniasService, DataApiService, LbStockService]

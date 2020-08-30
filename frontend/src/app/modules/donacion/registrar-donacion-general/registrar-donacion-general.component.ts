@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrasladoApi, DonanteApi, DonacionApi, DescripcionGeneralApi} from '../../../_services/lbservice/services';
+import { TrasladoApi, DonanteApi, DonacionApi, DescripcionGeneralApi, ContainerApi} from '../../../_services/lbservice/services';
 import { Donante, Donacion, DescripcionGeneral, Traslado } from '../../../_services/lbservice/models';  
 import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -17,8 +17,11 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
 	formGeneral: FormGroup;
   distancia;
   fechaActual = new Date();
-  constructor(private router:Router,private trasladoApi:TrasladoApi,private donanteApi: DonanteApi, private donacionApi:DonacionApi, private descApi:DescripcionGeneralApi) {
+  afuConfig: any;
+
+  constructor(private containerApi:ContainerApi,private router:Router,private trasladoApi:TrasladoApi,private donanteApi: DonanteApi, private donacionApi:DonacionApi, private descApi:DescripcionGeneralApi) {
     
+
   	 this.formGeneral = new FormGroup({
         fechaVto: new FormControl('', [Validators.required]),
         alto: new FormControl('', [Validators.required]),
@@ -26,6 +29,7 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
         largo: new FormControl('', [Validators.required]),
         texto: new FormControl('', [Validators.required]),
         peso: new FormControl('', [Validators.required])
+        //, archivo: new FormControl('', [])
         
 
       });
@@ -41,7 +45,26 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
         this.distancia = converter.distanceFromTo(origen,destino);
       })
 
-
+      //File uploader
+      this.afuConfig = {
+          uploadAPI: {
+            url:"http://localhost:3000/api/containers/container/upload",
+          },
+          theme: "dragNDrop",
+          hideResetBtn: true,
+          replaceTexts: {
+            selectFileBtn: 'Seleccionar archivo',
+            resetBtn: 'Reset',
+            uploadBtn: 'Subir',
+            dragNDropBox: 'Arrastre su archivo aquí',
+            attachPinBtn: 'Archivos adjuntos: ',
+            afterUploadMsg_success: 'Se subió el archivo!',
+            afterUploadMsg_error: 'Falló',
+            sizeLimit: 'Tamaño máximo: '
+          },
+          fileNameIndex: false
+          //hideProgressBar: true,
+      };
 
   }
 
@@ -63,6 +86,7 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
       let ancho = this.formGeneral.get("ancho").value;
       let largo = this.formGeneral.get("largo").value;
       let peso = this.formGeneral.get("peso").value;
+      //let file = this.formGeneral.get("archivo").value;
 
       let desc: DescripcionGeneral = new DescripcionGeneral;
       let donante: Donante = new Donante;
@@ -80,11 +104,9 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
             //alert("se selecciono chequed");
             //traslado.estado = 'Donación transportada por el donante';
             donacion.estado = 'Donación transportada por el propio donante';
-            console.log(donacion.estado);
       } else {
             // alert("no se selecciono checked");
             donacion.estado = 'Sin asignar';
-            console.log(donacion.estado);
        }
       this.donacionApi.count().subscribe((numero)=>{
           donacion.numero = numero.count;
@@ -110,8 +132,21 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
               desc.idDonacion=donacionCreada.id;
               //desc.volumenes FALTA pero es obsoleto por ahora
               this.descApi.create(desc).subscribe((desc:DescripcionGeneral)=>{
+                
+
+                /*
+                this.containerApi.upload('store',file).subscribe(()=>{
+                  this.router.navigateByUrl("/mis-donaciones");
+                  alert('Se registró la donación');
+                });
+                */
+
                 this.router.navigateByUrl("/mis-donaciones");
                 alert('Se registró la donación');
+
+
+
+
               })//Fin create desc
             })//Fin create traslado
           })//Fin create donacion          
@@ -119,6 +154,11 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
       } else {
         alert('Por favor, completa los datos solicitados');
       }
+  }
+
+
+  DocUpload(res){
+    console.log(res);
   }
 
   ngOnInit() {

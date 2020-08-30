@@ -68,11 +68,18 @@
                     <small class="text-danger">Debe ingresar una fecha</small>
                 </div>
             </div>
-            <div class="form-group">
+            <!-- div class="form-group">
                 <label for="labelNombre">Archivo:</label>
                 <input formControlName="archivo" type="file" class="form-control" id="archivo" >
                 <label for="labelNombre" class="font-italic">*De manera opcional, puede subir un archivo que contenga el listado de los alimentos que se incluyen en la donación.</label>
-            </div>
+            </div -->
+            <angular-file-uploader 
+                [config]="afuConfig"
+                (ApiResponse)="DocUpload($event)">
+            </angular-file-uploader>
+
+
+
             <div class="form-group">
                 <label for="labelNombre">Envío la donación por mis propios medios:</label>
                 <span class="ml-2">
