@@ -19,6 +19,7 @@ import { TipoProducto } from '../../models/TipoProducto';
 import { Categoria } from '../../models/Categoria';
 import { Item } from '../../models/Item';
 import { TipoInsignia } from '../../models/TipoInsignia';
+import { Container } from '../../models/Container';
 
 export interface Models { [name: string]: any }
 
@@ -45,6 +46,7 @@ export class SDKModels {
     Categoria: Categoria,
     Item: Item,
     TipoInsignia: TipoInsignia,
+    Container: Container,
     
   };
 

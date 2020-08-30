@@ -10,20 +10,20 @@
       "type": "string",
       "required": true
     },
-  "totalDonado": {
+    "totalDonado": {
       "type": "number",
       "required": true,
-      "default": 0 
+      "default": 0
     },
-  "totalDonadoEsteMes": {
+    "totalDonadoEsteMes": {
       "type": "number",
       "required": true,
-      "default": 0 
+      "default": 0
     },
-  "puntuacion": {
+    "puntuacion": {
       "type": "number",
       "required": true,
-      "default": 0 
+      "default": 0
     },
     "tipoDeUsuario": {
       "type": "string",

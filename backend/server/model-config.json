@@ -106,5 +106,9 @@
   "TipoInsignia": {
     "dataSource": "mongo",
     "public": true
+  },
+  "container": {
+    "dataSource": "dataStorage",
+    "public": true
   }
 }

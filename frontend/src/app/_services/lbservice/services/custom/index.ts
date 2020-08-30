@@ -18,5 +18,6 @@ export * from './TipoProducto';
 export * from './Categoria';
 export * from './Item';
 export * from './TipoInsignia';
+export * from './Container';
 export * from './SDKModels';
 export * from './logger.service';

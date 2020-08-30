@@ -67,6 +67,7 @@ import { TipoProductoApi } from './services/custom/TipoProducto';
 import { CategoriaApi } from './services/custom/Categoria';
 import { ItemApi } from './services/custom/Item';
 import { TipoInsigniaApi } from './services/custom/TipoInsignia';
+import { ContainerApi } from './services/custom/Container';
 /**
 * @module SDKBrowserModule
 * @description
@@ -116,6 +117,7 @@ export class SDKBrowserModule {
         CategoriaApi,
         ItemApi,
         TipoInsigniaApi,
+        ContainerApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser },
         { provide: SocketDriver, useClass: SocketBrowser }
