@@ -29,7 +29,7 @@ export class BuscarVoluntarioComponent implements OnInit {
   voluntarios : Voluntario[] = [];
   traslado:Traslado;
   fechaDeHoy = Date.now()
-  public tiempoDeNotificacion: number;
+  public tiempoDeNotificacion: number = 24;
   public p:any;
   
 

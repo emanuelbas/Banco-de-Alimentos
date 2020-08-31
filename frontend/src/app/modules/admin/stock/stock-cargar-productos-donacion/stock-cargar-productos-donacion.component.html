@@ -34,6 +34,9 @@
 			<div *ngIf="seleccionado != null">
 				<label>Descripción</label>
 				<p> {{seleccionado.traslado.descripcion}}</p>
+				<div *ngIf="seleccionado.filename != null">
+					 <a href="{{this.base}}/api/containers/container/download/{{seleccionado.filename}}" target="_blank">Abrir archivo adjunto</a>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -3,6 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Validators } from '@angular/forms';
 import { Donacion, DonacionApi, Producto, ProductoApi, TipoProducto, TipoProductoApi, Categoria, CategoriaApi } from '../../../../_services/lbservice';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-stock-cargar-productos-donacion',
@@ -17,6 +19,7 @@ export class StockCargarProductosDonacionComponent implements OnInit {
 	producto: Producto;
 	categorias: Categoria[];
 	public seleccionado:any;
+	base = environment.backendUrl;
 
 	//Donaciones que no esten desarmadas ni enviadas en una donacion
 	donacionesNuevas : Donacion[];
