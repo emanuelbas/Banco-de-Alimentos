@@ -57,7 +57,8 @@ export class ApiRequestsService {
                   donacion.descripcionGeneral.descripcion,
                   (donacion.estado == 'Donación transportada por el propio donante') ? 'Trasportado por donante':'Sin asignar',
                   donacion.traslado.fechaEstimada,
-                  donacion.traslado
+                  donacion.traslado,
+                  donacion
                 ];
                 datosDeDonaciones.push(tupla);
               } else {
@@ -68,7 +69,8 @@ export class ApiRequestsService {
                     donacion.descripcionGeneral.descripcion,
                     voluntario.nombre + ' ' + voluntario.apellido,
                     donacion.traslado.fechaEstimada,
-                    donacion.traslado
+                    donacion.traslado,
+                    donacion
                   ];
                   datosDeDonaciones.push(tupla);
                 }) //voluntario
@@ -83,7 +85,8 @@ export class ApiRequestsService {
                     donacion.descripcionDetallada.descripcion,
                     (donacion.estado == 'Donación transportada por el propio donante') ? 'Trasportado por donante':'Sin asignar',
                     donacion.traslado.fechaEstimada,
-                    donacion.traslado
+                    donacion.traslado,
+                    donacion
                   ];
                   datosDeDonaciones.push(tupla);
                 } else {
@@ -94,7 +97,8 @@ export class ApiRequestsService {
                       donacion.descripcionDetallada.descripcion,
                       voluntario.nombre + ' ' + voluntario.apellido,
                       donacion.traslado.fechaEstimada,
-                      donacion.traslado
+                      donacion.traslado,
+                      donacion
                     ];
                     datosDeDonaciones.push(tupla);
                   }) //voluntario

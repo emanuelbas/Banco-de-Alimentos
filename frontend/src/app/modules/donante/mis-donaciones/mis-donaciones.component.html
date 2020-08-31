@@ -22,7 +22,7 @@
                             <td>{{donacion[3]}}</td>
                             <td>{{donacion[4] | date: 'dd/MM/yyyy' }}</td>
                             <td>
-                                <button *ngIf="donacion[3]=='nueva'" (click)="this.cancelarDonacion(donacion);" title="Cancelar donacion" >❌</button>
+                                <button *ngIf="donacion[6].estado=='nueva'" (click)="this.cancelarDonacion(donacion);" title="Cancelar donacion" >❌</button>
                             </td>
                         </tr>                  
                     </tbody>
