@@ -55,8 +55,7 @@ export class ApiRequestsService {
                   donacion.id,
                   donacion.numero,
                   donacion.descripcionGeneral.descripcion,
-                  donacion.estado,
-                  //'Sin asignar',
+                  (donacion.estado == 'Donación transportada por el propio donante') ? 'Trasportado por donante':'Sin asignar',
                   donacion.traslado.fechaEstimada,
                   donacion.traslado
                 ];
@@ -82,8 +81,7 @@ export class ApiRequestsService {
                     donacion.id,
                     donacion.numero,
                     donacion.descripcionDetallada.descripcion,
-                    donacion.estado,
-                    //'Sin asignar',
+                    (donacion.estado == 'Donación transportada por el propio donante') ? 'Trasportado por donante':'Sin asignar',
                     donacion.traslado.fechaEstimada,
                     donacion.traslado
                   ];

@@ -23,6 +23,9 @@
     },
     "tipoDescripcion": {
       "type": "string"
+    },
+    "filename": {
+      "type": "string"
     }
   },
   "validations": [],

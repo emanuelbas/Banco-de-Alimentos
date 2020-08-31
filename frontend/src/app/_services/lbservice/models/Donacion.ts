@@ -13,6 +13,7 @@ export interface DonacionInterface {
   "numero": number;
   "estado": string;
   "tipoDescripcion"?: string;
+  "filename"?: string;
   "id"?: any;
   "idDonante"?: any;
   "idEnvio"?: any;
@@ -28,6 +29,7 @@ export class Donacion implements DonacionInterface {
   "numero": number;
   "estado": string;
   "tipoDescripcion": string;
+  "filename": string;
   "id": any;
   "idDonante": any;
   "idEnvio": any;
@@ -84,6 +86,10 @@ export class Donacion implements DonacionInterface {
         },
         "tipoDescripcion": {
           name: 'tipoDescripcion',
+          type: 'string'
+        },
+        "filename": {
+          name: 'filename',
           type: 'string'
         },
         "id": {

@@ -6,6 +6,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { BALP } from '../../../_models/BALP';
 import { AddressConverter } from '../../../_models/AddressConverter'
 import { Validators } from '@angular/forms';
+import { AngularFileUploaderComponent } from "angular-file-uploader";
+import { ViewChild } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-registrar-donacion-general',
@@ -18,6 +22,13 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
   distancia;
   fechaActual = new Date();
   afuConfig: any;
+  filename: string;
+
+      @ViewChild('fileUpload1',null)
+      private fileUpload1:  AngularFileUploaderComponent;
+
+
+
 
   constructor(private containerApi:ContainerApi,private router:Router,private trasladoApi:TrasladoApi,private donanteApi: DonanteApi, private donacionApi:DonacionApi, private descApi:DescripcionGeneralApi) {
     
@@ -86,7 +97,6 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
       let ancho = this.formGeneral.get("ancho").value;
       let largo = this.formGeneral.get("largo").value;
       let peso = this.formGeneral.get("peso").value;
-      //let file = this.formGeneral.get("archivo").value;
 
       let desc: DescripcionGeneral = new DescripcionGeneral;
       let donante: Donante = new Donante;
@@ -94,8 +104,9 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
       let traslado: Traslado = new Traslado;
       let idDonante = this.donanteApi.getCachedCurrent().id;
 
+
       donacion.idDonante = idDonante;
-    //  donacion.estado = 'nueva';
+      donacion.estado = 'nueva';
       donacion.tipoDescripcion = 'general';
       // Se consulta si la donación es llevada por propio donante o si queda sin asignar
       var element = <HTMLInputElement> document.getElementById("enviaDonante");
@@ -103,13 +114,12 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
       if (isChecked) {
             //alert("se selecciono chequed");
             //traslado.estado = 'Donación transportada por el donante';
+
             donacion.estado = 'Donación transportada por el propio donante';
-      } else {
-            // alert("no se selecciono checked");
-            donacion.estado = 'Sin asignar';
-       }
+      }
       this.donacionApi.count().subscribe((numero)=>{
           donacion.numero = numero.count;
+          donacion.filename = this.filename;
           this.donacionApi.create(donacion).subscribe((donacionCreada:Donacion)=>{
             traslado.idDonacionTrasladadaAlBanco = donacionCreada.id;
             traslado.tipo = 'donacion';
@@ -158,7 +168,7 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
 
 
   DocUpload(res){
-    console.log(res);
+    this.filename = this.fileUpload1.allowedFiles[0].name;
   }
 
   ngOnInit() {
