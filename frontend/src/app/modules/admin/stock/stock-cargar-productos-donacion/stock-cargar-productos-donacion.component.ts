@@ -49,7 +49,7 @@ export class StockCargarProductosDonacionComponent implements OnInit {
 		this.categoriaApi.find().subscribe((categoriaArr:Categoria[])=>{this.categorias = categoriaArr})
 		
 		//Cargar las donaciones nuevas
-		this.donacionApi.find({where:{"estado":"nueva"},include:"traslado"}).subscribe((donacionesArr:Donacion[])=>{this.donacionesNuevas=donacionesArr});
+		this.donacionApi.find({where:{or:[{"estado":"nueva"},{"estado":"Donación transportada por el propio donante"}]},include:"traslado"}).subscribe((donacionesArr:Donacion[])=>{this.donacionesNuevas=donacionesArr});
 		
 		}
 
