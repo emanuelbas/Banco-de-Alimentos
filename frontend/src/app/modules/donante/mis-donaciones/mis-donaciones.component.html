@@ -1,37 +1,38 @@
 <div class="card border-secondary mb-4 container mt-5" id="contenedor">
-   
+
     <div class="card-body">
-        <div class="container">           
+        <div class="container">
             <section class="alert alert-dismissible alert-dark mt-3">
-                    Mis donaciones
-                </section>
-                <table class="table table-hover table-bordered table-center">
-                    <thead>
-                        <tr class="text-center">
-                    <!--  <th scope="col">id</th> -->
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Voluntario</th>
-                            <th scope="col">Fecha de traslado</th>
-                            <th scope="col">Opciones</th>
-                        </tr>
-                    </thead>
-                    <tbody *ngFor="let donacion of datosDeDonaciones| paginate: { itemsPerPage: 10, currentPage: p }" class="text-center">
-                        <tr>
-                       <!-- <td>{{donacion[1]}}</td> -->
-                            <td>{{donacion[2]}}</td>
-                            <td>{{donacion[3]}}</td>
-                            <td>{{donacion[4] | date: 'dd/MM/yyyy' }}</td>
-                            <td>
-                                <button *ngIf="donacion[6].estado=='nueva'" (click)="this.cancelarDonacion(donacion);" title="Cancelar donacion" >❌</button>
-                            </td>
-                        </tr>                  
-                    </tbody>
-                </table>
-                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                Mis donaciones
+            </section>
+            <table class="table table-hover table-bordered table-center">
+                <thead>
+                    <tr class="text-center">
+                        <!--  <th scope="col">id</th> -->
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Voluntario</th>
+                        <th scope="col">Fecha de traslado</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let donacion of datosDeDonaciones| paginate: { itemsPerPage: 10, currentPage: p }"
+                    class="text-center">
+                    <tr>
+                        <!-- <td>{{donacion[1]}}</td> -->
+                        <td>{{donacion[2]}}</td>
+                        <td>{{donacion[3]}}</td>
+                        <td>{{donacion[4] | date: 'dd/MM/yyyy' }}</td>
+                        <td>
+                            <button *ngIf="donacion[6].estado=='nueva'" (click)="this.cancelarDonacion(donacion);"
+                                title="Cancelar donacion">❌</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
             <div class="card-header text-center p-3 mt-4 mb-4">
-                <button class="btn btn-orange mr-4" (click)="this.router.navigate(['/home']);">Volver</button>              
+                <button class="btn btn-orange mr-4" (click)="this.router.navigate(['/home']);">Volver</button>
             </div>
         </div>
     </div>
 </div>
-

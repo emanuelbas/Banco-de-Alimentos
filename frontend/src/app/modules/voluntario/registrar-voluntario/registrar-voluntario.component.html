@@ -1,12 +1,17 @@
 <div class="container text-center">
     <h2>Sumate como Voluntario!</h2>
-    <h5 class="pt-2">Sumate como <span class="font-weight-bold font-italic">Voluntario de traslado</span>  y ayudanos a nutrir la región: El éxito en el cumplimiento de nuestra misión depende mucho del tiempo donado por nuestros voluntarios, que son el "alma de nuestra institución". El voluntariado es una actividad libre, comprometida y solidaria.</h5>
+    <h5 class="pt-2">Sumate como <span class="font-weight-bold font-italic">Voluntario de traslado</span> y ayudanos a
+        nutrir la región: El éxito en el cumplimiento de nuestra misión depende mucho del tiempo donado por nuestros
+        voluntarios, que son el "alma de nuestra institución". El voluntariado es una actividad libre, comprometida y
+        solidaria.</h5>
 </div>
 <div class="alert alert-warning container mt-4" role="alert">
     <div class="text-center">
-        Si en cambio, deseas sumarte como  <span class="font-weight-bold font-italic">Voluntario de administración, de comunicación o de colaborador en depósito</span>, hace clic <a href="http://bancoalimentario.org.ar/asociate/#voluntarios">acá</a>. 
+        Si en cambio, deseas sumarte como <span class="font-weight-bold font-italic">Voluntario de administración, de
+            comunicación o de colaborador en depósito</span>, hace clic <a
+            href="http://bancoalimentario.org.ar/asociate/#voluntarios">acá</a>.
     </div>
-   
+
 </div>
 <div class="card border-secondary mb-4 container mt-5" id="contenedor">
     <div class="alert alert-dismissible alert-dark mt-3"> Registrar voluntario de traslado </div>
@@ -18,64 +23,70 @@
                     placeholder="Juan Carlos">
                 <div *ngIf="nombre.invalid && nombre.touched">
                     <small class="text-danger">El nombre es obligatorio</small>
-                </div> 
+                </div>
             </div>
             <div class="form-group">
                 <label for="labelNombre">Apellido</label>
-                <input formControlName="apellido" type="text" class="form-control" id="inputApellido" placeholder="Perez">
+                <input formControlName="apellido" type="text" class="form-control" id="inputApellido"
+                    placeholder="Perez">
                 <div *ngIf="apellido.invalid && apellido.touched">
                     <small class="text-danger">El apellido es obligatorio</small>
-                </div> 
+                </div>
             </div>
             <div class="form-group">
                 <label for="labelDireccion">DNI</label>
                 <input formControlName="dni" type="text" class="form-control" id="inputDNI" placeholder="18.542.201">
                 <div *ngIf="dni.invalid && dni.touched">
                     <small class="text-danger">El DNI es obligatorio</small>
-                </div> 
+                </div>
             </div>
             <div class="form-group">
                 <label for="labelDireccion">Dirección</label>
-                <input formControlName="direccion" type="text" class="form-control" id="inputDireccion" placeholder="Av. Siempreviva 145">
+                <input formControlName="direccion" type="text" class="form-control" id="inputDireccion"
+                    placeholder="Av. Siempreviva 145">
                 <div *ngIf="direccion.invalid && direccion.touched">
                     <small class="text-danger">La dirección es obligatoria</small>
-                </div> 
+                </div>
             </div>
             <div class="form-group">
                 <label for="labelDireccion">Nombre de usuario</label>
-                <input formControlName="username" type="text" class="form-control" id="inputUsername" placeholder="perezj">
+                <input formControlName="username" type="text" class="form-control" id="inputUsername"
+                    placeholder="perezj">
                 <div *ngIf="username.invalid && username.touched">
                     <small class="text-danger">El nombre de usuario es obligatorio</small>
-                </div> 
+                </div>
             </div>
             <div class="form-group">
                 <label for="labelDireccion">Email</label>
-                <input formControlName="email" type="text" class="form-control" id="inputEmail" placeholder="perez@gmail.com">
+                <input formControlName="email" type="text" class="form-control" id="inputEmail"
+                    placeholder="perez@gmail.com">
                 <div *ngIf="email.invalid && email.touched">
                     <small class="text-danger">Se debe ingresar un correo con el formato mi@correo.com</small>
-                </div> 
-                
+                </div>
+
             </div>
             <div class="form-group">
                 <label for="labelCelular">Celular</label>
                 <input formControlName="celular" type="text" class="form-control" id="inputCelular"
                     placeholder="221 548 9652">
-                    <div *ngIf="celular.invalid && celular.touched">
-                        <small class="text-danger">El celular es obligatorio</small>
-                    </div>
+                <div *ngIf="celular.invalid && celular.touched">
+                    <small class="text-danger">El celular es obligatorio</small>
+                </div>
             </div>
             <div class="form-group">
                 <label for="labelContrasenia">Contraseña</label>
-                <input formControlName="password1" type="password" class="form-control" id="inputClave" placeholder="micontraseña">
+                <input formControlName="password1" type="password" class="form-control" id="inputClave"
+                    placeholder="micontraseña">
                 <div *ngIf="password1.invalid && password1.touched">
                     <small class="text-danger">La contraseña es obligatoria</small>
                 </div>
             </div>
             <div class="form-group">
                 <label for="labelContrasenia">Confirmar contraseña</label>
-                <input formControlName="password2" type="password" class="form-control" id="inputconfirmacionClave" placeholder="micontraseña">
+                <input formControlName="password2" type="password" class="form-control" id="inputconfirmacionClave"
+                    placeholder="micontraseña">
                 <div *ngIf="password2.invalid && password2.touched">
-                        <small class="text-danger">La confirmación de la contraseña es obligatoria</small>
+                    <small class="text-danger">La confirmación de la contraseña es obligatoria</small>
                 </div>
                 <div *ngIf="passwordsNotEquals">
                     <small class="text-danger">Las contraseñas ingresadas no coinciden</small>
@@ -92,7 +103,7 @@
             <div class="form-group">
                 <label for="labelModelo">Modelo</label>
                 <input formControlName="modelo" type="text" class="form-control" id="inputModelo" placeholder="Etios">
-              <!--
+                <!--
                 <div *ngIf="modelo.invalid && modelo.touched">
                     <small class="text-danger">El modelo es obligatorio</small>
                 </div>
@@ -100,7 +111,8 @@
             </div>
             <div class="form-group">
                 <label for="labelPatente">Patente</label>
-                <input formControlName="patente" type="text" class="form-control" id="inputPatente" placeholder="AA125FG">
+                <input formControlName="patente" type="text" class="form-control" id="inputPatente"
+                    placeholder="AA125FG">
                 <!--
                 <div *ngIf="patente.invalid && patente.touched">
                     <small class="text-danger">La patente es obligatoria</small>
@@ -123,11 +135,12 @@
                     </div>
                      -->
                 </div>
-                
+
                 <div class="col mb-3">
                     <label for="form-group">Ancho</label>
                     <div class="input-group">
-                        <input formControlName="ancho" type="text" class="form-control " id="inputAncho" placeholder="124">
+                        <input formControlName="ancho" type="text" class="form-control " id="inputAncho"
+                            placeholder="124">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend2">cm</span>
                         </div>
@@ -141,7 +154,8 @@
                 <div class="col mb-3">
                     <label for="form-group">Largo</label>
                     <div class="input-group ">
-                        <input type="text" formControlName="largo" class="form-control " id="inputLargo" placeholder="32">
+                        <input type="text" formControlName="largo" class="form-control " id="inputLargo"
+                            placeholder="32">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend2">cm</span>
                         </div>
@@ -157,7 +171,8 @@
                 <div class="col mb-3">
                     <label for="form-group">Distancia máxima a recorrer</label>
                     <div class="input-group w-25 ">
-                        <input type="text" formControlName="distancia" class="form-control " id="inputDistancia" placeholder="350">
+                        <input type="text" formControlName="distancia" class="form-control " id="inputDistancia"
+                            placeholder="350">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend2">km</span>
                         </div>
@@ -168,13 +183,14 @@
                     </div>
                 -->
                 </div>
-            </div>              
+            </div>
             <div class="form-group">
                 <label for="labelObservaciones">Observaciones</label>
-                <textarea class="form-control" formControlName="observaciones" id="inputObservaciones" rows="3"> </textarea>
+                <textarea class="form-control" formControlName="observaciones" id="inputObservaciones"
+                    rows="3"> </textarea>
             </div>
-            <div class="card-header text-center p-3 mt-4 mb-4"> 
-                <button  class="btn btn-orange" type="submit">Guardar</button>
+            <div class="card-header text-center p-3 mt-4 mb-4">
+                <button class="btn btn-orange" type="submit">Guardar</button>
                 <a routerLink="/home" class="btn btn-orange ml-3" style="background-color: #f94116">Cancelar</a>
             </div>
         </form>

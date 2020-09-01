@@ -1,14 +1,15 @@
-	<table class="table mb-2">
-		<thead class="thead-dark">
-			<th>
-				<p class="text-right">Seleccione el destinatario:</p>
-			</th>
-			<th>
-				<form [formGroup]="form">
-				<select id="select" formControlName="beneficiario" class="selectpicker" >
-					<option *ngFor="let unBeneficiario of beneficiarios" (click)="enviarAlPadre(unBeneficiario.id)" value="b1">{{unBeneficiario.username}}</option>
+<table class="table mb-2">
+	<thead class="thead-dark">
+		<th>
+			<p class="text-right">Seleccione el destinatario:</p>
+		</th>
+		<th>
+			<form [formGroup]="form">
+				<select id="select" formControlName="beneficiario" class="selectpicker">
+					<option *ngFor="let unBeneficiario of beneficiarios" (click)="enviarAlPadre(unBeneficiario.id)"
+						value="b1">{{unBeneficiario.username}}</option>
 				</select>
-				</form>
-			</th>
-		</thead>	
-	</table>	
+			</form>
+		</th>
+	</thead>
+</table>

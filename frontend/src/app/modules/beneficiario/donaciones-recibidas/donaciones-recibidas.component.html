@@ -1,30 +1,30 @@
-<div class="card border-secondary mb-4 container mt-5" id="contenedor">   
+<div class="card border-secondary mb-4 container mt-5" id="contenedor">
     <div class="card-body">
-        <div class="container">           
+        <div class="container">
             <section class="alert alert-dismissible alert-dark mt-3">
-                  Se muestran las donaciones destinadas a su organización, incluyendo las que aún no fueron recibidas
-                </section>
-                <table class="table table-hover table-bordered table-center">
-                    <thead>
-                        <tr class="text-center">
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Fecha asignada</th>
-                            <th scope="col">Voluntario</th>
-                            <th scope="col">Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody *ngFor="let fila of filas| paginate: { itemsPerPage: 10, currentPage: p }" class="text-center">
-                        <tr>
-                            <td>{{fila[0]}}</td>
-                            <td>{{fila[1]| date: 'dd/MM/yyyy hh:mm'}}</td>
-                            <td>{{fila[2]}}</td>
-                            <td>{{fila[3]}}</td>
-                        </tr>                  
-                    </tbody>
-                </table>
-                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                Se muestran las donaciones destinadas a su organización, incluyendo las que aún no fueron recibidas
+            </section>
+            <table class="table table-hover table-bordered table-center">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Fecha asignada</th>
+                        <th scope="col">Voluntario</th>
+                        <th scope="col">Estado</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let fila of filas| paginate: { itemsPerPage: 10, currentPage: p }" class="text-center">
+                    <tr>
+                        <td>{{fila[0]}}</td>
+                        <td>{{fila[1]| date: 'dd/MM/yyyy hh:mm'}}</td>
+                        <td>{{fila[2]}}</td>
+                        <td>{{fila[3]}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
             <div class="form-group text-center mt-5">
-                <button class="btn btn-orange mr-4" (click)="this.router.navigate(['/home']);">Salir</button>              
+                <button class="btn btn-orange mr-4" (click)="this.router.navigate(['/home']);">Salir</button>
             </div>
         </div>
     </div>

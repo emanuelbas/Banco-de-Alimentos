@@ -1,9 +1,11 @@
 <!-- CRITERIOS DE BUSQUEDA DE USUARIOS -->
 
+<div class="card border-secondary mb-4 container mt-5" id="contenedor">
+    <div class="card-body">
+        <div class="container">
 
-<div class="card border-secondary mb-3 container mt-5 shadow" id="contenedor">
-    
-<!-- Deseable
+
+            <!-- Deseable
     <section class="alert alert-dismissible alert-primary mt-3">
         Elegí un criterio de búsqueda
     </section>
@@ -25,45 +27,57 @@
         </section>
     </section>
 -->
-    <p>Marcar en verde durante: </p>
-    <p>
-        <select name="selectTiempo" [(ngModel)]="tiempoDeNotificacion">
-            <option [value]=8>8 horas</option>
-            <option [value]=24 [selected]>24 horas</option>
-            <option [value]=72>3 días</option>
-            <option [value]=168>1 semana</option>
-        </select>
-    </p>
-    <section class="alert alert-dismissible alert-dark mt-3">
-        Los siguientes voluntarios indicaron que poseen capacidad superior a {{this.volumenTotal}}m³ y están dispuestos a recorrer {{this.distancia}}km de distancia
-    </section>
-    <table class="table table-hover table-bordered table-center">
-        <thead>
-            <tr class="text-center">
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Email</th>
-                <th scope="col">Celular</th>
-                <th scope="col">Acciones</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let voluntario of voluntarios | paginate: { itemsPerPage: 10, currentPage: p }" class="text-center">
-            <tr>
-                <td>{{voluntario.nombre}}</td>
-                <td>{{voluntario.apellido}}</td>
-                <td>{{voluntario.email}}</td>
-                <td>{{voluntario.telefono}}</td>
-                <td>
-                    <button (click)="enviarEmailA(voluntario.email,tiempoDeNotificacion)">Enviar email</button> 
-                    <!-- <input type="checkbox" id="cbox1"value="first_checkbox">  -->   
-                </td>
-            </tr>
-        </tbody>
-    </table>
-			
-    <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>	
-    <section class="card-header text-center p-3 mt-4 mb-4">
-        <button type="button" class="btn btn-dark text-center mr-2" (click)="enviarEmails(tiempoDeNotificacion)">Enviar correo a todos</button>
-        <button type="button" class="btn btn-dark text-center"  (click)='this._location.back()'>Volver</button>
-    </section>
+            <section class="alert alert-dismissible alert-dark mt-3">
+                Los siguientes voluntarios indicaron que poseen capacidad superior a {{this.volumenTotal}}m³ y están
+                dispuestos a recorrer {{this.distancia}}km de distancia
+            </section>
+            <div class="card border-secondary mb-4 container " id="contenedor">
+                <div class="row justify-content-md-center">
+                    <div class="col-2 form-control font-weight-bold">
+                        Marcar en verde durante:
+                    </div>
+                    <div class="col-md-auto">
+                        <select name="selectTiempo" class="form-control container" [(ngModel)]="tiempoDeNotificacion">
+                            <option [value]=8>8 horas</option>
+                            <option [value]=24 [selected]>24 horas</option>
+                            <option [value]=72>3 días</option>
+                            <option [value]=168>1 semana</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover table-bordered table-center">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Celular</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let voluntario of voluntarios | paginate: { itemsPerPage: 10, currentPage: p }"
+                    class="text-center">
+                    <tr>
+                        <td>{{voluntario.nombre}}</td>
+                        <td>{{voluntario.apellido}}</td>
+                        <td>{{voluntario.email}}</td>
+                        <td>{{voluntario.telefono}}</td>
+                        <td>
+                            <button class="btn btn-orange text-center mr-2"
+                                (click)="enviarEmailA(voluntario.email,tiempoDeNotificacion)">Enviar email</button>
+                            <!-- <input type="checkbox" id="cbox1"value="first_checkbox">  -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
+            <section class="card-header text-center p-3 mt-4 mb-4">
+                <button type="button" class="btn btn-orange text-center mr-2"
+                    (click)="enviarEmails(tiempoDeNotificacion)">Enviar correo a todos</button>
+                <button type="button" class="btn btn-orange text-center" (click)='this._location.back()'>Volver</button>
+            </section>
+        </div>
+    </div>
 </div>

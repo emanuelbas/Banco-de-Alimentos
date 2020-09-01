@@ -70,7 +70,7 @@
                 <label for="labelApellido">Apellido</label>
                 <input formControlName="personaApellido" type="text" class="form-control" id="inputApellido"
                     placeholder="Gomez">
-                     <!-- 
+                <!-- 
                 <div *ngIf="personaApellido.invalid && personaApellido.touched">
                     <small class="text-danger">Debe ingresar el apellido de la persona de contacto</small>
                 </div>
@@ -80,7 +80,7 @@
                 <label for="labelDNI">DNI</label>
                 <input formControlName="personaDni" type="number" class="form-control" id="inputDNI"
                     placeholder="22.987.201">
-                     <!-- 
+                <!-- 
                 <div *ngIf="personaDni.invalid && personaDni.touched">
                     <small class="text-danger">Debe ingresar el DNI de la persona de contacto</small>
                 </div>
@@ -90,56 +90,55 @@
                 <label for="labelEmail">Email</label>
                 <input formControlName="personaEmail" type="email" class="form-control" id="inputEmail"
                     placeholder="gomezjose@gmail.com">
-                    <!--
+                <!--
                     <div *ngIf="personaEmail.invalid && personaEmail.touched  ">
                         <small class="text-danger">Debe ingresar un correo con el formato mi@correo.com</small>
                     </div>
                 -->
             </div>
-                <div class="form-group">
-                    <label for="labelEmail">Celular</label>
-                    <input formControlName="personaCelular" type="number" class="form-control" id="inputCelular"
-                        placeholder="221 654 8752">
-                    <!--
+            <div class="form-group">
+                <label for="labelEmail">Celular</label>
+                <input formControlName="personaCelular" type="number" class="form-control" id="inputCelular"
+                    placeholder="221 654 8752">
+                <!--
                     <div *ngIf="personaCelular.invalid && personaCelular.touched">
                         <small class="text-danger">Debe ingresar el celular de la persona de contacto</small>
                     </div>
                 -->
-                </div>
-                <p class="btn btn-orange" (click)="agregarContacto()">Agregar persona</p>
+            </div>
+            <p class="btn btn-orange" (click)="agregarContacto()">Agregar persona</p>
 
-                <!-- <div  *ngIf="!colPersonasDeContacto[0]==null"> Con esto se esconde cuando no hay contactos pero da problemas -->
-                <section class="alert alert-dismissible alert-dark mt-3">
-                    Personas de contacto
-                </section>
-                <table class="table table-hover table-bordered table-center">
-                    <thead>
-                        <tr class="text-center">
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">DNI</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Celular</th>
+            <!-- <div  *ngIf="!colPersonasDeContacto[0]==null"> Con esto se esconde cuando no hay contactos pero da problemas -->
+            <section class="alert alert-dismissible alert-dark mt-3">
+                Personas de contacto
+            </section>
+            <table class="table table-hover table-bordered table-center">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Celular</th>
 
-                        </tr>
-                    </thead>
-                    <tbody class="text-center">
-                        <tr *ngFor="let contacto of colPersonasDeContacto">
-                            <td>{{contacto.nombre}}</td>
-                            <td>{{contacto.apellido}}</td>
-                            <td>{{contacto.dni}}</td>
-                            <td>{{contacto.email}}</td>
-                            <td>{{contacto.telefono}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!-- </div> -->
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr *ngFor="let contacto of colPersonasDeContacto">
+                        <td>{{contacto.nombre}}</td>
+                        <td>{{contacto.apellido}}</td>
+                        <td>{{contacto.dni}}</td>
+                        <td>{{contacto.email}}</td>
+                        <td>{{contacto.telefono}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- </div> -->
 
-                <div class="card-header text-center p-3 mt-4 mb-4">
-                    <button class="btn btn-orange" style="background-color: #f94116"
-                        type="submit">Guardar</button>
-                    <a routerLink="/home" class="btn btn-orange ml-2" style="background-color: #f94116">Cancelar</a>
-                </div>
+            <div class="card-header text-center p-3 mt-4 mb-4">
+                <button class="btn btn-orange" style="background-color: #f94116" type="submit">Guardar</button>
+                <a routerLink="/home" class="btn btn-orange ml-2" style="background-color: #f94116">Cancelar</a>
+            </div>
         </form>
     </div>
 </div>

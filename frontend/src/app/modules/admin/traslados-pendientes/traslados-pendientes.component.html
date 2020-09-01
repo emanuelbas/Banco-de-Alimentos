@@ -1,26 +1,27 @@
 <div class="card border-secondary mb-4 container mt-5" id="contenedor">
   <div class="card-body ml-3 mr-3">
-    <div class="container">   
+    <div class="container">
       <section class="alert alert-dismissible alert-dark mt-3">
-                    Traslados que tienen un voluntario asignado pero aún no fueron trasladados
+        Traslados que tienen un voluntario asignado pero aún no fueron trasladados
       </section>
-        <div class="container">
-          <form [formGroup]="form">
-            <div class="row">
-                  <div class="col">
-                      <input formControlName="nombre" class="form-control" type="search" id="buscarVoluntario" name="buscarVoluntario" placeholder="Nombre del voluntario..">
-                   </div>
-                   <div class=" col-md-auto">
-                      <button class="btn btn-orange" (click)="filtrar()">Filtrar</button>
-                   </div>
-                   <div class="col-md-auto ">
-                      <button class="btn btn-orange" (click)="verTodos()">Ver todos</button>
-                   </div>
-              </div>
-            </form>
+      <div class="container">
+        <form [formGroup]="form">
+          <div class="row">
+            <div class="col">
+              <input formControlName="nombre" class="form-control" type="search" id="buscarVoluntario"
+                name="buscarVoluntario" placeholder="Nombre del voluntario..">
+            </div>
+            <div class=" col-md-auto">
+              <button class="btn btn-orange" (click)="filtrar()">Filtrar</button>
+            </div>
+            <div class="col-md-auto ">
+              <button class="btn btn-orange" (click)="verTodos()">Ver todos</button>
+            </div>
           </div>
-    
-    
+        </form>
+      </div>
+
+
       <table class="table table-hover table-bordered table-center mt-4">
         <thead>
           <tr>
@@ -41,12 +42,12 @@
             <td>{{fila.getFecha()| date: 'dd/MM/yyyy'}}</td>
             <td>{{fila.roundDistancia()}}km</td>
           </tr>
-        </tbody>        
+        </tbody>
       </table>
       <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
       <section class="card-header text-center p-3 mt-4 mb-4">
         <div class="">
-          <button class="btn btn-orange" (click)='this._location.back()'>Volver</button>               
+          <button class="btn btn-orange" (click)='this._location.back()'>Volver</button>
         </div>
       </section>
     </div>

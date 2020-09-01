@@ -1,15 +1,18 @@
 <div class="container m-5">
-	<app-nuevo-envio-seleccionar-donante (enviarIdBeneficiario)="onEnviarIdBeneficiario($event)"></app-nuevo-envio-seleccionar-donante>
+	<app-nuevo-envio-seleccionar-donante (enviarIdBeneficiario)="onEnviarIdBeneficiario($event)">
+	</app-nuevo-envio-seleccionar-donante>
 </div>
 
 <div class="container m-5 overflow-auto" style="height: 300px">
 	<mat-tab-group (selectedTabChange)="toggleTipo()">
-	  <mat-tab label="A partir de donación..">
-	    <app-nuevo-envio-seleccionar-donacion (enviarIdDonacion)="onEnviarIdDonacion($event)"></app-nuevo-envio-seleccionar-donacion>
-	  </mat-tab>
-	  <mat-tab label="A partir de stock..">
-	    <app-nuevo-envio-a-partir-de-stock (enviarProductos)="onEnviarProductosDelStock($event)"></app-nuevo-envio-a-partir-de-stock>
-	  </mat-tab>
+		<mat-tab label="A partir de donación..">
+			<app-nuevo-envio-seleccionar-donacion (enviarIdDonacion)="onEnviarIdDonacion($event)">
+			</app-nuevo-envio-seleccionar-donacion>
+		</mat-tab>
+		<mat-tab label="A partir de stock..">
+			<app-nuevo-envio-a-partir-de-stock (enviarProductos)="onEnviarProductosDelStock($event)">
+			</app-nuevo-envio-a-partir-de-stock>
+		</mat-tab>
 	</mat-tab-group>
 </div>
 

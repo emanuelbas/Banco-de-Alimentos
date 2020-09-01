@@ -8,14 +8,15 @@
 	</thead>
 	<tbody>
 		<tr *ngFor="let donacion of donaciones">
-				<td>
-				{{donacion.traslado.descripcion}}
-				</td>
-				<td>
-				{{donacion.donante.username}}
-				</td>
 			<td>
-				<mat-radio-button color="primary" value="donacion.id" (click)="enviarAlPadre(donacion.id)">Seleccionar</mat-radio-button>
+				{{donacion.traslado.descripcion}}
+			</td>
+			<td>
+				{{donacion.donante.username}}
+			</td>
+			<td>
+				<mat-radio-button color="primary" value="donacion.id" (click)="enviarAlPadre(donacion.id)">Seleccionar
+				</mat-radio-button>
 			</td>
 		</tr>
 	</tbody>

@@ -1,5 +1,5 @@
- <form [formGroup]="form">
-   <table class="table mb-2" style="width:100%">
+<form [formGroup]="form">
+  <table class="table mb-2" style="width:100%">
     <thead class="thead-dark">
       <tr colspan="3">
         <th>Descripcion</th>
@@ -7,7 +7,7 @@
         <th></th>
       </tr>
     </thead>
-    <tr *ngFor="let item of lista" >
+    <tr *ngFor="let item of lista">
       <td>{{item.descripcion}}</td>
       <td>{{item.peso}} kg</td>
       <td><button (click)="borrar(item)">Borrar</button></td>
@@ -19,5 +19,5 @@
         <td><button (click)="agregar()">+ Agregar</button></td>
       </tr>
     </tfoot>
-  </table> 
+  </table>
 </form>

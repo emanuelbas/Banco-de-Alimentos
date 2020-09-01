@@ -10,10 +10,11 @@
             </div>
 
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button class="btn btn-danger" data-dismiss="modal" (click)="onConfirmarCancelacionDeTraslado()">Si, Cancelar el traslado</button>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button class="btn btn-danger" data-dismiss="modal" (click)="onConfirmarCancelacionDeTraslado()">Si,
+                    Cancelar el traslado</button>
+            </div>
         </div>
     </div>
 </div>
@@ -29,32 +30,37 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form [formGroup]="form">
-                <label class="" for="">Descripción</label>
-                <input type="text" class="form-control" formControlName="descripcion" value="{{this.trasladoAEditar.descripcion}}">
-                <div *ngIf="descripcion.invalid && descripcion.touched">
-                    <small class="text-danger">Debe ingresar una descripción</small>
-                </div>
-                <label class="mt-1" for="">Peso</label>
-                <input type="text" class="form-control" formControlName="peso" value="{{this.trasladoAEditar.peso}}">
-                <div *ngIf="peso.invalid && peso.touched">
-                    <small class="text-danger">Debe ingresar un peso</small>
-                </div>
-                <label class="mt-1" for="">Volumen total</label>
-                <input type="text" class="form-control" formControlName="volumenTotal" value="{{this.trasladoAEditar.volumenTotal}}">
-                <div *ngIf="volumenTotal.invalid && volumenTotal.touched">
-                    <small class="text-danger">Debe ingresar un volumen total</small>
-                </div>
-                <label class="mt-1" for="">Fecha de vencimiento del primer producto</label>
-                <input type="date" class="form-control" formControlName="fechaVencimientoProductos" value="{{this.trasladoAEditar.fechaVencimientoProductos | date: 'yyyy-MM-dd'}}">   
-                <div *ngIf="fechaVencimientoProductos.invalid && fechaVencimientoProductos.touched">
-                    <small class="text-danger">Debe ingresar una fecha de vencimiento</small>
-                </div>
-            </form>
+                <form [formGroup]="form">
+                    <label class="" for="">Descripción</label>
+                    <input type="text" class="form-control" formControlName="descripcion"
+                        value="{{this.trasladoAEditar.descripcion}}">
+                    <div *ngIf="descripcion.invalid && descripcion.touched">
+                        <small class="text-danger">Debe ingresar una descripción</small>
+                    </div>
+                    <label class="mt-1" for="">Peso</label>
+                    <input type="text" class="form-control" formControlName="peso"
+                        value="{{this.trasladoAEditar.peso}}">
+                    <div *ngIf="peso.invalid && peso.touched">
+                        <small class="text-danger">Debe ingresar un peso</small>
+                    </div>
+                    <label class="mt-1" for="">Volumen total</label>
+                    <input type="text" class="form-control" formControlName="volumenTotal"
+                        value="{{this.trasladoAEditar.volumenTotal}}">
+                    <div *ngIf="volumenTotal.invalid && volumenTotal.touched">
+                        <small class="text-danger">Debe ingresar un volumen total</small>
+                    </div>
+                    <label class="mt-1" for="">Fecha de vencimiento del primer producto</label>
+                    <input type="date" class="form-control" formControlName="fechaVencimientoProductos"
+                        value="{{this.trasladoAEditar.fechaVencimientoProductos | date: 'yyyy-MM-dd'}}">
+                    <div *ngIf="fechaVencimientoProductos.invalid && fechaVencimientoProductos.touched">
+                        <small class="text-danger">Debe ingresar una fecha de vencimiento</small>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button class="btn btn-danger" data-dismiss="modal" (click)="onGuardarCambiosTraslado()">Guardar</button>
+                <button class="btn btn-danger" data-dismiss="modal"
+                    (click)="onGuardarCambiosTraslado()">Guardar</button>
             </div>
         </div>
     </div>
@@ -62,46 +68,53 @@
 
 
 
-    <!--- Probando modal -->
+<!--- Probando modal -->
 
 <div class="card border-secondary mb-4 container mt-5" id="contenedor">
-   
+
     <div class="card-body">
-        <div class="container">           
+        <div class="container">
             <section class="alert alert-dismissible alert-dark mt-3">
-                    Traslados que aún no tienen un voluntario asignado
-                </section>
-                <table class="table table-hover table-bordered table-center">
-                    <thead>
-                        <tr class="text-center">
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Origen</th>
-                            <th scope="col">Destino</th>
-                            <th scope="col">Peso</th>
-                            <th scope="col">Volumen</th>
-                            <th scope="col">Fecha de vencimiento</th>
-                            <th scope="col">Opciones</th>
-                        </tr>
-                    </thead>
-                    <tbody *ngFor="let traslado of traslados| paginate: { itemsPerPage: 10, currentPage: p }" class="text-center">
-                        <tr [style.background]="(traslado[7].getTime() > this.fechaDeHoy)? '#cfffcf':'#ffcbc9'"  class="bg-notificar">
-                            <td>{{traslado[4]}}</td>
-                            <td>{{traslado[0]}}</td>
-                            <td>{{traslado[1]}}</td>
-                            <td>{{traslado[6].peso}}</td>
-                            <td>{{traslado[6].volumenTotal}}</td>
-                            <td>{{traslado[6].fechaVencimientoProductos | date: 'dd/MM/yyyy'}}</td>
-                            <td>
-                            	<button (click)="this.buscarVoluntariosParaTraslado(traslado);" class="" title="Buscar voluntarios" >🔍</button>
-                                <button  data-toggle="modal" data-target="#modalEditarTraslado" (click)="this.editarTraslado(traslado[6]);" class="" title="Editar descripción" >✏️</button>
-                                <button data-toggle="modal" data-target="#modalCancelarTraslado"  (click)="this.cancelarTraslado(traslado[6]);" class="" title="Cancelar traslado" >❌</button>
-                            </td>
-                        </tr>                  
-                    </tbody>
-                </table>
-                <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
+                Traslados que aún no tienen un voluntario asignado
+            </section>
+            <table class="table table-hover table-bordered table-center">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Origen</th>
+                        <th scope="col">Destino</th>
+                        <th scope="col">Peso</th>
+                        <th scope="col">Volumen</th>
+                        <th scope="col">Fecha de vencimiento</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let traslado of traslados| paginate: { itemsPerPage: 10, currentPage: p }"
+                    class="text-center">
+                    <tr [style.background]="(traslado[7].getTime() > this.fechaDeHoy)? '#cfffcf':'#ffcbc9'"
+                        class="bg-notificar">
+                        <td>{{traslado[4]}}</td>
+                        <td>{{traslado[0]}}</td>
+                        <td>{{traslado[1]}}</td>
+                        <td>{{traslado[6].peso}}</td>
+                        <td>{{traslado[6].volumenTotal}}</td>
+                        <td>{{traslado[6].fechaVencimientoProductos | date: 'dd/MM/yyyy'}}</td>
+                        <td>
+                            <button (click)="this.buscarVoluntariosParaTraslado(traslado);" class=""
+                                title="Buscar voluntarios">🔍</button>
+                            <button data-toggle="modal" data-target="#modalEditarTraslado"
+                                (click)="this.editarTraslado(traslado[6]);" class=""
+                                title="Editar descripción">✏️</button>
+                            <button data-toggle="modal" data-target="#modalCancelarTraslado"
+                                (click)="this.cancelarTraslado(traslado[6]);" class=""
+                                title="Cancelar traslado">❌</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
             <div class="card-header text-center p-3 mt-4 mb-4">
-                <button class="btn btn-orange" (click)='this._location.back()'>Volver</button>               
+                <button class="btn btn-orange" (click)='this._location.back()'>Volver</button>
             </div>
         </div>
     </div>
