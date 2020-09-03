@@ -61,6 +61,7 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
           uploadAPI: {
             url:"http://localhost:3000/api/containers/container/upload",
           },
+          formatsAllowed: ".pdf,.png,.txt,.doc,.docx,.odt,.rtf,.csv,.xls,.xlsx,.xlsm",
           theme: "dragNDrop",
           hideResetBtn: true,
           replaceTexts: {
@@ -73,7 +74,7 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
             afterUploadMsg_error: 'Falló',
             sizeLimit: 'Tamaño máximo: '
           },
-          fileNameIndex: false
+          fileNameIndex: true
           //hideProgressBar: true,
       };
 
@@ -168,7 +169,8 @@ export class RegistrarDonacionGeneralComponent implements OnInit {
 
 
   DocUpload(res){
-    this.filename = this.fileUpload1.allowedFiles[0].name;
+    this.filename = res.body.result.files.file0[0].name;
+    console.log(res.body.result.files.file0[0].name)
   }
 
   ngOnInit() {

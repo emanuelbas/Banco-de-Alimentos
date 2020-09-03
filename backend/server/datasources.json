@@ -16,6 +16,7 @@
   "dataStorage": {
     "name": "dataStorage",
     "connector": "loopback-component-storage",
+    "nameConflict": "makeUnique",
     "provider": "filesystem",
     "root": "./store"
   }
