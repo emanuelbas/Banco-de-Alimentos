@@ -9,6 +9,7 @@
 	<tbody>
 		<tr *ngFor="let donacion of donaciones">
 			<td>
+				<a *ngIf="donacion.filename != null" title="Abrir archivo adjunto" href="{{this.base}}/api/containers/container/download/{{donacion.filename}}"	[target]="_blank">📎</a>
 				{{donacion.traslado.descripcion}}
 			</td>
 			<td>

@@ -23,7 +23,7 @@
 					<div class="form-group">
 						<select name="donaciones" [(ngModel)]="seleccionado" class="selectpicker form-control">
 							<option [ngValue]="donacion" *ngFor="let donacion of this.donacionesNuevas">
-								{{donacion.numero}}</option>
+								#{{donacion.numero}}</option>
 						</select>
 					</div>
 				</div>
@@ -37,7 +37,7 @@
 				<p> {{seleccionado.traslado.descripcion}}</p>
 				<div *ngIf="seleccionado.filename != null">
 					<a href="{{this.base}}/api/containers/container/download/{{seleccionado.filename}}"
-						target="_blank">Abrir archivo adjunto</a>
+						[target]="_blank" title="Abrir archivo adjunto">📎</a>
 				</div>
 			</div>
 		</div>
