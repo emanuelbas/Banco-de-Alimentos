@@ -7,6 +7,11 @@ logística de traslado de envíos.
 
 Se utilizará Angular para el frontend y Loopback en backend con MongoDB como base.
 
+
+## Requisitos
+
+* node v12.14 o mayor
+
 ## Instalación
 
 Clonar el repositorio
@@ -33,12 +38,16 @@ ng serve
 
 ## Lista de funcionalidades desarrolladas
 
-* Manejo de cuentas para voluntarios, donantes, beneficiarios y administradores
-* Creación y visualización de donaciones con descripcion general o detallada
-* Creación y visualización de envios para beneficiarios a partir de una donación o de stock
-* Manejo de traslados incluyendo busqueda y asignación de voluntarios y seguimiento de los mismos
-* Gamificación de la app con sistema de puntos e insignias para donantes y voluntarios
-* Envío de correos de notificación
+⭐ Manejo de cuentas para voluntarios, donantes, beneficiarios y administradores
+⭐ Creación y visualización de donaciones con descripcion general o detallada
+⭐ Creación y visualización de envios para beneficiarios a partir de una donación o de stock
+⭐ Manejo de traslados incluyendo busqueda y asignación de voluntarios y seguimiento de los mismos
+⭐ Gamificación de la app con sistema de puntos e insignias para donantes y voluntarios
+⭐ Envío de correos de notificación
+⭐ Gestión de stock de productos
+⭐ Manejo de archivos
+
+
 
 ## Ejemplos de funcionalidades
 
