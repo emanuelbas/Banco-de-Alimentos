@@ -2,7 +2,7 @@
 
 <div class="card border-secondary mb-4 container mt-5" id="contenedor">
     <div class="card-body">
-        <div class="container">
+
 
 
             <!-- Deseable
@@ -27,9 +27,10 @@
         </section>
     </section>
 -->
-            <section class="alert alert-dismissible alert-dark mt-3">
-                Los siguientes voluntarios indicaron que poseen capacidad superior a {{this.volumenTotal}}m³ y están
-                dispuestos a recorrer {{this.distancia}}km de distancia
+            <section class="card-header text-center bg-gradient-dark rounded-top text-white">
+                <h5> Los siguientes voluntarios indicaron que poseen capacidad superior a {{this.volumenTotal}}m³ y
+                    están
+                    dispuestos a recorrer {{this.distancia}}km de distancia</h5>
             </section>
             <div class="card border-secondary mb-4 container " id="contenedor">
                 <div class="row justify-content-md-center">
@@ -73,11 +74,11 @@
             </table>
 
             <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
-            <section class="card-header text-center p-3 mt-4 mb-4">
-                <button type="button" class="btn btn-orange text-center mr-2"
-                    (click)="enviarEmails(tiempoDeNotificacion)">Enviar correo a todos</button>
-                <button type="button" class="btn btn-orange text-center" (click)='this._location.back()'>Volver</button>
-            </section>
-        </div>
+
     </div>
+    <section class="card-footer d-flex justify-content-center p-3 mt-4">
+        <button class="btn btn-outline-orange mr-2" (click)="this._location.back()">Volver</button>
+        <button type="button" class="btn btn-orange text-center"
+        (click)="enviarEmails(tiempoDeNotificacion)">Enviar correo a todos</button>
+    </section>
 </div>
