@@ -1,17 +1,28 @@
-<form [formGroup]="form">
-	<label> id </label>
-	<input formControlName="id" type="number">
-	<label> Cantidad </label>
-	<input formControlName="cantidad" type="number">
-	<span class="inline" (click)="agregarAEnvio()" class="btn btn-dark"> Agregar </span>
+<form [formGroup]="form" class="mt-2 d-flex justify-content-around align-items-center row">
+	<div class="col-md-2 text-right font-weight-bold">
+		<label for="id">Id:</label>
+	</div>
+	<div class="col-md-3">
+		<input formControlName="id" type="number" size="2" class="form-control without-arrows" id="id">
+	</div>
+
+	<div class="col-md-2 text-right font-weight-bold">
+		<label for="cantidad">Cantidad:</label>
+	</div>
+	<div class="col-md-2">
+		<input formControlName="cantidad" type="number" size="2" class="form-control without-arrows" id="cantidad">
+	</div>
+	<div class="col-md-3">
+		<span class="inline" (click)="agregarAEnvio()" class="btn btn-dark"> Agregar </span>
+	</div>
 </form>
 
-<p> En stock </p>
-<table class="table mb-2" style="width:100%">
-	<thead class="thead-dark">
+<h4 class="text-center mt-2">En stock</h4>
+<table class="table border-0 mb-2 w-100">
+	<thead class="thead-gray">
 		<tr>
 			<th>
-				id
+				Id
 			</th>
 			<th>
 				Nombre
@@ -30,31 +41,33 @@
 			</th>
 		</tr>
 	</thead>
-	<tr *ngFor="let producto of this.productosEnStock;let i=index">
-		<td>
-			{{i+1}}
-		</td>
-		<td>
-			{{producto.tipoProducto.nombre}}
-		</td>
-		<td>
-			{{producto.tipoProducto.categoria.nombre}}
-		</td>
-		<td>
-			{{producto.cantidad}}
-		</td>
-		<td>
-			{{producto.vencimiento| date: 'dd/MM/yyyy'}}
-		</td>
-		<td>
-			{{producto.tipoProducto.peso}}
-		</td>
-	</tr>
+	<tbody>
+		<tr *ngFor="let producto of this.productosEnStock;let i=index">
+			<td>
+				{{i+1}}
+			</td>
+			<td>
+				{{producto.tipoProducto.nombre}}
+			</td>
+			<td>
+				{{producto.tipoProducto.categoria.nombre}}
+			</td>
+			<td>
+				{{producto.cantidad}}
+			</td>
+			<td>
+				{{producto.vencimiento| date: 'dd/MM/yyyy'}}
+			</td>
+			<td>
+				{{producto.tipoProducto.peso}}
+			</td>
+		</tr>
+	</tbody>
 </table>
 
-<p> Agregados al envio </p>
+<h4 class="text-center mt-2">Agregados al envio</h4>
 <table class="table mb-2" style="width:100%">
-	<thead class="thead-dark">
+	<thead class="thead-gray">
 		<tr>
 			<th>
 				Nombre
@@ -67,15 +80,17 @@
 			</th>
 		</tr>
 	</thead>
-	<tr *ngFor="let producto of this.productosEnEnvio">
-		<td>
-			{{producto.tipoProducto.nombre}}
-		</td>
-		<td>
-			{{producto.vencimiento| date: 'dd/MM/yyyy'}}
-		</td>
-		<td>
-			{{producto.cantidad}}
-		</td>
-	</tr>
+	<tbody>
+		<tr *ngFor="let producto of this.productosEnEnvio">
+			<td>
+				{{producto.tipoProducto.nombre}}
+			</td>
+			<td>
+				{{producto.vencimiento| date: 'dd/MM/yyyy'}}
+			</td>
+			<td>
+				{{producto.cantidad}}
+			</td>
+		</tr>
+	</tbody>
 </table>

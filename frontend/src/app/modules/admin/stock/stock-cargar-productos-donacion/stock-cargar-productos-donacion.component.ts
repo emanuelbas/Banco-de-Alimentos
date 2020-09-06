@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Validators } from '@angular/forms';
 import { Donacion, DonacionApi, Producto, ProductoApi, TipoProducto, TipoProductoApi, Categoria, CategoriaApi } from '../../../../_services/lbservice';
 import { environment } from 'src/environments/environment';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-stock-cargar-productos-donacion',
@@ -30,7 +30,8 @@ export class StockCargarProductosDonacionComponent implements OnInit {
 		private productoApi:ProductoApi,
 		private tipoApi:TipoProductoApi,
 		private categoriaApi:CategoriaApi,
-		private donacionApi:DonacionApi
+		private donacionApi:DonacionApi,
+		public _location: Location
 		//apiDonacion
 		) {
 

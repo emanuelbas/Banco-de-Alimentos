@@ -6,6 +6,7 @@ import { Validators } from '@angular/forms';
 import { BeneficiarioApi, UbicacionApi } from '../../../_services/lbservice/services';
 import { AddressConverter } from '../../../_models/AddressConverter';
 import { DataShareService } from 'src/app/_services/data-share.service';
+import { Location } from '@angular/common';
 
 @Component({
 	selector: 'app-registrar-beneficiario',
@@ -17,7 +18,7 @@ export class RegistrarBeneficiarioComponent implements OnInit {
 	registrarBeneficiario: FormGroup;
 	convertidorDeDirecciones: AddressConverter;
 
-	constructor(private data:DataShareService, private ubicacionApi:UbicacionApi, private beneficiarioApi: BeneficiarioApi, private route: ActivatedRoute, private router: Router) {
+	constructor(private data:DataShareService, private ubicacionApi:UbicacionApi, private beneficiarioApi: BeneficiarioApi, private route: ActivatedRoute, private router: Router, 		public _location: Location) {
 
 		this.nuevoBeneficiario = new Beneficiario();
 		this.convertidorDeDirecciones = new AddressConverter();

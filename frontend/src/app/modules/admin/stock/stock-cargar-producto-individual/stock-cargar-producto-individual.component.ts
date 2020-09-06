@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Validators } from '@angular/forms';
 import { Producto, ProductoApi, TipoProducto, TipoProductoApi, Categoria, CategoriaApi } from '../../../../_services/lbservice';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-stock-cargar-producto-individual',
@@ -22,7 +22,8 @@ export class StockCargarProductoIndividualComponent implements OnInit {
 		private router:Router,
 		private productoApi:ProductoApi,
 		private tipoApi:TipoProductoApi,
-		private categoriaApi:CategoriaApi
+		private categoriaApi:CategoriaApi,
+		public _location: Location
 		)
 	{ 
 		this.form = new FormGroup({

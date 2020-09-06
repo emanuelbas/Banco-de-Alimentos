@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Producto, ProductoApi } from '../../../../_services/lbservice';
 import { DataShareService } from 'src/app/_services/data-share.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 //Reemplazar por el servicio real
 import { MockStockService } from '../../../../_services/stockservice/mock-stock.service';
 
@@ -20,7 +21,8 @@ export class StockVentanaPrincipalComponent implements OnInit {
   constructor(
     private data:DataShareService,
   	private router:Router,
-    private productoApi:ProductoApi
+    private productoApi:ProductoApi,
+    public _location: Location
   ) {
     this.productoApi.find({include:{tipoProducto:'categoria'}}).subscribe((productos:Producto[])=>{this.productosEnStock=productos;console.log(this.productosEnStock)});
     //this.productoApi.find({include:"tipoProducto"}).subscribe((productos:Producto[])=>{this.productosEnStock=productos});

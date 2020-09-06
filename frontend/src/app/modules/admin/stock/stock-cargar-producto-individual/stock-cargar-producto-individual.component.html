@@ -1,17 +1,13 @@
-<div class="container card border-secondary mb-5">
+<div class="container card border-secondary">
+	<section class="card-header text-center bg-gradient-dark rounded-top text-white">
+		<h3>Datos del producto</h3>
+	</section>
 
-	<div class="form-box container-fluid p-4">
-
-		<section class="alert alert-dismissible alert-dark ml-2">
-			Datos del producto
-		</section>
-		<form [formGroup]="form" class="ml-3 mr-3 pt-3">
-
+	<div class="form-box container-fluid p-4 card-body">
+		<form [formGroup]="form" class="ml-3 mr-3 pt-3" id="formProducto">
 			<div class="form-group">
-
 				<label for="nombre">Nombre</label><br>
-				<input class="form-control" type="text" formControlName="nombre" name="nombre" value=""
-					placeholder="Fideos">
+				<input class="form-control" type="text" formControlName="nombre" name="nombre" value="" placeholder="Fideos">
 				<div *ngIf="nombre.invalid && nombre.touched">
 					<small class="text-danger">Debe ingresar un nombre para el producto</small>
 				</div>
@@ -31,8 +27,7 @@
 			<div class="form-group">
 				<label for="cant">Cantidad</label><br>
 				<!-- Input int --->
-				<input class="form-control" type="number" min="0" formControlName="cant" name="cant" value=""
-					placeholder="38">
+				<input class="form-control" type="number" min="0" formControlName="cant" name="cant" value="" placeholder="38">
 				<div *ngIf="cant.invalid && cant.touched">
 					<small class="text-danger">Debe ingresar la cantidad de productos</small>
 				</div>
@@ -50,23 +45,21 @@
 			<div class="form-group">
 				<label for="peso">Peso en kilogramos</label><br>
 				<!-- Input real --->
-				<input class="form-control" type="number" step="0.001" min="0" formControlName="peso" name="peso"
-					value="" placeholder="23">
+				<input class="form-control" type="number" step="0.001" min="0" formControlName="peso" name="peso" value=""
+					placeholder="23">
 				<div *ngIf="peso.invalid && peso.touched">
 					<small class="text-danger">Debe ingresar el peso unitario</small>
 				</div>
 
 			</div>
-
-
 			<label class="font-italic">*Ingrese los datos del producto que desea agregar al stock. En caso que no desee
 				agregar más productos, presione "Agregar y salir". </label>
-			<section class="card-header text-center mt-3 p-3">
-				<button class="btn btn-orange" (click)="submitProduct(false)" [disabled]="!form.valid">Agregar</button>
-				<button class="btn btn-orange ml-2" (click)="submitProduct(true)" [disabled]="!form.valid">Agregar y
-					salir</button>
-				<a routerLink="/ver-stock" class="ml-2 btn btn-orange">Volver</a>
-			</section>
 		</form>
 	</div>
+	<section class="card-footer d-flex justify-content-center mt-4 p-3">
+		<button class="btn btn-outline-orange mr-2" (click)="this._location.back()">Volver</button>
+		<button class="btn btn-orange" (click)="submitProduct(false)" [disabled]="!form.valid">Agregar</button>
+		<button form="formProducto" class="btn btn-orange ml-2" (click)="submitProduct(true)" [disabled]="!form.valid">Agregar y
+			salir</button>
+	</section>
 </div>

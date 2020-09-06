@@ -84,8 +84,9 @@ hr {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin: 0;
+  /* margin-top: 0;
+  margin-bottom: 0.5rem; */
 }
 
 p {
@@ -369,7 +370,7 @@ template {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
   font-weight: 500;
   line-height: 1.2;
 }
@@ -4957,7 +4958,7 @@ input[type="button"].btn-block {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 0 solid transparent;
+  border-bottom: 1px solid rgba(0,0,0,.125);
 }
 
 .card-header:first-child {
@@ -4971,7 +4972,7 @@ input[type="button"].btn-block {
 .card-footer {
   padding: 0.75rem 1.25rem;
   background-color: rgba(0, 0, 0, 0.03);
-  border-top: 0 solid transparent;
+  border-top: 1px solid rgba(0,0,0,.125);
 }
 
 .card-footer:last-child {
@@ -7016,7 +7017,7 @@ button.bg-danger:focus {
 }
 
 .bg-light {
-  background-color: #fff !important;
+  background-color: #f8f9fa !important;
 }
 
 a.bg-light:hover, a.bg-light:focus,
@@ -7128,7 +7129,7 @@ button.bg-dark:focus {
 }
 
 .border-secondary {
-  border-color: #fff !important;
+  border-color: #6c757d !important;
 }
 
 .border-success {
@@ -12150,33 +12151,58 @@ header-main {
  height: 60px;
 }
 
+
+
 router-outlet {
   position: absolute;
 }
 
 footer {
+  margin-top: 10%;
   height: 100px;
 }
 
 .bg-naranja {
   background-color: #f94116;
   color: white;
-
 }
-
 .btn-orange {
-  background-color: #f94116; 
-  color:white
+  background-color: #ff4b23; 
+  color:white !important;
+  font-weight: bold;
+  border: 2px solid #ff4b23;
 }
 
-.btn-orange:hover {
-  background: #ffeed9 linear-gradient(180deg, #ffeed9, #ffeed9) repeat-x;
-  border-color: #ffeed9
+.btn-orange:hover:enabled {
+  background: #ff3000;
+  border-color: white;
+}
+
+.btn-outline-orange {
+  color: #f94116 !important;
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: white;
+}
+
+.btn-outline-orange:hover:enabled {  
+  border-color: #f94116;
 }
 
 .btn-orange:focus, .btn-secondary.focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(222, 222, 222, 0.5);
           box-shadow: 0 0 0 0.2rem rgba(222, 222, 222, 0.5);
+}
+
+.btn-outline-gray {
+  color: gray !important;
+  border: 2px solid gray;
+  font-weight: bold;
+}
+
+.btn-outline-gray:hover:enabled {
+	background: gray;
+	color: white !important;
 }
 
 /* Hasta aca el footer */
@@ -12262,7 +12288,56 @@ footer {
   font-family: 'marcellus', serif;
 }
 
+/* Colores BALP */
 
+.bg-green-balp{
+  background-color: #008641;
+}
 
+.bg-yellow-balp{
+  background-color: #fff200;
+}
 
+.bg-orange-balp{
+  background-color: #f37121;
+}
 
+.bg-red-balp{
+  background-color: #ed1c24;
+}
+
+.bg-cyan-balp{
+  background-color: #23bfcc;
+}
+
+.bg-blue-balp{
+  background-color: #352a75;
+}
+
+.bg-purple-balp{
+  background-color: #852880;
+}
+
+.bg-gray{
+  background-color: #333333
+}
+
+.thead-gray{
+  background-color: #424242;
+  color: white;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.without-arrows::-webkit-outer-spin-button,
+.without-arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.without-arrows {
+  -moz-appearance: textfield;
+}
+.border-2 {  
+  border-width: 2px !important;
+}

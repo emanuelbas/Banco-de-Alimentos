@@ -67,17 +67,13 @@
 </div>
 
 
-
-<!--- Probando modal -->
-
-<div class="card border-secondary mb-4 container mt-5" id="contenedor">
-
-    <div class="card-body">
-        <div class="container">
-            <section class="alert alert-dismissible alert-dark mt-3">
-                Traslados que aún no tienen un voluntario asignado
-            </section>
-            <table class="table table-hover table-bordered table-center">
+<div class="card border-secondary container" id="contenedor">
+    <section class="card-header text-center bg-gradient-dark rounded-top text-white">
+		<h3>Listado de traslados que aún no tienen un voluntario asignado</h3>
+    </section>
+    <section class="card-body">
+        <div class="container border rounded">
+            <table class="table table-bordered">
                 <thead>
                     <tr class="text-center">
                         <th scope="col">Descripción</th>
@@ -99,23 +95,23 @@
                         <td>{{traslado[6].peso}}</td>
                         <td>{{traslado[6].volumenTotal}}</td>
                         <td>{{traslado[6].fechaVencimientoProductos | date: 'dd/MM/yyyy'}}</td>
-                        <td>
-                            <button (click)="this.buscarVoluntariosParaTraslado(traslado);" class=""
+                        <td class="d-flex justify-content-center border-0">
+                            <button type="button" (click)="this.buscarVoluntariosParaTraslado(traslado);" class="btn btn-primary mx-1 p-1"
                                 title="Buscar voluntarios">🔍</button>
-                            <button data-toggle="modal" data-target="#modalEditarTraslado"
-                                (click)="this.editarTraslado(traslado[6]);" class=""
+                            <button type="button" data-toggle="modal" data-target="#modalEditarTraslado"
+                                (click)="this.editarTraslado(traslado[6]);" class="btn btn-primary mx-1 p-1"
                                 title="Editar descripción">✏️</button>
-                            <button data-toggle="modal" data-target="#modalCancelarTraslado"
-                                (click)="this.cancelarTraslado(traslado[6]);" class=""
+                            <button type="button" data-toggle="modal" data-target="#modalCancelarTraslado"
+                                (click)="this.cancelarTraslado(traslado[6]);" class="btn btn-primary mx-1 p-1"
                                 title="Cancelar traslado">❌</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
             <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
-            <div class="card-header text-center p-3 mt-4 mb-4">
-                <button class="btn btn-orange" (click)='this._location.back()'>Volver</button>
-            </div>
         </div>
-    </div>
+    </section>
+    <section class="card-footer d-flex justify-content-center p-3 mt-4">
+        <button class="btn btn-outline-orange" (click)="this._location.back()">Volver</button>
+    </section>
 </div>

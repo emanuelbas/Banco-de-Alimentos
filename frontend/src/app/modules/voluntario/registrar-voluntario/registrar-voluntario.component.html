@@ -13,10 +13,12 @@
     </div>
 
 </div>
-<div class="card border-secondary mb-4 container mt-5" id="contenedor">
-    <div class="alert alert-dismissible alert-dark mt-3"> Registrar voluntario de traslado </div>
+<div class="card border-secondary container" id="contenedor">
+    <section class="card-header text-center bg-gradient-dark rounded-top text-white">
+		<h3>Registrar voluntario de traslado</h3>
+    </section>
     <div class="card-body">
-        <form (ngSubmit)="onSubmit()" [formGroup]="form" class="container">
+        <form (ngSubmit)="onSubmit()" [formGroup]="form" class="container" id="formVoluntario">
             <div class="form-group">
                 <label for="labelNombre">Nombre</label>
                 <input formControlName="nombre" type="text" class="form-control" id="inputNombre"
@@ -189,10 +191,10 @@
                 <textarea class="form-control" formControlName="observaciones" id="inputObservaciones"
                     rows="3"> </textarea>
             </div>
-            <div class="card-header text-center p-3 mt-4 mb-4">
-                <button class="btn btn-orange" type="submit">Guardar</button>
-                <a routerLink="/home" class="btn btn-orange ml-3" style="background-color: #f94116">Cancelar</a>
-            </div>
         </form>
     </div>
+    <section class="card-footer d-flex justify-content-center p-3 mt-4">
+        <button type="button" routerLink="/home" class="btn btn-outline-orange mr-2">Cancelar</button>
+        <button class="btn btn-orange" type="submit" form="formVoluntario">Guardar</button>
+    </section>
 </div>

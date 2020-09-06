@@ -3,9 +3,11 @@
 
 </div>
 <div class="card border-secondary mb-4 container mt-5" id="contenedor">
-    <div class="alert alert-dismissible alert-dark mt-3 "> Registrar organización donante </div>
+    <section class="card-header text-center bg-gradient-dark rounded-top text-white">
+		<h3>Registrar organización donante</h3>
+    </section>
     <div class="card-body">
-        <form (ngSubmit)="onSubmit()" [formGroup]="form" class="container">
+        <form (ngSubmit)="onSubmit()" [formGroup]="form" class="container" id="formDonante">
             <div class="form-group">
                 <label for="labelRazonSocial">Razón social</label>
                 <input required formControlName="razonSocial" type="text" class="form-control" id="inputRazonSocial"
@@ -106,7 +108,7 @@
                     </div>
                 -->
             </div>
-            <p class="btn btn-orange" (click)="agregarContacto()">Agregar persona</p>
+            <button class="btn btn-orange" (click)="agregarContacto()">Agregar persona</button>
 
             <!-- <div  *ngIf="!colPersonasDeContacto[0]==null"> Con esto se esconde cuando no hay contactos pero da problemas -->
             <section class="alert alert-dismissible alert-dark mt-3">
@@ -135,10 +137,10 @@
             </table>
             <!-- </div> -->
 
-            <div class="card-header text-center p-3 mt-4 mb-4">
-                <button class="btn btn-orange" style="background-color: #f94116" type="submit">Guardar</button>
-                <a routerLink="/home" class="btn btn-orange ml-2" style="background-color: #f94116">Cancelar</a>
-            </div>
-        </form>
+       </form>
     </div>
+    <section class="card-footer d-flex justify-content-center p-3 mt-4">
+        <button routerLink="/home" class="btn btn-outline-orange mr-2">Cancelar</button>
+        <button class="btn btn-orange" type="submit" form="formDonante">Guardar</button>
+    </section>
 </div>

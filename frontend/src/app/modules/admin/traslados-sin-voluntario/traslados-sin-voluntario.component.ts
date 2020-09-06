@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Traslado } from '../../../_services/lbservice/models'
 import { BeneficiarioApi, EnvioParaBeneficiarioApi ,DonacionApi, DonanteApi, DescripcionGeneralApi, TrasladoApi, UbicacionApi } from '../../../_services/lbservice/services'
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 import { VoluntariosService } from 'src/app/_services/voluntarios.service';
 import { Router } from '@angular/router';
 import { ApiRequestsService } from 'src/app/_services/api-requests.service';

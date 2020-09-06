@@ -1,10 +1,10 @@
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Trochut&display=swap" rel="stylesheet">
 <!-- <h2 class="text-center mb-2 text-uppercase" style="font-family: 'Josefin Sans', sans-serif;">Registro del beneficiario</h2> -->
-<div class="container card border-secondary mb-4">
+<div class="container card border-secondary">
+	<section class="card-header text-center bg-gradient-dark rounded-top text-white">
+		<h3>Datos del beneficiario</h3>
+	</section>
 	<form class="ml-3 mr-3" (ngSubmit)="onSubmit()" [formGroup]="registrarBeneficiario">
-		<section class="alert alert-dismissible alert-dark mt-4 ml-3 mr-3">
-			Datos del beneficiario
-		</section>
 		<section class="pl-4 pt-4 mr-4">
 			<div class="form-group">
 				<label for="nombreOrganizacion" id="labelNombreOrganizacion">Nombre de organización:</label>
@@ -40,8 +40,8 @@
 
 			<div class="form-group mt-5">
 				<label id="labelEmail" for="email">Email:</label>
-				<input required [class.is-invalid]="emailIsInvalid" formControlName="email" type="email"
-					class="form-control" id="inputEmail" placeholder="contacto@comedornuevosol.com">
+				<input required [class.is-invalid]="emailIsInvalid" formControlName="email" type="email" class="form-control"
+					id="inputEmail" placeholder="contacto@comedornuevosol.com">
 				<div *ngIf="emailIsInvalid">
 					<small class="text-danger">Debe ingresar un email</small>
 				</div>
@@ -62,8 +62,8 @@
 
 			<div class="form-group">
 				<label id="labelPasswordConfirm" for="passwordConfirm">Confirmar clave:</label>
-				<input required [class.is-invalid]="passwordsNotEquals" formControlName="passwordConfirm"
-					type="password" class="form-control" id="inputPasswordConfirm">
+				<input required [class.is-invalid]="passwordsNotEquals" formControlName="passwordConfirm" type="password"
+					class="form-control" id="inputPasswordConfirm">
 				<div *ngIf="passwordConfirm.invalid && passwordConfirm.touched">
 					<small class="text-danger">Debe ingresar la confirmación de la contraseña</small>
 				</div>
@@ -71,16 +71,13 @@
 					<small class="text-danger">Las contraseñas ingresadas no coinciden</small>
 				</div>
 			</div>
-
-
-			<div class="card-header text-center p-3 mt-4 mb-4">
-				<button [disabled]="!registrarBeneficiario.valid" class="btn btn-orange ml-2"
-					type="submit">Guardar</button>
-				<!-- <div *ngIf="!registrarBeneficiario.valid">
-						<small class="text-danger">Aun no se puede registrar el beneficiario, hay campos invalidos, o requeridos sin completar</small>
-					</div> -->
-				<a routerLink="/panel-de-control" class="ml-2 btn btn-orange">Volver</a>
-			</div>
 		</section>
 	</form>
+	<div class="card-footer d-flex justify-content-center p-3 mt-4">
+		<button class="btn btn-outline-orange" (click)="this._location.back()">Volver</button>
+		<button [disabled]="!registrarBeneficiario.valid" class="btn btn-orange ml-2" type="submit">Guardar</button>
+		<!-- <div *ngIf="!registrarBeneficiario.valid">
+				<small class="text-danger">Aun no se puede registrar el beneficiario, hay campos invalidos, o requeridos sin completar</small>
+			</div> -->
+	</div>
 </div>

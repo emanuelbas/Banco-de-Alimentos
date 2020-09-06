@@ -1,11 +1,10 @@
 <div class="card border-secondary mb-4 container mt-5" id="contenedor">
-
+    <section class="card-header text-center bg-gradient-dark rounded-top text-white">
+		<h3>Mis donaciones</h3>
+    </section>
     <div class="card-body">
-        <div class="container">
-            <section class="alert alert-dismissible alert-dark mt-3">
-                Mis donaciones
-            </section>
-            <table class="table table-hover table-bordered table-center">
+        <div class="container border rounded">
+            <table class="table table-hover table-bordered">
                 <thead>
                     <tr class="text-center">
                         <!--  <th scope="col">id</th> -->
@@ -30,9 +29,10 @@
                 </tbody>
             </table>
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
-            <div class="card-header text-center p-3 mt-4 mb-4">
-                <button class="btn btn-orange mr-4" (click)="this.router.navigate(['/home']);">Volver</button>
-            </div>
+
         </div>
     </div>
+    <section class="card-footer d-flex justify-content-center p-3 mt-4">
+        <button class="btn btn-orange" (click)="this.router.navigate(['/home']);">Volver</button>
+    </section>
 </div>

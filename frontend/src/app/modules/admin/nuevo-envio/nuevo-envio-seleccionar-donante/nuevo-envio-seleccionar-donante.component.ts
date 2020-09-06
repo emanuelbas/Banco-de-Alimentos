@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
-import { Route } from '@angular/compiler/src/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Beneficiario } from '../../../../_services/lbservice/models';  
 import { BeneficiarioApi } from '../../../../_services/lbservice/services';

@@ -1,15 +1,18 @@
-<div class="card border-secondary mb-4 container" id="contenedor">
-	<form (ngSubmit)="onSubmit()" [formGroup]="formEnvio" class="container w-75">
+<div class="card mb-4 container" id="contenedor">
+	<div class="card-header text-center bg-gradient-dark rounded-top text-white">
+		<h2>Datos del envío</h2>
+	</div>
+	<form (ngSubmit)="onSubmit()" [formGroup]="formEnvio" class="card-body" id="formEnvio">
 		<section>
 			<nav>
 				<div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-					<h4 class="font-josefine">
+					<h4>
 						<a class="nav-link pointer active mt-3" id="navEnviarDonacion"
 							onclick="toggleClasses(enviarDonacion,enviarStock,['show','active']); toggleClasses(navEnviarDonacion,navEnviarStock,['active'])">
 							A partir de una donación..
 						</a>
 					</h4>
-					<h4 class="font-josefine">
+					<h4>
 						<a class="nav-link pointer mt-3" id="navEnviarStock"
 							onclick="toggleClasses(enviarStock,enviarDonacion,['show','active']); toggleClasses(navEnviarStock,navEnviarDonacion,['active'])">
 							A partir de stock..
@@ -57,7 +60,7 @@
 		<div class="d-flex align-items-center justify-content-center mt-4">
 			<label class="mr-2 font-weight-bold h5" for="descripcionGeneral">Descripción general del envio:</label>
 			<textarea class="form-control w-50 mb-2" id="descripcionGeneral" formControlName="descripcion" rows="2"
-				placeholder="Envío para beneficiario que incluye dos donaciones"></textarea>
+				placeholder="Información que será útil para el voluntario"></textarea>
 		</div>
 		<mat-divider></mat-divider>
 
@@ -76,7 +79,7 @@
 		<div class="mt-5">
 			<p class="font-weight-bold h4 text-center">Dimensiones y peso del envio:</p>
 			<table class="table mb-2 mt-3">
-				<thead class="thead-dark">
+				<thead class="thead-gray">
 					<tr>
 						<th>Alto</th>
 						<th>Ancho</th>
@@ -106,10 +109,9 @@
 				</tbody>
 			</table>
 		</div>
-
-		<div class="card-header text-center p-3 mt-4 mb-4">
-			<button class="btn btn-orange mr-2" type="submit">Enviar</button>
-			<button class="btn btn-orange" (click)="this.router.navigate(['/panel-de-control']);">Volver</button>
-		</div>
 	</form>
+	<div class="card-footer d-flex justify-content-center mt-4">
+		<button class="btn btn-outline-orange mr-2" (click)="this.router.navigate(['/panel-de-control']);">Volver</button>
+		<button class="btn btn-orange" type="submit" form="formEnvio">Enviar</button>
+	</div>
 </div>

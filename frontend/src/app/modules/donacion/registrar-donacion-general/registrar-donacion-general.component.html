@@ -1,7 +1,9 @@
 <div class="card border-secondary mb-4 container mt-5" id="contenedor">
-    <div class="alert alert-dismissible alert-dark mt-4 ml-4 mr-3 "> Descripción general </div>
+    <section class="card-header text-center bg-gradient-dark rounded-top text-white">
+		<h3>Descripción general</h3>
+    </section>
     <div class="card-body ml-3 mr-4">
-        <form (ngSubmit)="onSubmit()" [formGroup]="formGeneral" class="container">
+        <form (ngSubmit)="onSubmit()" [formGroup]="formGeneral" class="container" id="formDonacionGeneral">
 
             <h5>Volumen de alimentos</h5>
             <div class="form-row mt-4">
@@ -90,10 +92,10 @@
                 <label for="labelNombre" class="font-italic">Si tilda esta opción significa que, como donante, acercaré
                     por mi cuenta la donación al Banco Alimentario.</label>
             </div>
-            <div class="card-header text-center p-3 mt-4 mb-4">
-                <button class="btn btn-orange" type="submit" change="seleccionarArchivo($event)">Guardar</button>
-                <a routerLink="/home" class="ml-2 btn btn-orange">Cancelar</a>
-            </div>
         </form>
     </div>
+    <section class="card-footer d-flex justify-content-center p-3 mt-4">
+        <button class="btn btn-outline-orange mr-2" routerLink="/home">Volver</button>
+        <button class="btn btn-orange" type="submit" change="seleccionarArchivo($event)" form="formDonacionGeneral">Guardar</button>
+    </section>
 </div>

@@ -1,7 +1,9 @@
 <div class="card border-secondary mb-4 container" id="contenedor">
-    <div class="alert alert-dismissible alert-dark ml-4 mr-4 mt-5">Datos del donante </div>
+    <section class="card-header text-center bg-gradient-dark rounded-top text-white">
+		<h3>Datos del donante </h3>
+    </section>
     <div class="card-body ml-3 mr-3">
-        <form (ngSubmit)="onSubmit()" [formGroup]="form" class="container">
+        <form (ngSubmit)="onSubmit()" [formGroup]="form" class="container" id="formDonante">
 
             <div class="form-group">
                 <label for="labelDireccion">CUIL</label>
@@ -30,12 +32,10 @@
                 </div>
             </div>
 
-            <div class="card-header text-center p-3 mt-4 mb-4">
-                <button class="btn mr-2 btn-orange " type="submit">Modificar</button>
-                <a routerLink="/home" class="ml-2 btn btn-orange">Volver</a>
-            </div>
-
-
         </form>
     </div>
+    <section class="card-footer d-flex justify-content-center p-3 mt-4">
+        <button class="btn btn-outline-orange mr-2" routerLink="/home">Volver</button>
+        <button class="btn btn-orange " type="submit" form="formDonante">Modificar</button>
+    </section>
 </div>
